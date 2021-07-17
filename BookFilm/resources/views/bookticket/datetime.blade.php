@@ -11,14 +11,14 @@
                     <p class="order__title">
                         {{ $film->Name }}
                         <br>
-                        <span style="font-size: 17px;">Đạo diễn: </span><span class="order__descript">{{ $film->Director }}</span>
+                        <span style="font-size: 17px;">Directors: </span><span class="order__descript">{{ $film->Director }}</span>
                         <br>
-                        <span style="font-size: 17px;">Diễn viên: </span><span class="order__descript">{{ $film->Actor }}</span>
+                        <span style="font-size: 17px;">Actors: </span><span class="order__descript">{{ $film->Actor }}</span>
                     </p>
                 </div>
             </div>
                 <div class="order-step-area">
-                    <div class="order-step first--step">1. Chọn Ngày &amp; Giờ</div>
+                    <div class="order-step first--step">1. Choose date &amp; Hours</div>
                 </div>
 
         </section>
@@ -27,7 +27,7 @@
         <section class="container">
             <div class="col-sm-12">
 
-                <h2 class="page-heading">Chọn ngày xem:</h2>
+                <h2 class="page-heading">Choose movie date:</h2>
 
                 <div class="choose-container choose-container--short">
                     <div class="datepicker">
@@ -36,9 +36,9 @@
                     </div>
                 </div>
                 <div class="choose-indector choose-indector--time" style="margin-top: 20px;">
-                    <strong>Đã chọn ngày: </strong><span class="choosen-date"></span>
+                    <strong>Choose date: </strong><span class="choosen-date"></span>
                 </div>
-                <h2 class="page-heading">Chọn giờ</h2>
+                <h2 class="page-heading">Choose hours</h2>
 
                 <div class="time-select time-select--wide">
                         <div class="time-select__group">
@@ -61,7 +61,7 @@
                     </div>
 
                 <div class="choose-indector choose-indector--time">
-                    <strong>Đã chọn giờ: </strong><span class="choosen-area"></span>
+                    <strong>Selected hour: </strong><span class="choosen-area"></span>
                 </div>
             </div>
 
@@ -82,8 +82,8 @@
                         <span class="arrow__info"></span>
                     </a>
                     <button type="submit" class="booking-pagination__next">
-                        <span class="arrow__text arrow--next">Tiếp tục</span>
-                        <span class="arrow__info">Đặt chỗ ngồi</span>
+                        <span class="arrow__text arrow--next">Next</span>
+                        <span class="arrow__info">Choose seats</span>
                     </button>
             </div>
 
