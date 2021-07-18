@@ -54,7 +54,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/Admin/Home">Quản trị website</a>
+                <a class="navbar-brand" href="/Admin/Home">Admin website</a>
             </div>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -75,14 +75,14 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="/"><i class="fa fa-user fa-fw"></i>Quay lại website</a>
+                            <a href="/"><i class="fa fa-user fa-fw"></i>Return website</a>
                         </li>
                          <li>
-                            <a href="/Admin/ChangePass"><i class="fa fa-edit fa-fw"></i>Đổi mật khẩu</a>
+                            <a href="/Admin/ChangePass"><i class="fa fa-edit fa-fw"></i>Change PassWord</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="/logout"><i class="fa fa-sign-out fa-fw"></i>Đăng xuất</a>
+                            <a href="/logout"><i class="fa fa-sign-out fa-fw"></i>Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -107,16 +107,16 @@
                             <a href="/Admin/Home"><i class="fa fa-dashboard fa-fw"></i>Thống kê doanh thu</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Quản lý phim<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-table fa-fw"></i>Film Management<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/Admin/Film/MoviePlay">Phim đang chiếu</a>
+                                    <a href="/Admin/Film/MoviePlay">Film Now Showing</a>
                                 </li>
                                 <li>
-                                    <a href="/Admin/Film/ComingMovie">Phim sắp chiêu</a>
+                                    <a href="/Admin/Film/ComingMovie">Film Coming Soon</a>
                                 </li>
                                 <li>
-                                    <a href="/Admin/Film/Add">Thêm mới phim</a>
+                                    <a href="/Admin/Film/Add">Add Film</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
