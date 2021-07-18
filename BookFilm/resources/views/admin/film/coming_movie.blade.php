@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Comming Soon</h1>
+                <h1 class="page-header">Coming Soon</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -30,7 +30,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Comming Soon
+                        Coming Soon
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
