@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Sửa thông tin phim</h1>
+                <h1 class="page-header">Edit Film</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -18,7 +18,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Sửa thông tin phim
+                        Edit Film
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -29,49 +29,49 @@
                                     <input type="hidden" value="{{ $film->ID }}" name="ID">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Tên phim</label>
+                                            <label>Film Name</label>
                                             <input type="text" name="Name" value="{{ $film->Name }}" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Đạo diễn</label>
+                                            <label>Directors</label>
                                             <input type="text" name="Director" value="{{ $film->Director }}" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Diễn viên</label>
+                                            <label>Actor</label>
                                             <input type="text" name="Actor" value="{{ $film->Actor }}"  class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Thời lượng</label>
+                                            <label>Time</label>
                                             <input type="text" value="{{ $film->Time }}"  name="Time" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Ngày phát hành</label>
+                                            <label>Release Date</label>
                                             <input type="date" name="ReleaseDate" id="ReleaseDate" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Quốc gia</label>
+                                            <label>Country</label>
                                             <input type="text"  name="Country" value="{{ $film->Country }}"  class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Độ tuổi phù hợp</label>
+                                            <label>Age Restriction</label>
                                             <input type="number" min="5" value="{{ $film->AgeRestriction }}"  name="AgeRestriction" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Hình ảnh phim</label>
+                                            <label>Image</label>
                                             <label for="file-upload" class="custom-file-upload">
                                                 <i class="fa fa-cloud-upload"></i> {{ $film->Image }}
                                             </label>
@@ -81,20 +81,20 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Link trailer (Link Youtube)</label>
+                                            <label>Trailer</label>
                                             <input type="text"  name="Trailer" value="{{ $film->Trailer }}"  class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Mô tả</label>
+                                            <label>Description</label>
                                             <textarea name="Description" id="Description" class="form-control" rows="3" placeholder="Nhập mô tả sản phẩm, tối thiểu 200 ký tự">{{ $film->Description }}</textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-6"></div>
                                     <div class="col-md-6">
-                                        <button type="reset" class="btn btn-default">Đặt lại</button>
-                                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                        <button type="reset" class="btn btn-default">Reset</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
 
                                 </form>
@@ -154,19 +154,19 @@
                     Country: "required"
                 },
                 messages: {
-                    Name: "Vui lòng nhập tên phim",
-                    Director: "Vui lòng nhập đạo diễn phim",
-                    Actor: "Vui lòng nhập các diễn viên trong phim",
-                    Time: "Vui lòng nhập thời lượng phim",
+                    Name: "Please Enter Film Name",
+                    Director: "Please Enter Film Director",
+                    Actor: "Please Enter Actor",
+                    Time: "Please Enter Time",
                     Descriptions: {
-                        required: "Vui lòng nhập mô tả",
-                        minlength: "Mô tả quá ngắn, tối thiểu 200 ký tự"
+                        required: "Please Enter Description",
+                        minlength: "Description is too short, at least 200 characters"
                     },
-                    Image: "Bạn chưa chọn ảnh phim",
-                    ReleaseDate: "Vui lòng nhập ngày phát hành phim",
-                    AgeRestriction: "Vui lòng nhập độ tuổi phù hợp xem phim",
-                    Trailer: "Vui lòng nhập trailer phim",
-                    Country: "Vui lòng nhập quốc gia của phim"
+                    Image: "You have not selected a movie image",
+                    ReleaseDate: "Please enter movie release date",
+                    AgeRestriction: "Please enter the appropriate age to watch the movie",
+                    Trailer: "Please enter the movie trailer",
+                    Country: "Please enter the country of the movie"
                 }
             });
         });

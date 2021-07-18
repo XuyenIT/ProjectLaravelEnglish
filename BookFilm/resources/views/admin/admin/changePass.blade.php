@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Đổi mật khẩu Administrator</h1>
+                <h1 class="page-header">Administrator </h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -26,7 +26,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Đổi mật khẩu admin
+                        Change Password
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -36,27 +36,27 @@
                                     {{ csrf_field() }}
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Mật khẩu cũ</label>
+                                            <label>Old password</label>
                                             <input type="password" name="OldPass" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Mật khẩu mới</label>
+                                            <label>New password</label>
                                             <input type="password" name="NewPass"  id="NewPass" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Nhập lại mật khẩu</label>
+                                            <label>Enter the password</label>
                                             <input type="password" name="RePass" class="form-control">
                                         </div>
                                     </div>
                                     
                                     <div class="col-md-6"></div>
                                     <div class="col-md-6">
-                                        <button type="reset" class="btn btn-default">Đặt lại</button>
-                                        <button type="submit" class="btn btn-primary">Đổi mật khẩu</button>
+                                        <button type="reset" class="btn btn-default">Reset</button>
+                                        <button type="submit" class="btn btn-primary">Save</button>
                                     </div>
 
                                 </form>
@@ -100,11 +100,11 @@
                     }
                 },
                 messages: {
-                    NewPass: "Vui lòng nhập mật khẩu mới",
-                    OldPass: "Vui lòng nhập mật khẩu cũ",
+                    NewPass: "Please enter new password",
+                    OldPass: "Please enter old password",
                     RePass: {
-                        required: "Vui lòng nhập lại mật khẩu",
-                        equalTo: "Nhập lại mật khẩu không khớp"
+                        required: "Please enter password",
+                        equalTo: "password error"
                     }
                 }
             });

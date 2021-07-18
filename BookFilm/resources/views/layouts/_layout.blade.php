@@ -84,7 +84,7 @@
                         </li>
                         <li>
                             <span class="sub-nav-toggle plus"></span>
-                            <a href="#">Thể loại</a>
+                            <a href="#">Genre</a>
                             <ul>
                                 @foreach($category as $item)
                                     <div style="display: none;">{{ $url = '/the-loai/' . $item->Link . "/" . $item->ID }}</div>
@@ -94,10 +94,10 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="/phim-dang-chieu.html">Phim đang chiếu</a>
+                            <a href="/phim-dang-chieu.html">Now Showing</a>
                         </li>
                         <li>
-                            <a href="/phim-sap-chieu.html">Phim sắp chiếu</a>
+                            <a href="/phim-sap-chieu.html"> Comming Soon</a>
                         </li>
                         <li>
                             <a href="#">Liên hệ</a>

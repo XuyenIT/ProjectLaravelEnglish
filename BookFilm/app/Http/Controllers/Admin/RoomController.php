@@ -53,22 +53,22 @@ class RoomController extends Controller
     	$room = DB::table('room_detail')->where('ID', $ID)->first();
 
     	if($room->Column != $Column){
-    		DB::update('update room_detail set `Column` = ? where Room_ID = ?', 
+    		DB::update('update room_detail set `Column` = ? where Room_ID = ?',
                 [$Column, $room->Room_ID]);
     	}
-    	DB::update('update room_detail set Row = ?, Price = ?  where ID = ?', 
+    	DB::update('update room_detail set Row = ?, Price = ?  where ID = ?',
                 [$Row, $Price / 1000, $ID]);
 
-    	Session::flash('message', 'Cập nhật số ghế thành công.');
+    	Session::flash('message', 'Update quantity of seat suceessfully!');
     	return redirect('/Admin/Room');
     }
 
     public function UpdateTicketPrice(Request $request){
         $TicketPrice = $request->get("TicketPrice");
 
-        DB::update('update room_detail set TicketPrice = ? where Room_ID = ?', 
+        DB::update('update room_detail set TicketPrice = ? where Room_ID = ?',
             [$TicketPrice, 1]);
-        Session::flash('message', 'Cập nhật giá vé thành công.');
+        Session::flash('message', 'Update ticket price successfully!');
         return redirect('/Admin/Room');
     }
 }
