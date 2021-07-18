@@ -46,7 +46,7 @@ class FoodDrinkController extends Controller
     		[$Name, $hinhanh, $Price, $Description]);
 
 
-    	Session::flash('message', 'Thêm bắp và nước thành công.');
+    	Session::flash('message', 'Add corn and water successfully.');
     	return redirect('/Admin/FoodDrink');
     	
     }
@@ -90,7 +90,7 @@ class FoodDrinkController extends Controller
                 [$Name, $Price, $Description, $ID]);
 
 
-    	Session::flash('message', 'Sửa bắp và nước thành công.');
+    	Session::flash('message', 'Repair corn and water successfully.');
     	return redirect('/Admin/FoodDrink');
     }
 

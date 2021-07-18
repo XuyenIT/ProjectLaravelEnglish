@@ -39,9 +39,6 @@
                             <div class="movie__btns">
 
                                 <a href="/book/date-&-time/{{ $film->ID }}" class="btn btn-md btn--warning">Book Ticket</a>
-
-                                <a href="/book/date-&-time/{{ $film->ID }}" class="btn btn-md btn--warning">Books</a>
-
                                 {{-- <a href="#" class="watchlist">Add to watchlist</a> --}}
                             </div>
                             @endif
@@ -152,7 +149,7 @@
                     </div>
 
                     <div class="promo marginb-sm">
-                      <div class="promo__head">A.Movie app</div>
+                      <div class="promo__head">Xstar-Cineplex app</div>
                       <div class="promo__describe">for all smartphones<br> and tablets</div>
                       <div class="promo__content">
                           <ul>

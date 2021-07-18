@@ -106,8 +106,8 @@
 
             $('.btnDelete').off('click').on('click', function () {
                 const notice = PNotify.notice({
-                    title: 'Thông báo',
-                    text: 'Bạn thật sự muốn xóa? Thông tin vé và các thông tin liên quan sẽ bị xóa??',
+                    title: 'Notification',
+                    text: 'To perform the function you have to delete its associated data?',
                     icon: 'fa fa-question-circle',
                     width: '360px',
                     minHeight: '110px',

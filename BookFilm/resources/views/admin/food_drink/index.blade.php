@@ -208,8 +208,8 @@
             $('.btnDelete').off('click').on('click', function () {
 
                 const notice = PNotify.notice({
-                    title: 'Thông báo',
-                    text: 'Bạn thật sự muốn xóa? Tất cả các dữ liệu liên quan sẽ bị mất!!!',
+                    title: 'Notification',
+                    text: 'Do you really want to delete? All related data will be lost!!!',
                     icon: 'fa fa-question-circle',
                     width: '360px',
                     minHeight: '110px',
@@ -239,8 +239,8 @@
                         type: 'GET',
                         success: function () {
                             PNotify.success({
-                                title: 'THÔNG BÁO!!',
-                                text: 'Xóa đồ ăn & nước uống thành công.'
+                                title: 'Notification!!',
+                                text: 'Remove food & drink successfully.'
                             });
                             window.location.href = "/Admin/FoodDrink";
                             
