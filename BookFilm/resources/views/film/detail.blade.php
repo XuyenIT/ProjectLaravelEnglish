@@ -21,23 +21,27 @@
                         <div class="col-sm-6 col-md-8">
                             <p class="movie__time">{{ $film->Time }}</p>
 
-                            <p class="movie__option"><strong>Quốc gia: </strong><a href="#">{{ $film->Country }}</a></p>
-                            <p class="movie__option"><strong>Năm: </strong><a href="#">{{ Carbon\Carbon::parse($film->ReleaseDate)->format('Y') }}</a></p>
-                            <p class="movie__option"><strong>Thể loại: </strong>
+                            <p class="movie__option"><strong>Country: </strong><a href="#">{{ $film->Country }}</a></p>
+                            <p class="movie__option"><strong>Year: </strong><a href="#">{{ Carbon\Carbon::parse($film->ReleaseDate)->format('Y') }}</a></p>
+                            <p class="movie__option"><strong>Genre: </strong>
                                 @foreach($lstCate as $item)
                                     {{ $item->Name }}
                                 @endforeach
                             </p>
-                            <p class="movie__option"><strong>Ngày phát hành: </strong>{{ Carbon\Carbon::parse($film->ReleaseDate)->format('d/m/Y') }}</p>
-                            <p class="movie__option"><strong>Đạo diễn: </strong><a href="#">{{ $film->Director }}</a></p>
-                            <p class="movie__option"><strong>Diễn viên: </strong>{{ $film->Actor }}</p>
-                            <p class="movie__option"><strong>Độ tuổi: </strong>{{ $film->AgeRestriction }}</p>
+                            <p class="movie__option"><strong>Release Date: </strong>{{ Carbon\Carbon::parse($film->ReleaseDate)->format('d/m/Y') }}</p>
+                            <p class="movie__option"><strong>Director: </strong><a href="#">{{ $film->Director }}</a></p>
+                            <p class="movie__option"><strong>Actor: </strong>{{ $film->Actor }}</p>
+                            <p class="movie__option"><strong>Age: </strong>{{ $film->AgeRestriction }}</p>
 
-                            <a href="#" class="comment-link">Đánh giá:  {{ count($lstComment) + count($lstReply) }}</a>
+                            <a href="#" class="comment-link">Rate:  {{ count($lstComment) + count($lstReply) }}</a>
 
                             @if($film->ReleaseDate < Carbon\Carbon::now('Asia/Ho_Chi_Minh'))
                             <div class="movie__btns">
-                                <a href="/book/date-&-time/{{ $film->ID }}" class="btn btn-md btn--warning">Đặt vé</a>
+
+                                <a href="/book/date-&-time/{{ $film->ID }}" class="btn btn-md btn--warning">Book Ticket</a>
+
+                                <a href="/book/date-&-time/{{ $film->ID }}" class="btn btn-md btn--warning">Books</a>
+
                                 {{-- <a href="#" class="watchlist">Add to watchlist</a> --}}
                             </div>
                             @endif
@@ -46,7 +50,7 @@
                     
                     <div class="clearfix"></div>
                     
-                    <h2 class="page-heading">Nội dung phim</h2>
+                    <h2 class="page-heading">Content</h2>
 
                     <p class="movie__describe">{{ $film->Description }}</p>
 
@@ -64,18 +68,18 @@
                         @if(Session::get('user') != null)
                         <form id="comment-form" class="comment-form" method='get'>
                             <div class="col-sm-4">
-                                <label style="margin-top: 3px;">Điểm đánh giá</label>
+                                <label style="margin-top: 3px;">Rate Point</label>
                             </div>
                             <div class="col-sm-12" style="color: gold;">
                                 <input type="hidden" id="point_review" class="rating" data-filled="fa fa-star fa-3x" data-empty="fa fa-star-o fa-3x" data-start="5" data-stop="10" />
                             </div>
                             <div class="col-sm-4">
-                                <label style="margin-top: 3px;">Đánh giá của bạn</label>
+                                <label style="margin-top: 3px;">Your review</label>
                             </div>
-                            <textarea class="comment-form__text" placeholder="Nhập đánh giá của bạn..." id="text_review" style="color: black" required>
+                            <textarea class="comment-form__text" placeholder="Enter your review..." id="text_review" style="color: black" required>
                             </textarea>
                             <button type='button' data-userid="{{ Session::get('user')->ID }}" class="btn btn-md btn--danger comment-form__btn" id="btn-review">
-                                Gửi đánh giá
+                                Send
                             </button>
                         </form>
                         @endif
@@ -160,7 +164,7 @@
                   </div>
 
                     <div class="category category--discuss category--count marginb-sm mobile-category ls-cat">
-                        <h3 class="category__title">Đang công chiếu <br><span class="title-edition">tại rạp</span></h3>
+                        <h3 class="category__title">Now Showing <br><span class="title-edition">At The Cinema</span></h3>
                         <ol>
                             @foreach($MoviePlay as $item)
                                 <div style="display: none;">{{ $url = '/phim/' . $item->Metatitle . "/" . $item->ID }}</div>
@@ -170,7 +174,7 @@
                     </div>
 
                     <div class="category category--cooming category--count marginb-sm mobile-category rs-cat">
-                        <h3 class="category__title">Chuẩn bị chiếu<br><span class="title-edition">movies</span></h3>
+                        <h3 class="category__title">Comming Soon<br><span class="title-edition">X-Star</span></h3>
                         <ol>
                             @foreach($ComingMovie as $item)
                                 <div style="display: none;">{{ $url = '/phim/' . $item->Metatitle . "/" . $item->ID }}</div>
@@ -224,8 +228,8 @@
                     success: function () {
                         window.location.href = "/phim/" + '{{ $film->Metatitle }}' + "/" + film_id;
                         PNotify.success({
-                            title: 'THÔNG BÁO!!',
-                            text: 'Đánh giá phim thành công.'
+                            title: 'NOTIFICATION!!',
+                            text: 'Successful'
                         });
                     }
                 });
@@ -244,10 +248,10 @@
                     "<input type='hidden' name='User_ID' value='"+ userid +"'/>" +
                     "<input type='hidden' name='Comment_ID' value='"+ cmt_id +"'/>" +
                     "<input type='hidden' name='Film_ID' value='"+ filmid +"'/>" +
-                    "<textarea class='comment-form__text' name='Content' style='color: black' placeholder='Nhập trả lời bình luận của bạn' required></textarea>"+
+                    "<textarea class='comment-form__text' name='Content' style='color: black' placeholder='Comment..................' required></textarea>"+
                     "<label class='comment-form__info'>250 characters left</label>"+
                     "<button type='submit' class='btn btn-md btn--danger comment-form__btn'>"+
-                        "Trả lời"+
+                        "Reply"+
                     "</button>"+
                 "</form>";
                 $(this).parent().append(reply);
