@@ -37,7 +37,11 @@
 
                             @if($film->ReleaseDate < Carbon\Carbon::now('Asia/Ho_Chi_Minh'))
                             <div class="movie__btns">
+
+                                <a href="/book/date-&-time/{{ $film->ID }}" class="btn btn-md btn--warning">Book Ticket</a>
+
                                 <a href="/book/date-&-time/{{ $film->ID }}" class="btn btn-md btn--warning">Books</a>
+
                                 {{-- <a href="#" class="watchlist">Add to watchlist</a> --}}
                             </div>
                             @endif
