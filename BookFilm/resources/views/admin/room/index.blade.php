@@ -81,7 +81,7 @@
                                         <tr>
                                             <td class="text-center">{{ $dem }}</td>
                                             <td class="text-center">
-                                                Ghế hạng {{ $item->Level }}
+                                                Class seats {{ $item->Level }}
                                             </td>
                                             <td class="text-center">
                                                 {{ $item->Row }}
