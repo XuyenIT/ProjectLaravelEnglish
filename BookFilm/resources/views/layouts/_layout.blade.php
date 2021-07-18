@@ -62,7 +62,7 @@
             <div class="container">
                 <!-- Logo link-->
                 <a href='/' class="logo">
-                    <img alt='logo' src="{{asset('assets/images/logo.png')}}">
+                    <img  style="height: 50px;margin-top:-13px" alt='logo' src="{{asset('assets/images/logonew.jpg')}}">
                 </a>
                 
                 <!-- Main website navigation-->
@@ -166,7 +166,7 @@
                 </div>
                 <div class="col-xs-12 col-md-6">
                     <div class="footer-info">
-                        <p class="heading-special--small">A.Movie<br><span class="title-edition">in the social media</span></p>
+                        <p class="heading-special--small">Xstar-CinePlex<br><span class="title-edition">in the social media</span></p>
 
                         <div class="social">
                             <a href='#' class="social__variant fa fa-facebook"></a>
@@ -178,7 +178,7 @@
                         </div>
                         
                         <div class="clearfix"></div>
-                        <p class="copy">&copy; A.Movie, 2013. All rights reserved. Done by Olia Gozha</p>
+                        <p class="copy">&copy; Xstar-CinePlex, 2021. All rights reserved. Done by Group 1</p>
                     </div>
                 </div>
             </section>
