@@ -187,7 +187,11 @@ class BookTicketController extends Controller
     	);
     	Session::put('TypeSit', $TypeSit);
 
+ phuc
+    	//Lưu đồ ăn đặt sẵn
+
     	//save exist food
+ master
     	for ($i=0; $i < count($request->BookFood_ID); $i++) {
     		# code...
     		$FoodDrink_ID = $request->BookFood_ID[$i];
@@ -391,13 +395,17 @@ class BookTicketController extends Controller
 
     			$name = "";
                 if($point >= 10 && $point <= 30)
-                	$name .= "Đồng";
+                	$name .= "Bronze";
                 else if($point > 30 && $point <= 60)
-                	$name .= "Bạc";
+                	$name .= "Sliver";
                 else if($point > 60 && $point <= 90)
-                	$name .= "Vàng";
+                	$name .= "Gold";
                 else if($point > 90)
+ phuc
+                	$name .= "Diamond";
+
                 	$name .= "Kim cương";
+ master
                 DB::update('update member set Name = ?, Point = ? where ID = ?',
                 [$name, $point, $member->ID]);
     		}else{

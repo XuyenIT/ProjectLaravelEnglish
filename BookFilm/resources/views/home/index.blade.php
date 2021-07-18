@@ -8,8 +8,13 @@
             <div class="container container--add" style="padding-top: 15px">
                 <form id="search-form" method="post" class="search" action="/phim/tim-kiem">
                     {{ csrf_field() }}
+
+                    <input type="text" class="search__field" placeholder="Search" name="keyword" id="txtKeyword" required>
+                    <button type="submit" class="btn btn-md btn--danger search__button">Search</button>
+
                     <input type="text" class="search__field" placeholder="Search movie" name="keyword" id="txtKeyword" required>
                     <button type="submit" class="btn btn-md btn--danger search__button">Search Movie</button>
+
                 </form>
             </div>
         </div>
@@ -43,21 +48,21 @@
                                             <div style="display: none;">{{ $url = '/the-loai/' . $jtem->Link . "/" . $jtem->ID }}</div>
                                             <a href="{{ $url }}">{{ $jtem->Name }}</a> |
                                         @endif
-                                        
+
                                     @endforeach
-                                        
+
                                     </p>
-                                    
+
                                     <div class="movie__rate">
                                         {{-- <div class="score"></div> --}}
                                         <span class="movie__rating">{{ $item->Vote }}</span>
-                                    </div>               
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
-                        
+
                     </div>
-                    
+
                     <aside class="col-sm-4 col-md-3">
                         <div class="sitebar first-banner--left">
                             <div class="banner-wrap first-banner--left">
@@ -71,7 +76,7 @@
                              <div class="banner-wrap banner-wrap--last">
                                 <img alt='banner' style="width: 249px; height: 249px" src="{{asset('assets/images/cinema/mavel.jpg')}}">
                             </div>
-    
+
                         </div>
                     </aside>
                 </div>
@@ -106,20 +111,20 @@
                                             <div style="display: none;">{{ $url = '/the-loai/' . $jtem->Link . "/" . $jtem->ID }}</div>
                                             <a href="{{ $url }}">{{ $jtem->Name }}</a> |
                                         @endif
-                                        
+
                                     @endforeach
-                                        
+
                                     </p>
-                                    
+
                                     <div class="movie__rate">
                                         {{-- <div class="score"></div> --}}
                                         <span class="movie__rating">{{ $item->Vote }}</span>
-                                    </div>               
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
                         {{ $ComingMovie->links() }}
-                        
+
                     </div>
 
                     <aside class="col-sm-4 col-md-3">
@@ -135,11 +140,11 @@
                              <div class="banner-wrap banner-wrap--last">
                                 <img alt='banner' style="width: 249px; height: 249px" src="{{asset('assets/images/cinema/bg2.jpg')}}">
                             </div>
-    
+
                         </div>
                     </aside>
                 </div>
-            </div>    
+            </div>
         </section>
 
 @endsection

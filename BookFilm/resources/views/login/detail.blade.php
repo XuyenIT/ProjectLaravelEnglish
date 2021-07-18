@@ -7,14 +7,14 @@
         <section class="container">
             <div class="col-sm-8 col-md-9" style="margin-top: 50px;">
                 <div class="movie">
-                    <h2 class="page-heading">Chi tiết vé</h2>
-                    
+                    <h2 class="page-heading">Detail ticket</h2>
+
                     <div class="movie__info">
                         <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <p>Khách hàng: <strong>{{ $ticket->Fullname }}</strong></p>
-                                    <p>Tên phim: <strong>{{ $ticket->Name }}</strong></p>
+                                    <p>Customer: <strong>{{ $ticket->Fullname }}</strong></p>
+                                    <p>Movie: <strong>{{ $ticket->Name }}</strong></p>
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
@@ -22,9 +22,9 @@
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th>Số ghế</th>
-                                                    <th>Bắp & nước</th>
-                                                    <th>Tổng tiền</th>
+                                                    <th>Number Seat</th>
+                                                    <th>Food and Drinks</th>
+                                                    <th>Total</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -32,7 +32,7 @@
                                                     <td>{{ $ticket->Sit }}</td>
                                                     <td>
                                                         @foreach($food_drink as $item)
-                                                        {{ $item->Name }} x {{ $item->Quantity }} , 
+                                                        {{ $item->Name }} x {{ $item->Quantity }} ,
                                                         @endforeach
                                                     </td>
                                                     <td>{{ number_format($ticket->TotalPrice) }} ₫</td>
@@ -47,8 +47,8 @@
                         </div>
                     </div>
                 </div>
-                    
-               
+
+
             </div>
 
             <aside class="col-sm-4 col-md-3">
@@ -96,8 +96,8 @@
                             @endforeach
                         </ol>
                     </div>
-                    
-                   
+
+
 
                 </div>
             </aside>
@@ -119,8 +119,8 @@
                     success: function () {
                             window.location.href = "/lich-su-dat-ve.html";
                             PNotify.success({
-                                title: 'THÔNG BÁO!!',
-                                text: 'Cập nhật trạng thái thành công.'
+                                title: 'Messages!!',
+                                text: 'Update status successfully..'
                             });
                     }
                 });

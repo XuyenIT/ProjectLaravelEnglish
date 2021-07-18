@@ -7,40 +7,42 @@
 <form action="/register"  method="Post" id="login-form"  class="">
     {{ csrf_field() }}
     <div class="login">
-        <p class="login__title">Đăng ký tài khoản<br><span class="login-edition">Chào mừng tới A.Movie</span></p>
+        <p class="login__title">Register your account <br><span class="login-edition">Welcome to X-Star Cineplex</span></p>
         @if(Session::get('error') != null)
         <div class="alert alert-danger text-center">
             {{ Session::get('error') }}
         </div>
         @endif
+
         <div class="field-wrap">
-            <input type="text" placeholder="Nhập họ và tên" name="Fullname" class="login__input">
-            <input type="text" placeholder="Nhập tài khoản" name="Account" class="login__input" >
-            <input type="password" placeholder="Nhập mật khẩu" name="Password" class="login__input">
-            <input type="text" placeholder="Nhập địa chỉ" name="Address" class="login__input" >
-            <input type="text" placeholder="Nhập số điện thoại" name="Phone" class="login__input" >
+            <input type="text" placeholder="Please enter your fullname" name="Fullname" class="login__input">
+            <input type="text" placeholder="Please enter your account" name="Account" class="login__input" >
+            <input type="email" placeholder="Please enter your email" name="Email" class="login__input" >
+            <input type="password" placeholder="Please enter your password" name="Password" class="login__input">
+            <input type="text" placeholder="Please enter your address" name="Address" class="login__input" >
+            <input type="text" placeholder="Please enter your number" name="Phone" class="login__input" >
 
             <div class="col-sm-4">
-                <label style="margin-top: 3px;">Ngày sinh</label>
+                <label style="margin-top: 3px;">Birthday</label>
             </div>
-            <input type="date" placeholder="Nhập ngày tháng năm sinh" name="BirthDay" class="login__input" >
+            <input type="date" placeholder="Please enter your birthdate" name="BirthDay" class="login__input" >
 
             <div class="col-sm-4">
-                <label style="margin-top: 3px;">Giới tính</label>
+                <label style="margin-top: 3px;">Gender</label>
             </div>
             <div class="col-sm-4">
-                <label style="margin-top: 3px;">Nam</label>
+                <label style="margin-top: 3px;">Male</label>
                 <input type="radio" value="Nam" name="Sex" checked>
             </div>
             <div class="col-sm-4">
-                <label style="margin-top: 3px;">Nữ</label>
+                <label style="margin-top: 3px;">Female</label>
                 <input type="radio" value="Nữ" name="Sex">
             </div>
         </div>
 
         <div class="login__control" style="margin-top: 40px">
-            <input type="submit" value="Đăng ký" class="btn btn-md btn--warning btn--wider">
-            <a href="/dang-nhap.html" class="login__tracker form__tracker">Đã có tài khoản?</a>
+            <input type="submit" value="Register" class="btn btn-md btn--warning btn--wider">
+            <a href="/dang-nhap.html" class="login__tracker form__tracker">You already have account?</a>
         </div>
     </div>
 </form>
@@ -59,12 +61,16 @@
             };
         }, "Invalid phone number");
 
-        
+
             //Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
             $("#login-form").validate({
                 rules: {
                     Fullname: "required",
                     Account: "required",
+                    Email: {
+                        required: true,
+                        email:true
+                    },
                     Password: "required",
                     Address: "required",
                     BirthDay: "required",
@@ -74,14 +80,18 @@
                     }
                 },
                 messages: {
-                    Fullname: "Vui lòng nhập họ và tên",
-                    Account: "Vui lòng nhập tài khoản",
-                    Password: "Vui lòng nhập mật khẩu",
-                    Address: "Vui lòng nhập địa chỉ",
-                    BirthDay: "Vui lòng nhập ngày tháng năm sinh",
+                    Fullname: "Please enter your fullname",
+                    Account: "Please enter your account",
+                    Email: {
+                        required: "Please enter your email",
+                        email: "Your email is invalid"
+                    },
+                    Password: "Please enter your password",
+                    Address: "Please enter your address",
+                    BirthDay: "Please enter your birthday",
                     Phone: {
-                        required: "Vui lòng nhập số điện thoại",
-                        phonenu: "Số điện thoại không hợp lệ"
+                        required: "Please enter your phone",
+                        phonenu: "Your phone is invalid"
                     }
                 }
             });

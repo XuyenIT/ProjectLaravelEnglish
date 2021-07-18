@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use Carbon\Carbon;
+use Exception;
 use File;
 
 class UserController extends Controller
@@ -20,6 +21,7 @@ class UserController extends Controller
                         ->orderBy('ID', 'desc')
             			->paginate(10);
         $member = DB::table('member')->get();
+
         return view('admin.user.index')->with([
     										'query'=> $query,
     										'member'=> $member
@@ -40,9 +42,21 @@ class UserController extends Controller
     }
 
      public function DeleteUser($ID){
-        DB::table('users')->where("ID", $ID)->delete();
-        return response()->json([
+         $isExit =  DB::table('book_ticket')->where("User_ID", $ID)->count();
+         if($isExit > 0){
+            return back()->with('error','You cannot delete it.Because The user account is related to the ticket list!!!');
+         }else{
+            DB::table('users')->where("ID", $ID)->delete();
+            return back()->with('success','Record deleted successfully!!');
+         }
+
+       /*  DB::table('users')->where("ID", $ID)->delete();
+        if(!$flag) {
+            return back()->withErrors(['error'=>'You cannot delete it.Because The user account is related to the ticket list!!!']);
+        }
+        return back()->with('success','Record deleted successfully!!'); */
+      /*   return response()->json([
          'success' => 'Record deleted successfully!'
-     ]);
+     ]); */
     }
 }

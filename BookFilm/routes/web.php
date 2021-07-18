@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,11 +29,13 @@ Route::get('/the-loai/{Link}/{ID}', 'HomeController@GetFilmByCate');
 
 Route::get('/dang-nhap.html', 'LoginController@Login');
 Route::get('/dang-ky.html', 'LoginController@Register');
+Route::get('/forgot', 'LoginController@Fotpassword');
 Route::get('/doi-mat-khau.html', 'LoginController@ChangePass');
 Route::get('/cap-nhat-thong-tin.html', 'LoginController@UpdateUser');
 
 Route::post('/login', 'LoginController@FormLogin');
 Route::post('/register', 'LoginController@FormRegister');
+Route::post('/forgot', 'LoginController@Fotpassword');
 Route::post('/changepass', 'LoginController@FormChangePass');
 Route::post('/update', 'LoginController@Update');
 Route::get('/lich-su-dat-ve.html', 'LoginController@HistoryTicket');
@@ -87,31 +91,31 @@ Route::group(['prefix' => '/Admin/Film','namespace' => 'Admin'], function() {
 Route::group(['prefix' => '/Admin/User','namespace' => 'Admin'], function() {
     //
     Route::get('/', 'UserController@Index');
-    
+
     Route::get('/changeStatus/{ID}', 'UserController@ChangeStatus');
     Route::get('/Delete/{ID}', 'UserController@DeleteUser');
-    
+
 });
 
 //Admin- ticket
 Route::group(['prefix' => '/Admin/Ticket','namespace' => 'Admin'], function() {
     //
     Route::get('/', 'TicketController@Index');
-    
+
     Route::get('/changeStatus/{ID}', 'TicketController@ChangeStatus');
     Route::get('/Delete/{ID}', 'TicketController@DeleteTicket');
     Route::get('/Detail/{BookTicket_ID}', 'TicketController@Detail');
-    
+
 });
 
 //Admin- feedback
 Route::group(['prefix' => '/Admin/Feedback','namespace' => 'Admin'], function() {
     //
     Route::get('/', 'FeedbackController@Index');
-    
+
     Route::get('/changeStatus/{ID}', 'FeedbackController@ChangeStatus');
     Route::get('/Detail/{Comment_ID}', 'FeedbackController@Detail');
-    
+
 });
 
 //Admin- food_drink
