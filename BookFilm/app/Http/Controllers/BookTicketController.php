@@ -30,7 +30,7 @@ class BookTicketController extends Controller
 
     	$User_ID = Session::get('user')->ID;
 
-    	//Lưu đặt ngày & giờ
+    	//Save date & time
     	if(Session::get('bookDateTime') == null){
 
     		$book = [
@@ -52,7 +52,7 @@ class BookTicketController extends Controller
     		}
     	}
 
-        //Load số ghế trong rạp
+        //Load total seat in cinema
         $dem = 1;
         $CharRow = array();
         foreach( range('A', 'Z') as $item) {
@@ -62,7 +62,7 @@ class BookTicketController extends Controller
             $dem++;
         }
 
-        //Check chỗ ngồi đã đặt
+        //Check booked seat
         $book_film = DB::table('book_ticket')
                             ->where('Film_ID', $ID)
                             ->where('Status', true)
@@ -82,7 +82,7 @@ class BookTicketController extends Controller
         for ($i=0; $i <= count($sitBooked); $i++) {
             if(count($sitBooked) > $i){
                 $arr_sit[] = trim($sitBooked[$i]);
-            } 
+            }
         }
         array_pop($arr_sit);
         // var_export($arr_sit);
@@ -92,7 +92,7 @@ class BookTicketController extends Controller
             $priceSit[$item->Level] = $item->Price;
         }
 
-        
+
 
     	$film = DB::table('film')->where('ID', $ID)->select('*')->first();
 
@@ -110,17 +110,17 @@ class BookTicketController extends Controller
 
 
     public function BookFoodDrink(Request $request){
-    	$TypeExpansive = $request->get("Type-expansive"); //Số vé hạng 1
-    	$TypeMiddle = $request->get("Type-middle");//Số vé hạng 2
-    	$TypeCheap = $request->get("Type-cheap"); //Số vé hạng 3
+    	$TypeExpansive = $request->get("Type-expansive"); //total ticket row 1
+    	$TypeMiddle = $request->get("Type-middle");//total ticket row 2
+    	$TypeCheap = $request->get("Type-cheap"); //total ticket row 3
 
-    	$CountTicket = $request->get("CountTicket"); //Tổng số vé
-    	$SitCheap = $request->get("Sit-cheap"); //Chố ngồi  hạng 3
-    	$SitMiddle = $request->get("Sit-middle"); //Chỗ ngồi  hạng 2
-    	$SitExpansive = $request->get("Sit-expansive"); //Chỗ ngồi hạng 1
+    	$CountTicket = $request->get("CountTicket"); //total ticket
+    	$SitCheap = $request->get("Sit-cheap"); //seat  on row 3
+    	$SitMiddle = $request->get("Sit-middle"); //seat on row 2
+    	$SitExpansive = $request->get("Sit-expansive"); //seat on row  1
 
-    	$Sits = $request->get("Sits"); //Chỗ ngồi tổng
-    	$TotalMoney = $request->get("TotalMoney"); //Tổng tiền đã tính trên số ghế
+    	$Sits = $request->get("Sits"); //seat total
+    	$TotalMoney = $request->get("TotalMoney"); //Total payment
 
     	$CreatedDate = Carbon::now('Asia/Ho_Chi_Minh');
 
@@ -132,7 +132,7 @@ class BookTicketController extends Controller
         Session::forget('bookFoodDrink');
         Session::forget('TypeSit');
     	// var_dump($Sits);
-    	//Lưu đặt chỗ ngồi
+    	//save booking seat
     	if(Session::get('bookSit') == null){
 
     		$book = [
@@ -160,11 +160,11 @@ class BookTicketController extends Controller
     		}
     	}
 
-    	$TypeSit = array( 
+    	$TypeSit = array(
     		"1" => array
     		(
     			"Sit" => $SitCheap,
-    			"Type" => 3,  
+    			"Type" => 3,
     			"Count" => $TypeCheap,
     			"Price" => 15000
     		),
@@ -172,7 +172,7 @@ class BookTicketController extends Controller
     		"2" => array
     		(
     			"Sit" => $SitMiddle,
-    			"Type" => 2,  
+    			"Type" => 2,
     			"Count" => $TypeMiddle,
     			"Price" => 10000
     		),
@@ -180,21 +180,21 @@ class BookTicketController extends Controller
     		"3" => array
     		(
     			"Sit" => $SitExpansive,
-    			"Type" => 1,  
+    			"Type" => 1,
     			"Count" => $TypeExpansive,
     			"Price" => 5000
     		)
     	);
     	Session::put('TypeSit', $TypeSit);
 
-    	//Lưu đồ ăn đặt sẵn
-    	for ($i=0; $i < count($request->BookFood_ID); $i++) { 
+    	//save exist food
+    	for ($i=0; $i < count($request->BookFood_ID); $i++) {
     		# code...
     		$FoodDrink_ID = $request->BookFood_ID[$i];
     		$Quantity = $request->Quantity[$i];
     		$food_drink = DB::table('food_drink')->where('ID', $FoodDrink_ID)->select('*')->first();
     		// Session::forget('bookFoodDrink');
-    		
+
 
     		if(Session::get('bookFoodDrink') == null){
 
@@ -208,7 +208,7 @@ class BookTicketController extends Controller
     							"Quantity" => $Quantity
     					]
     				];
-    				
+
     				Session::put('bookFoodDrink', $book);
     			}
 
@@ -241,7 +241,7 @@ class BookTicketController extends Controller
             }
 
         }
-    	
+
         $ticket = DB::table('room_detail')
                         ->where('ID', 1)
                         ->first();
@@ -250,7 +250,7 @@ class BookTicketController extends Controller
     	// var_dump(Session::get('bookSit'));
     	// var_dump(Session::get('bookFoodDrink'));
     	// var_dump($request->BookFood_ID);
-        
+
     	$film = DB::table('film')->where('ID', $ID)->select('*')->first();
     	return view('bookticket.checkout')->with([
                                             'film'=> $film,
@@ -264,33 +264,33 @@ class BookTicketController extends Controller
     }
 
     public function Payment(Request $request){
-    	$card = array( 
+    	$card = array(
     		"1" => array
     		(
     			"CardNumber" => 123456789,
-    			"Month" => 6,  
-    			"Year" => 2021,  
+    			"Month" => 6,
+    			"Year" => 2021,
     			"NameCard" => "DO CONG HUNG"
     		),
 
     		"2" => array
     		(
     			"CardNumber" => 123456789,
-    			"Month" => 6,  
-    			"Year" => 2021,  
+    			"Month" => 6,
+    			"Year" => 2021,
     			"NameCard" => "LE TUAN XUYEN"
     		),
 
     		"3" => array
     		(
     			"CardNumber" => 123456789,
-    			"Month" => 6,  
-    			"Year" => 2021,  
+    			"Month" => 6,
+    			"Year" => 2021,
     			"NameCard" => "DUONG QUA"
     		)
     	);
 
-    	$CardNumber = $request->get("CardNumber"); 
+    	$CardNumber = $request->get("CardNumber");
     	$Month = $request->get("Month");
     	$Year = $request->get("Year");
 
@@ -315,17 +315,17 @@ class BookTicketController extends Controller
               $Date = Carbon::createFromFormat('d/m/Y', $datetime[$user_id]['Date'])->format('Y-m-d');
     		  $Time = Carbon::parse($datetime[$user_id]['Time'])->format('h:i');
 
-    		$TotalMoney = $request->get("TotalMoney"); 
-    		DB::insert('insert into book_ticket 
-    		(Date, Time, CreatedDate, Sit, CountTicket, TotalPrice, User_ID, Film_ID, Status) values (?, ?, ?, ?, ?, ?, ?, ?, ?)', 
+    		$TotalMoney = $request->get("TotalMoney");
+    		DB::insert('insert into book_ticket
+    		(Date, Time, CreatedDate, Sit, CountTicket, TotalPrice, User_ID, Film_ID, Status) values (?, ?, ?, ?, ?, ?, ?, ?, ?)',
     		[
-    			$Date, 
-    			$Time, 
-    			$booksit[$user_id]['CreatedDate'], 
-    			$booksit[$user_id]['Sit'], 
-    			$booksit[$user_id]['CountTicket'], 
+    			$Date,
+    			$Time,
+    			$booksit[$user_id]['CreatedDate'],
+    			$booksit[$user_id]['Sit'],
+    			$booksit[$user_id]['CountTicket'],
     			$TotalMoney,
-    			$user_id, 
+    			$user_id,
     			$booksit[$user_id]['Film_ID'],
                 true
     		]);
@@ -335,34 +335,34 @@ class BookTicketController extends Controller
                 foreach ($food_drink as $key=>$value){
                     $TotalPrice = $value['PriceFood'] * $value['Quantity'];
 
-                    DB::insert('insert into book_fd 
-                        (Quantity, TotalPrice, BookTicket_ID, FoodDrink_ID) 
-                        values (?, ?, ?, ?)', 
+                    DB::insert('insert into book_fd
+                        (Quantity, TotalPrice, BookTicket_ID, FoodDrink_ID)
+                        values (?, ?, ?, ?)',
                         [
-                            $value['Quantity'], 
-                            $TotalPrice, 
-                            $book_ticket_id, 
+                            $value['Quantity'],
+                            $TotalPrice,
+                            $book_ticket_id,
                             $value['FoodDrink_ID']
                         ]);
                 }
             }
-    		
+
 
     		foreach ($typesit as $key=>$value){
     			$TotalMoney = $value['Price'] * $value['Count'];
                 if($value['Sit'] != null){
-                    DB::insert('insert into book_sit 
-                    (Sit, Type, Count, Price, TotalMoney, BookTicket_ID) values (?, ?, ?, ?, ?, ?)', 
+                    DB::insert('insert into book_sit
+                    (Sit, Type, Count, Price, TotalMoney, BookTicket_ID) values (?, ?, ?, ?, ?, ?)',
                     [
-                        $value['Sit'], 
-                        $value['Type'], 
-                        $value['Count'], 
-                        $value['Price'], 
-                        $TotalMoney, 
+                        $value['Sit'],
+                        $value['Type'],
+                        $value['Count'],
+                        $value['Price'],
+                        $TotalMoney,
                         $book_ticket_id
                     ]);
                 }
-    			
+
     		}
 
     		$TotalFoodDrink = 0;
@@ -384,11 +384,11 @@ class BookTicketController extends Controller
     		Session::forget('bookFoodDrink');
     		Session::forget('TypeSit');
 
-    		//Cộng điểm thành viên
+    		//Membership Points
     		$member = DB::table('member')->where('User_ID', $user_id)->select('*')->first();
     		if($member != null){
     			$point = $member->Point + 10;
-    			
+
     			$name = "";
                 if($point >= 10 && $point <= 30)
                 	$name .= "Đồng";
@@ -398,14 +398,14 @@ class BookTicketController extends Controller
                 	$name .= "Vàng";
                 else if($point > 90)
                 	$name .= "Kim cương";
-                DB::update('update member set Name = ?, Point = ? where ID = ?', 
+                DB::update('update member set Name = ?, Point = ? where ID = ?',
                 [$name, $point, $member->ID]);
     		}else{
-    			DB::insert('insert into member 
-    				(Point, Name, User_ID) values (?, ?, ?)', 
+    			DB::insert('insert into member
+    				(Point, Name, User_ID) values (?, ?, ?)',
     				[
-    					10, 
-    					'Đồng', 
+    					10,
+    					'Đồng',
     					$user_id
     				]);
     		}
