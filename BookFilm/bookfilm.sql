@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th7 07, 2021 lúc 08:16 AM
--- Phiên bản máy phục vụ: 10.1.32-MariaDB
--- Phiên bản PHP: 7.2.5
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th7 18, 2021 lúc 04:26 PM
+-- Phiên bản máy phục vụ: 10.4.18-MariaDB
+-- Phiên bản PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -43,12 +42,10 @@ CREATE TABLE `book_fd` (
 --
 
 INSERT INTO `book_fd` (`ID`, `Quantity`, `TotalPrice`, `created_at`, `updated_at`, `BookTicket_ID`, `FoodDrink_ID`) VALUES
-(1, 1, '259000.00', NULL, NULL, 1, 1),
-(3, 1, '99000.00', NULL, NULL, 1, 4),
-(8, 1, '259000.00', NULL, NULL, 5, 1),
-(9, 1, '89000.00', NULL, NULL, 5, 3),
-(10, 1, '109000.00', NULL, NULL, 8, 2),
-(11, 1, '109000.00', NULL, NULL, 11, 2);
+(15, 1, '259000.00', NULL, NULL, 16, 1),
+(16, 1, '100000.00', NULL, NULL, 17, 14),
+(17, 1, '100000.00', NULL, NULL, 18, 14),
+(18, 1, '259000.00', NULL, NULL, 19, 1);
 
 -- --------------------------------------------------------
 
@@ -74,21 +71,16 @@ CREATE TABLE `book_sit` (
 --
 
 INSERT INTO `book_sit` (`ID`, `Sit`, `Type`, `Count`, `Price`, `TotalMoney`, `created_at`, `updated_at`, `BookTicket_ID`, `RoomDetail_ID`) VALUES
-(1, 'B8, B9,', 3, 2, '15000', '30000', NULL, NULL, 1, NULL),
-(2, 'G8, G9,', 2, 2, '10000', '20000', NULL, NULL, 1, NULL),
-(3, 'L8, L9,', 1, 2, '5000', '10000', NULL, NULL, 1, NULL),
-(7, 'C9, C10,', 3, 2, '15000', '30000', NULL, NULL, 5, NULL),
-(8, 'G9, G10,', 2, 2, '10000', '20000', NULL, NULL, 5, NULL),
-(9, 'K9, K10,', 1, 2, '5000', '10000', NULL, NULL, 5, NULL),
 (10, 'D9, D10,', 3, 2, '15000', '30000', NULL, NULL, 7, NULL),
-(11, 'F8, F9,', 2, 2, '10000', '20000', NULL, NULL, 8, NULL),
 (12, 'B8, B9,', 3, 2, '15000', '30000', NULL, NULL, 9, NULL),
-(13, 'D5, D6,', 3, 2, '15000', '30000', NULL, NULL, 10, NULL),
-(14, 'H5, H6,', 2, 2, '10000', '20000', NULL, NULL, 10, NULL),
 (15, 'C5,', 3, 1, '15000', '15000', NULL, NULL, 11, NULL),
 (16, 'D5, D6,', 2, 2, '10000', '20000', NULL, NULL, 11, NULL),
 (17, 'I5,', 1, 1, '5000', '5000', NULL, NULL, 11, NULL),
-(18, 'K5,', 1, 1, '5000', '5000', NULL, NULL, 12, NULL);
+(20, 'A1,', 3, 1, '15000', '15000', NULL, NULL, 14, NULL),
+(22, 'A1, A2,', 3, 2, '15000', '30000', NULL, NULL, 16, NULL),
+(23, 'B1, B2,', 3, 2, '15000', '30000', NULL, NULL, 17, NULL),
+(24, 'F1, F2,', 2, 2, '10000', '20000', NULL, NULL, 18, NULL),
+(25, 'A1, A2,', 3, 2, '15000', '30000', NULL, NULL, 19, NULL);
 
 -- --------------------------------------------------------
 
@@ -104,7 +96,7 @@ CREATE TABLE `book_ticket` (
   `Sit` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `CountTicket` int(11) NOT NULL,
   `TotalPrice` decimal(8,2) NOT NULL,
-  `Status` tinyint(1) NOT NULL DEFAULT '1',
+  `Status` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `User_ID` int(11) NOT NULL,
@@ -119,11 +111,18 @@ INSERT INTO `book_ticket` (`ID`, `Date`, `Time`, `CreatedDate`, `Sit`, `CountTic
 (1, '2021-07-01', '13:00:00', '2021-07-01 13:17:33', 'B8, B9, G8, G9, L8, L9,', 6, '658000.00', 0, NULL, NULL, 1, 7),
 (5, '2021-07-31', '01:00:00', '2021-07-01 20:01:03', 'C9, C10, G9, G10, K9, K10,', 6, '648000.00', 1, NULL, NULL, 2, 1),
 (7, '2021-05-07', '01:00:00', '2021-07-05 13:48:58', 'D9, D10,', 2, '90000.00', 0, NULL, NULL, 4, 5),
-(8, '2021-07-15', '01:00:00', '2021-07-05 15:01:36', 'F8, F9,', 2, '209000.00', 1, NULL, NULL, 4, 8),
+(8, '2021-07-15', '01:00:00', '2021-07-05 15:01:36', 'F8, F9,', 2, '209000.00', 0, NULL, NULL, 4, 8),
 (9, '2021-07-05', '09:00:00', '2021-07-05 15:20:17', 'B8, B9,', 2, '90000.00', 0, NULL, NULL, 1, 2),
-(10, '2021-07-27', '11:00:00', '2021-07-06 14:42:22', 'D5, D6, H5, H6,', 4, '190000.00', 1, NULL, NULL, 1, 1),
+(10, '2021-07-27', '11:00:00', '2021-07-06 14:42:22', 'D5, D6, H5, H6,', 4, '190000.00', 0, NULL, NULL, 1, 1),
 (11, '2021-08-06', '01:00:00', '2021-07-07 09:51:46', 'C5, D5, D6, I5,', 4, '309000.00', 1, NULL, NULL, 5, 6),
-(12, '2021-07-08', '11:00:00', '2021-07-07 10:14:59', 'K5,', 1, '55000.00', 1, NULL, NULL, 5, 1);
+(12, '2021-07-08', '11:00:00', '2021-07-07 10:14:59', 'K5,', 1, '55000.00', 0, NULL, NULL, 5, 1),
+(13, '2021-07-12', '09:00:00', '2021-07-11 19:56:49', 'A1, A2,', 2, '199000.00', 0, NULL, NULL, 1, 5),
+(14, '2021-07-12', '09:00:00', '2021-07-11 20:30:50', 'A1,', 1, '174000.00', 0, NULL, NULL, 1, 2),
+(15, '2021-07-13', '09:00:00', '2021-07-12 14:23:23', 'A1, A2,', 2, '239000.00', 0, NULL, NULL, 2, 2),
+(16, '2021-07-19', '11:00:00', '2021-07-18 20:37:33', 'A1, A2,', 2, '379000.00', 1, NULL, NULL, 7, 2),
+(17, '2021-07-19', '11:00:00', '2021-07-18 20:46:08', 'B1, B2,', 2, '220000.00', 1, NULL, NULL, 7, 2),
+(18, '2021-07-19', '01:00:00', '2021-07-18 20:48:47', 'F1, F2,', 2, '230000.00', 1, NULL, NULL, 7, 3),
+(19, '2021-07-19', '09:00:00', '2021-07-18 21:16:06', 'A1, A2,', 2, '389000.00', 1, NULL, NULL, 7, 2);
 
 -- --------------------------------------------------------
 
@@ -146,21 +145,21 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`ID`, `Name`, `Link`, `DisplayOrder`, `Status`, `created_at`, `updated_at`) VALUES
-(1, 'Hài', 'hai', '1', 1, NULL, NULL),
-(2, 'Gia đình', 'gia-dinh', '2', 0, NULL, NULL),
-(3, 'Hành động', 'hanh-dong', '3', 1, NULL, NULL),
-(4, 'Chính kịch', 'chinh-kich', '4', 1, NULL, NULL),
-(5, 'Kinh dị', 'kinh-di', '', 1, NULL, NULL),
-(7, 'Phiêu lưu', 'phieu-luu', '', 1, NULL, NULL),
-(8, 'Cướp ngân hàng', 'cuop-ngan-hang', '', 1, NULL, NULL),
-(9, 'Tình cảm', 'tinh-cam', '', 1, NULL, NULL),
-(10, 'Hài kịch', 'hanh-kich', '', 1, NULL, NULL),
-(11, 'Tâm lý', 'tam-ly', '', 1, NULL, NULL),
-(12, 'Khoa học viễn tưởng', 'khoa-hoc-vien-tuong', '', 1, NULL, NULL),
-(13, 'Hồi hộp', 'hoi-hop', '', 1, NULL, NULL),
-(14, 'Hoạt hình', 'hoat-hinh', '', 1, NULL, NULL),
+(1, 'Comedy', 'hai', '1', 1, NULL, NULL),
+(2, 'Family', 'gia-dinh', '2', 0, NULL, NULL),
+(3, 'Action', 'hanh-dong', '3', 1, NULL, NULL),
+(4, 'Drama', 'chinh-kich', '4', 1, NULL, NULL),
+(5, 'Horror', 'kinh-di', '', 1, NULL, NULL),
+(7, 'Advanture', 'phieu-luu', '', 1, NULL, NULL),
+(8, 'Bank Robbery', 'cuop-ngan-hang', '', 1, NULL, NULL),
+(9, 'Romantic', 'tinh-cam', '', 1, NULL, NULL),
+(10, 'Funny', 'hanh-kich', '', 1, NULL, NULL),
+(11, 'Mentality', 'tam-ly', '', 1, NULL, NULL),
+(12, 'Science Fiction', 'khoa-hoc-vien-tuong', '', 1, NULL, NULL),
+(13, 'Nervous', 'hoi-hop', '', 1, NULL, NULL),
+(14, 'Cartoon', 'hoat-hinh', '', 1, NULL, NULL),
 (15, 'Anime', 'anime', '', 1, NULL, NULL),
-(16, 'Thần thoại', 'than-thoai', '', 1, NULL, NULL);
+(16, 'Legend', 'than-thoai', '', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -224,7 +223,7 @@ CREATE TABLE `comment` (
   `Content` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `Rate` int(11) NOT NULL,
   `CreatedDate` datetime NOT NULL,
-  `Status` tinyint(1) NOT NULL DEFAULT '1',
+  `Status` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `User_ID` int(11) NOT NULL,
@@ -248,7 +247,9 @@ INSERT INTO `comment` (`ID`, `Content`, `Rate`, `CreatedDate`, `Status`, `create
 (10, '                            Bộ phim huyền thoại', 10, '2021-07-05 15:23:06', 1, NULL, NULL, 1, 4),
 (11, '                            Nhìn poster phim hầm hố vãi', 10, '2021-07-07 09:40:05', 1, NULL, NULL, 1, 9),
 (12, '                            Đặt vé thành công', 7, '2021-07-07 09:53:12', 1, NULL, NULL, 5, 6),
-(13, '                            phim hay', 8, '2021-07-07 10:08:09', 1, NULL, NULL, 5, 1);
+(13, '                            phim hay', 8, '2021-07-07 10:08:09', 1, NULL, NULL, 5, 1),
+(14, '                            PHIM HAY VAX', 8, '2021-07-12 14:26:07', 1, NULL, NULL, 2, 2),
+(15, '                            Phim hay', 9, '2021-07-18 20:32:45', 1, NULL, NULL, 7, 2);
 
 -- --------------------------------------------------------
 
@@ -280,8 +281,8 @@ CREATE TABLE `film` (
 --
 
 INSERT INTO `film` (`ID`, `Name`, `Metatitle`, `Image`, `Director`, `Actor`, `Time`, `ReleaseDate`, `Country`, `Vote`, `AgeRestriction`, `Description`, `Trailer`, `Status`, `created_at`, `updated_at`) VALUES
-(1, 'Godzilla Đại Chiến Kong - Godzilla vs. Kong', 'godzilla-dai-chien-kong-godzilla-vs-kong', 'godzilla-vs-kong.jpg', 'Adam Wingard', ' Alexander Skarsgård, Millie Bobby Brown, Rebecca Hall, Brian Tyree Henry,…', '110 phút', '2021-03-26 00:00:00', 'Mỹ', 4.2, 13, 'Hai kẻ thù truyền kiếp Kong và Godzilla sẽ chạm trán trong một trận chiến thế kỉ. Kong và các đồng đội cùng với Jia là một cô gái trẻ mồ côi, sẽ dấn thân vào cuộc thám hiểm đầy hiểm nguy mong tìm ra được ngôi nhà thật sự của mình.\r\n\r\nKhông may thay, họ lại bất ngờ gặp phải Godzilla và ngăn cản việc phá hủy trái đất của nó. Cuộc đụng độ giữa hai kẻ khổng lồ bởi những thế lực vô hình phía sau, chỉ là khởi đầu của bí ẩn nằm sâu phía dưới lòng đất.', 'https://www.youtube.com/embed/yFpuUGFS1Kg', 1, NULL, NULL),
-(2, 'Song Song', 'song-song', 'song-song.jpg', 'Nguyễn Hữu Hoàng', 'Nabi Nhã Phương, Trương Thế Vinh, Tiến Luật, Khương Ngọc, Hoàng Phi,..', 'Chưa xác định', '2021-04-02 00:00:00', 'Việt Nam', 4, 16, 'Với sự pha trộn giữa thể loại giật gân, tâm lý, ly kỳ, Song Song hứa hẹn sẽ mang tới màu sắc rất riêng cho loạt phim kinh dị chiếu rạp trong tháng này. Ngay tựa đề phim, Song Song đã tạo cho khán giả không ít sự tò mò và hứng thú. Song Song được lấy cảm hứng từ hiệu ứng cánh bướm, về một phụ nữ phải tìm cách sửa chữa sai lầm khi vô tình thay đổi quá khứ, khiến cuộc sống của họ bị đảo lộn.\r\nVào một đêm mưa bão, Phong (Thuận Phát) đã vô tình chứng kiến cảnh ông Sơn (Tiến Luật) hàng xóm đang cố gắng di chuyển một xác chết. Vì quá sợ hãi, Phong chạy ra khỏi nhà nhưng đã bị xe tải tông chết ngay tại chỗ trước sự bất lực của ông Sơn. Liệu mọi chuyện sẽ diễn ra như thế nào? Mời bạn theo dõi phim để có câu trả lời.', 'https://www.youtube.com/embed/hhiKQbGxEOw', 1, NULL, NULL),
+(1, 'Godzilla Đại Chiến Kong - Godzilla vs. Kong', 'godzilla-dai-chien-kong-godzilla-vs-kong', 'godzilla-vs-kong.jpg', 'Adam Wingard', ' Alexander Skarsgård, Millie Bobby Brown, Rebecca Hall, Brian Tyree Henry,…', '110 phút', '2021-03-26 00:00:00', 'Mỹ', 4.2, 13, 'Hai kẻ thù truyền kiếp Kong và Godzilla sẽ chạm trán trong một trận chiến thế kỉ. Kong và các đồng đội cùng với Jia là một cô gái trẻ mồ côi, sẽ dấn thân vào cuộc thám hiểm đầy hiểm nguy mong tìm ra được ngôi nhà thật sự của mình.\r\n\r\nKhông may thay, họ lại bất ngờ gặp phải Godzilla và ngăn cản việc phá hủy trái đất của nó. Cuộc đụng độ giữa hai kẻ khổng lồ bởi những thế lực vô hình phía sau, chỉ là khởi đầu của bí ẩn nằm sâu phía dưới lòng đất.', 'https://www.youtube.com/embed/yFpuUGFS1Kg', 0, NULL, NULL),
+(2, 'Song Song', 'song-song', 'song-song.jpg', 'Nguyễn Hữu Hoàng', 'Nabi Nhã Phương, Trương Thế Vinh, Tiến Luật, Khương Ngọc, Hoàng Phi,..', 'Chưa xác định', '2021-04-02 00:00:00', 'Việt Nam', 4.3, 16, 'Với sự pha trộn giữa thể loại giật gân, tâm lý, ly kỳ, Song Song hứa hẹn sẽ mang tới màu sắc rất riêng cho loạt phim kinh dị chiếu rạp trong tháng này. Ngay tựa đề phim, Song Song đã tạo cho khán giả không ít sự tò mò và hứng thú. Song Song được lấy cảm hứng từ hiệu ứng cánh bướm, về một phụ nữ phải tìm cách sửa chữa sai lầm khi vô tình thay đổi quá khứ, khiến cuộc sống của họ bị đảo lộn.\r\nVào một đêm mưa bão, Phong (Thuận Phát) đã vô tình chứng kiến cảnh ông Sơn (Tiến Luật) hàng xóm đang cố gắng di chuyển một xác chết. Vì quá sợ hãi, Phong chạy ra khỏi nhà nhưng đã bị xe tải tông chết ngay tại chỗ trước sự bất lực của ông Sơn. Liệu mọi chuyện sẽ diễn ra như thế nào? Mời bạn theo dõi phim để có câu trả lời.', 'https://www.youtube.com/embed/hhiKQbGxEOw', 1, NULL, NULL),
 (3, 'Ấn Quỷ - The Unholy', 'an-quy-the-unholy', 'an-quy.png', 'Evan Spiliotopoulos', 'Cricket Brown, Jeffrey Dean Morgan, Katie Aselton, William Sadler, Cary Elwes,...', '90 phút', '2021-04-02 00:00:00', 'Anh', 4, 13, 'Kịch bản phim Ấn quỷ được dựa trên cuốn tiểu thuyết Shrine phát hành năm 1983. Nội dung cho thấy phim được ranh giới mỏng manh giữ đức tin và đức tin mù quáng, Ấn quỷ đã gửi được thông điệp đức tin có thể mang lại niềm tin, lý tưởng sống nhưng vẫn phải tỉnh táo để không lạc lối.\r\n\r\nTại một miền quê tại New England, là nơi cô gái khiếm thính Alice sinh ra và lớn lên chính là nơi bộ phim diễn ra.\r\n\r\nBỗng một ngày, một thế lực thần bí đã chữa lành cho Alice, giúp cô có thể nghe, nói như bình thường và có thể chữa lành mọi căn bệnh cho người khác. Dưới sự chứng kiến của hàng trăm ngàn người. Cũng từ đây hàng loạt sự kiện kinh hoàng và quỷ dị xảy ra.', 'https://www.youtube.com/embed/f1Nv2O7VJuo', 1, NULL, NULL),
 (4, 'Harry Potter Và Bảo Bối Tử Thần Phần 2 - Harry Potter And The Deathly Hallows Part 2', 'harry-potter-va-bao-boi-tu-than-phan-2-harry-potter-and-the-deathly', 'harry-potter.jpg', 'David Yates', 'Daniel Radcliffe, Rupert Grint, Emma Watson, Ralph Fiennes,…', '130 phút', '2021-04-02 00:00:00', 'Mỹ', 4.7, 10, 'Không còn sự dẫn dắt của các giáo sư, nhóm bạn Harry (Daniel Radcliffe), Ron (Rupert Grint) và Hermione (Emma Watson) bắt đầu cuộc hành trình phá hủy các Trường Sinh Linh Giá - những vật phẩm giúp Chúa tể Voldemort (Ralph Fiennes) đạt đến sự bất tử.\r\n\r\nVào lúc này, khi cả ba phải đồng lòng với nhau hơn bất cứ khi nào, những thế lực hắc ám lại đang âm mưu chia rẽ nhóm bạn. Lúc đó, những Tử thần Thực tử của Chúa tể Voldemort chiếm được quyền lãnh đạo Bộ Pháp thuật và Hogwarts, cũng như điên cuồng tìm kiếm Harry và những người bạn thân - trước cuộc chiến tối thượng cuối cùng. ', 'https://www.youtube.com/embed/eONDcHfpG0s', 1, NULL, NULL),
 (5, 'Siêu Trộm - Way Down', 'sieu-trom-way-down', 'way-down.jpg', 'Jaume Balagueró', 'Freddie Highmore, Astrid Bergès-Frisbey, Sam Riley, Liam Cunningham,...', '118 phút', '2021-04-02 00:00:00', 'Tây Ban Nha', 4.3, 18, 'Là một bom tấn điện ảnh Tây Ban Nha nói về chủ đề Cướp ngân hàng, Siêu Trộm - Way Down hứa hẹn sẽ đem đến cho khán giả những trải nghiệm cực kỳ mãn nhãn và khó đoán.\r\n\r\nNhà thám hiểm đại dương Walter Moeland vừa thành công trong việc trục vớt một xác tàu đắm thuộc vùng biển Tây Ban Nha, đồng thời tìm được 3 đồng xu vàng được cho là dẫn đến kho báu “bất tận” được chôn giấu của huyền thoại Sir Francis Drake.\r\n\r\nTuy nhiên chính quyền Tây Ban Nha quyết định tịch thu toàn bộ sản vật, kể cả 3 đồng xu, và mọi nỗ lực pháp lý đều không thể giúp Walter đoạt được quyền sở hữu. Kho báu của anh giờ đây được cất giấu tại két sắt thuộc ngân hàng bảo mật nhất thế giới - Bank of Spain.\r\n\r\nKhông từ bỏ hy vọng, Walter thành lập một biệt đội “siêu trộm”, với những bộ óc thiên tài và gan dạ nhất, bắt đầu lên kế hoạch để lấy lại những thứ thuộc về mình.', 'https://www.youtube.com/embed/XfLslifRe0g', 1, NULL, NULL),
@@ -321,10 +322,8 @@ CREATE TABLE `food_drink` (
 
 INSERT INTO `food_drink` (`ID`, `Name`, `Image`, `Price`, `Description`, `created_at`, `updated_at`) VALUES
 (1, 'LINE 3 SINGLE COMBO', 'bap-nuoc.png', '259000', '<p>1 ly Line 3 (kèm nước) + 1 bắp ngọt lớn</p>\r\n<p>* Miễn phí đổi vị bắp Phô mai, Caramel *</p>\r\n<p>**Nhận trong ngày xem phim**</p>', NULL, NULL),
-(2, 'CGV SNACK COMBO', 'bap-nuoc.jpg', '109000', '<p>1 Bắp Lớn + 2 Nước Lớn + 1 Snack. Nhận trong ngày xem phim.</p>\r\n<p>* Miễn phí đổi vị bắp Caramel *</p>\r\n<p>**Đổi vị phô mai phụ thu thêm tiền**</p>', NULL, NULL),
-(3, 'MY SNACK COMBO', 'bap-nuoc-1.png', '89000', '<p>1 Bắp Vừa + 1 Nước Siêu Lớn + 1 Snack. Nhận trong ngày xem phim.</p>\r\n<p>* Miễn phí đổi vị bắp Caramel *</p>\r\n<p>**Đổi vị phô mai phụ thu thêm tiền**</p>', NULL, NULL),
-(4, 'CGV COMBO', 'bap-nuoc.jpg', '99000', '<p>1 bắp lớn + 2 nước lớn. Nhận trong ngày xem phim.</p>\r\n<p>* Miễn phí đổi vị bắp Caramel *</p>\r\n<p>**Đổi vị phô mai phụ thu thêm tiền**</p>', NULL, NULL),
-(6, 'sua', 'bo-gia-abc.jpg', '71900', '<p>ngon</p>', NULL, NULL);
+(14, 'MILO COMBO 2021', 'bap-nuoc.jpg', '100000', '<p>1 bắp lớn + 2 nước lớn. Nhận trong ng&agrave;y xem phim.</p><p>* Miễn ph&iacute; đổi vị bắp Caramel *</p><p>**Đổi vị ph&ocirc; mai phụ thu th&ecirc;m tiền**</p>', NULL, NULL),
+(16, 'MY COMBO', 'bap-nuoc.jpg', '100000', '<p>1 bắp lớn + 2 nước lớn. Nhận trong ng&agrave;y xem phim.</p><p>* Miễn ph&iacute; đổi vị bắp Caramel *</p><p>**Đổi vị ph&ocirc; mai phụ thu th&ecirc;m tiền**</p>', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -346,10 +345,11 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`ID`, `Point`, `Name`, `created_at`, `updated_at`, `User_ID`) VALUES
-(1, 30, 'Đồng', NULL, NULL, 1),
-(2, 10, 'Đồng', NULL, NULL, 2),
+(1, 50, 'Bạc', NULL, NULL, 1),
+(2, 20, 'Đồng', NULL, NULL, 2),
 (3, 20, 'Đồng', NULL, NULL, 4),
-(4, 20, 'Đồng', NULL, NULL, 5);
+(4, 20, 'Đồng', NULL, NULL, 5),
+(5, 40, 'Sliver', NULL, NULL, 7);
 
 -- --------------------------------------------------------
 
@@ -457,6 +457,7 @@ CREATE TABLE `room_detail` (
   `Row` int(11) NOT NULL,
   `Column` int(11) NOT NULL,
   `Price` decimal(8,0) NOT NULL,
+  `TicketPrice` decimal(8,0) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `Room_ID` int(11) DEFAULT NULL
@@ -466,10 +467,10 @@ CREATE TABLE `room_detail` (
 -- Đang đổ dữ liệu cho bảng `room_detail`
 --
 
-INSERT INTO `room_detail` (`ID`, `Level`, `Row`, `Column`, `Price`, `created_at`, `updated_at`, `Room_ID`) VALUES
-(1, 1, 3, 10, '15', NULL, NULL, 1),
-(2, 2, 4, 10, '10', NULL, NULL, 1),
-(3, 3, 3, 10, '5', NULL, NULL, 1);
+INSERT INTO `room_detail` (`ID`, `Level`, `Row`, `Column`, `Price`, `TicketPrice`, `created_at`, `updated_at`, `Room_ID`) VALUES
+(1, 1, 3, 10, '15', '55000', NULL, NULL, 1),
+(2, 2, 4, 10, '10', '55000', NULL, NULL, 1),
+(3, 3, 4, 10, '10', '55000', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -480,6 +481,7 @@ INSERT INTO `room_detail` (`ID`, `Level`, `Row`, `Column`, `Price`, `created_at`
 CREATE TABLE `users` (
   `ID` int(11) NOT NULL,
   `Account` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Fullname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -496,12 +498,13 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`ID`, `Account`, `Password`, `Fullname`, `Address`, `Phone`, `Sex`, `BirthDay`, `Type`, `Status`, `created_at`, `updated_at`) VALUES
-(1, 'hung5001', '12345', 'Hưng Đỗ Công', 'Hà Nội', '0362243247', 'Nam', '1996-02-15 00:00:00', 1, 1, NULL, NULL),
-(2, 'duongqua', '12345', 'Dương Quá', 'Núi Võ Đang', '0849965645', 'Nam', '1990-01-01 00:00:00', 1, 1, NULL, NULL),
-(3, 'admin', '123456', 'Administrator', '', '', '', '0000-00-00 00:00:00', 0, 1, NULL, NULL),
-(4, 'longcoco', '12345', 'Long Cô Cô', 'Hoàng Quốc Việt - Cầu Giấy-Hà Nội', '0849965645', 'Nữ', '1980-01-01 00:00:00', 1, 1, NULL, NULL),
-(5, 'truongtp', '12345', 'Trương Tam Phong', 'Yang hoo', '0978654321', 'Nam', '1988-01-01 00:00:00', 1, 1, NULL, NULL);
+INSERT INTO `users` (`ID`, `Account`, `Email`, `Password`, `Fullname`, `Address`, `Phone`, `Sex`, `BirthDay`, `Type`, `Status`, `created_at`, `updated_at`) VALUES
+(1, 'hung5001', NULL, '12345', 'Hưng Đỗ Công', 'Hà Nội', '0362243247', 'Nam', '1996-02-15 00:00:00', 1, 1, NULL, NULL),
+(2, 'duongqua', NULL, '12345', 'Dương Quá', 'Núi Võ Đang', '0849965645', 'Nam', '1990-01-01 00:00:00', 1, 1, NULL, NULL),
+(3, 'admin', NULL, '123456', 'Administrator', '', '', '', '0000-00-00 00:00:00', 0, 1, NULL, NULL),
+(4, 'longcoco', NULL, '12345', 'Long Cô Cô', 'Hoàng Quốc Việt - Cầu Giấy-Hà Nội', '0849965645', 'Nữ', '1980-01-01 00:00:00', 1, 1, NULL, NULL),
+(5, 'truongtp', NULL, '12345', 'Trương Tam Phong', 'Yang hoo', '0978654321', 'Nam', '1988-01-01 00:00:00', 1, 1, NULL, NULL),
+(7, 'PhucAptech', 'phucpvts2008046@fpt.edu.vn', '123456', 'Phuc', 'Binh Chanh', '0963236247', 'Nam', '2021-07-15 00:00:00', 1, 1, NULL, NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -613,19 +616,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `book_fd`
 --
 ALTER TABLE `book_fd`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `book_sit`
 --
 ALTER TABLE `book_sit`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `book_ticket`
 --
 ALTER TABLE `book_ticket`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
@@ -643,7 +646,7 @@ ALTER TABLE `categoryfilm`
 -- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `film`
@@ -655,13 +658,13 @@ ALTER TABLE `film`
 -- AUTO_INCREMENT cho bảng `food_drink`
 --
 ALTER TABLE `food_drink`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `member`
 --
 ALTER TABLE `member`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -691,7 +694,7 @@ ALTER TABLE `room_detail`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
