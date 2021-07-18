@@ -20,18 +20,18 @@ class AdminController extends Controller
 
     	$admin = Session::get('admin');
         if($admin == null){
-            Session::flash('error', 'Bạn vui lòng đăng nhập để tiếp tục.');
+            Session::flash('error', 'Please login to continue.');
             return redirect('/dang-nhap.html');
         }
 
     	if($admin->Password != $OldPass){
-    		Session::flash('error', 'Mật khẩu cũ không trùng, vui lòng nhập lại.');
+    		Session::flash('error', 'The old password does not match, please re-enter it.');
     		return redirect('/Admin/ChangePass');
     	}else{
     		DB::update('update users set Password = ? where ID = ?', [$NewPass, $admin->ID]);
 
     		Session::forget('admin');
-    		Session::flash('error', 'Đổi mật khẩu thành công, vui lòng đăng nhập lại.');
+    		Session::flash('error', 'Change password successfully, please login again.');
     		return redirect('/dang-nhap.html');
     	}
     	

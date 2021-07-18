@@ -87,10 +87,10 @@ class FilmController extends Controller
     	$DateNow = Carbon::now('Asia/Ho_Chi_Minh');
     	if ($ReleaseDate < $DateNow) {
     		# code...
-    		Session::flash('message', 'Thêm phim mới thành công.');
+    		Session::flash('message', 'Add Successful');
     		return redirect('/Admin/Film/MoviePlay');
     	}else{
-    		Session::flash('message', 'Thêm phim mới thành công.');
+    		Session::flash('message', 'Add Successful');
     		return redirect('/Admin/Film/ComingMovie');
     	}
     	

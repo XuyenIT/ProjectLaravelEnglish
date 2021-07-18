@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Phim đang chiếu</h1>
+                <h1 class="page-header">Now Showing</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -22,7 +22,7 @@
         </div>
         <div class="row">
             <div class="col-md-4" style="margin-bottom: 10px">
-                <a href="/Admin/Film/Add" class="btn btn-lg btn-primary">Thêm mới phim</a>
+                <a href="/Admin/Film/Add" class="btn btn-lg btn-primary">Add Film</a>
             </div>
         </div>
         <!-- /.row -->
@@ -30,7 +30,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Phim đang chiếu
+                        Now Showing
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -39,11 +39,11 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th style="width: 20%">Tên phim</th>
-                                        <th>Hình ảnh</th>
-                                        <th class="text-center" style="width: 30%">Thông tin phim</th>
-                                        <th class="text-center" style="width: 15%;">Thể loại phim</th>
-                                        <th>Trạng thái</th>
+                                        <th style="width: 20%">Film Name</th>
+                                        <th>Image</th>
+                                        <th class="text-center" style="width: 30%">Film Information</th>
+                                        <th class="text-center" style="width: 15%;">Genre</th>
+                                        <th>Status</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -54,11 +54,11 @@
                                             <td>{{ $item->Name }}</td>
                                             <td><img src="{{ asset('assets/images/film/'. $item->Image) }}" alt="" width="110px" /></td>
                                             <td>
-                                                <p>Đạo diễn: <strong>{{ $item->Director }}</strong></p>
-                                                <p>Diễn viên: <strong>{{ $item->Actor }}</strong></p>
-                                                <p>Thời lượng: <strong>{{ $item->Time }}</strong></p>
-                                                <p>Ngày phát hành: <strong>{{ Carbon\Carbon::parse($item->ReleaseDate)->format('d/m/Y') }}</strong></p>
-                                                <p>Quốc gia: <strong>{{ $item->Country }}</strong></p>
+                                                <p>Directors: <strong>{{ $item->Director }}</strong></p>
+                                                <p>Actor: <strong>{{ $item->Actor }}</strong></p>
+                                                <p>Time: <strong>{{ $item->Time }}</strong></p>
+                                                <p>Release Date: <strong>{{ Carbon\Carbon::parse($item->ReleaseDate)->format('d/m/Y') }}</strong></p>
+                                                <p>Country:<strong>{{ $item->Country }}</strong></p>
                                             </td>
                                             <td>
                                                 @foreach($cate as $jtem)
@@ -69,17 +69,17 @@
                                             </td>
                                             @if ($item->Status != true)
                                                  <td>
-                                                    <button class="btn btn-primary btnStatus" data-id="{{ $item->ID }}" title="Unactive phim">Active</button>
+                                                    <button class="btn btn-primary btnStatus" data-id="{{ $item->ID }}" title="Unactive">Active</button>
                                                 </td>
                                             @else
                                                 <td>
-                                                    <button class="btn btn-info btnStatus" data-id="{{ $item->ID }}" title="Active phim">Unactive</button>
+                                                    <button class="btn btn-info btnStatus" data-id="{{ $item->ID }}" title="Active">Unactive</button>
                                                 </td>
                                             @endif
                                             <td>
-                                                <button class="btn btn-info btnUpdate" data-id="{{ $item->ID }}" title="Cập nhật thể loại phim"><i class="fa fa-file-video-o"></i></button>
-                                                <a href="/Admin/Film/Edit/{{ $item->ID }}" class="btn btn-default" title="Sửa phim"><i class="fa fa-edit"></i></a>
-                                                <button class="btn btn-danger btnDelete" data-id="{{ $item->ID }}" title="Xóa phim"><i class="fa fa-remove"></i></button>
+                                                <button class="btn btn-info btnUpdate" data-id="{{ $item->ID }}" title="Update Genre"><i class="fa fa-file-video-o"></i></button>
+                                                <a href="/Admin/Film/Edit/{{ $item->ID }}" class="btn btn-default" title="Edit"><i class="fa fa-edit"></i></a>
+                                                <button class="btn btn-danger btnDelete" data-id="{{ $item->ID }}" title="Delete"><i class="fa fa-remove"></i></button>
                                             </td>
                                         </tr>
                                         <div style="display: none;">{{ $dem++ }}</div>
@@ -87,7 +87,7 @@
 
                                 </tbody>
                             </table>
-                            Trang {{ $query->currentPage() }} / {{ $query->lastPage() }}
+                            Page {{ $query->currentPage() }} / {{ $query->lastPage() }}
                     		{{ $query->links() }}
                         </div>
                         <!-- /.table-responsive -->
@@ -107,7 +107,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cập nhật thể loại phim: <strong id="FilmName"></strong></h5>
+                <h5 class="modal-title" id="exampleModalLabel">Update Genre: <strong id="FilmName"></strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -117,9 +117,9 @@
                     {{ csrf_field() }}
                     <input type="hidden" name="Film_ID" id="Film_ID" >
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Chọn thể loại phim:</label>
+                        <label for="recipient-name" class="col-form-label">Choose a movie genre:</label>
                         <select name="Category_ID" id="Category_ID" class="form-control">
-                            <option value="">---Chọn thể loại phim---</option>
+                            <option value="">---Choose a movie genre---</option>
                             @foreach($category as $item)
                                 <option value="{{ $item->ID }}">{{ $item->Name }}</option>
                             @endforeach
@@ -132,13 +132,13 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Sửa</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                     </div>
                 </form>
                 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -193,8 +193,8 @@
                         success: function () {
                                 window.location.href = "/Admin/Film/MoviePlay";
                                 PNotify.success({
-                                    title: 'THÔNG BÁO!!',
-                                    text: 'Xóa phim thành công.'
+                                    title: 'NOTIFICATION!!',
+                                    text: 'Delete Successful.'
                                 });
                            
                         }
@@ -284,8 +284,8 @@
                     success: function () {
                             window.location.href = "/Admin/Film/MoviePlay";
                             PNotify.success({
-                                title: 'THÔNG BÁO!!',
-                                text: 'Cập nhật trạng thái thành công.'
+                                title: 'NOTIFICATION!!',
+                                text: 'Update Succesful'
                             });
                     }
                 });
