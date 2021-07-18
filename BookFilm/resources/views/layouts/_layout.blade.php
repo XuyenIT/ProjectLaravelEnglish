@@ -3,7 +3,7 @@
 <head>
 	<!-- Basic Page Needs -->
         <meta charset="utf-8">
-        <title>@yield('title') | AMovie</title>
+        <title>@yield('title') | XstarCinePlex</title>
         <meta name="description" content="A Template by Gozha.net">
         <meta name="keywords" content="HTML, CSS, JavaScript">
         <meta name="author" content="Gozha.net">
@@ -102,9 +102,9 @@
                         <li>
                             <a href="#">Liên hệ</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="#">Trợ giúp</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </nav>
                 
