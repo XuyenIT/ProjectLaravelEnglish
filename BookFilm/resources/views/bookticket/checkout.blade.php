@@ -32,7 +32,7 @@
                 <ul class="book-result">
                     {{-- <li class="book-result__item">Số vé: <span class="book-result__count booking-ticket">{{ $booksit[$user_id]['CountTicket'] }}</span></li> --}}
                     <li class="book-result__item col-md-4">Each ticket: <span class="book-result__count booking-price">{{ number_format($ticket->TicketPrice) }} ₫</span></li>
-                    <li class="book-result__item col-md-4">Seats: <span class="book-result__count booking-ticket">{{ $booksit[$user_id]['CountTicket'] }}</span></li>
+                    <li class="book-result__item col-md-4">Number of tickets: <span class="book-result__count booking-ticket">{{ $booksit[$user_id]['CountTicket'] }}</span></li>
                     <li class="book-result__item col-md-4">Total Price: <span class="book-result__count booking-price">{{ number_format($ticket->TicketPrice * $booksit[$user_id]['CountTicket']) }} ₫</span></li>
 
                     

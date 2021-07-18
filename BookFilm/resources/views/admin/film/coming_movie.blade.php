@@ -163,8 +163,8 @@
 
             $('.btnDelete').off('click').on('click', function () {
                 const notice = PNotify.notice({
-                    title: 'Thông báo',
-                    text: 'Bạn thật sự muốn xóa?',
+                    title: 'Notification',
+                    text: 'Can not deleted?',
                     icon: 'fa fa-question-circle',
                     width: '360px',
                     minHeight: '110px',

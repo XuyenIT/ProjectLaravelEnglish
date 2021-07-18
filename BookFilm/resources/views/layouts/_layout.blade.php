@@ -57,10 +57,10 @@
 <body>
     <div class="wrapper">
         <!-- Banner -->
-        <div class="banner-top">
+        {{-- <div class="banner-top">
 
-            {{-- <img alt='top banner' src="http://placehold.it/1600x90"> --}}
-        </div>
+            <img alt='top banner' src="http://placehold.it/1600x90">
+        </div> --}}
 
         <!-- Header section -->
         <header class="header-wrapper header-wrapper--home">
@@ -75,7 +75,7 @@
 
                 </a>
 
-                <!-- Main website navigation-->
+                <!-- Main website navigation-->   
                 <nav id="navigation-box">
                     <!-- Toggle for mobile menu mode -->
                     <a href="#" id="navigation-toggle">
@@ -95,9 +95,9 @@
                         <li>
                             <span class="sub-nav-toggle plus"></span>
 
-                            <a href="#">Category</a>
+                             <a href="#">Category</a>
 
-                            <a href="#">Genre</a>
+                            {{-- <a href="#">Genre</a>  --}}
 
                             <ul>
                                 @foreach($category as $item)
@@ -114,20 +114,10 @@
 
                             <a href="/phim-sap-chieu.html">Comming Soon</a>
 
-                            <a href="/phim-sap-chieu.html"> Comming Soon</a>
-
                         </li>
-                        <li>
-                            <a href="#">About us</a>
-                        </li>
-
                         <li>
                             <a href="#">Contact</a>
                         </li>
-
-                        {{-- <li>
-                            <a href="#">Trợ giúp</a>
-                        </li> --}}
 
                     </ul>
                 </nav>
@@ -191,12 +181,9 @@
                 <div class="col-xs-12 col-md-12">
                     <div class="footer-info">
 
-                        <p class="heading-special--small mr-5">X-Star Cineplex<br><span class="title-edition">in the social media</span></p>
+                        <p class="heading-special--small mr-5">X-Star Cineplex <br><span class="title-edition">&nbsp; in the social media</span></p>
 
-                        <p class="heading-special--small">Xstar-CinePlex<br><span class="title-edition">in the social media</span></p>
-
-
-                        <div class="social">
+                            <div class="social">
                             <a href='#' class="social__variant fa fa-facebook"></a>
                             <a href='#' class="social__variant fa fa-twitter"></a>
                             <a href='#' class="social__variant fa fa-vk"></a>
@@ -209,9 +196,7 @@
 
                         <p class="copy text-center">&copy; X-Star Cinexplex, 2021. All rights reserved. Done by Team 1</p>
 
-                        <p class="copy">&copy; Xstar-CinePlex, 2021. All rights reserved. Done by Group 1</p>
-
-                    </div>
+                                           </div>
                 </div>
             </section>
         </footer>

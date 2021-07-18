@@ -89,15 +89,6 @@
                         <li>
                             <a href="/logout"><i class="fa fa-sign-out fa-fw"></i>Log out</a>
 
-                            <a href="/"><i class="fa fa-user fa-fw"></i>Return website</a>
-                        </li>
-                         <li>
-                            <a href="/Admin/ChangePass"><i class="fa fa-edit fa-fw"></i>Change PassWord</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="/logout"><i class="fa fa-sign-out fa-fw"></i>Log Out</a>
-
                         </li>
                     </ul>
                 </li>
@@ -108,18 +99,18 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
+                            {{-- <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
                                     <button class="btn btn-primary" type="button">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </span>
-                            </div>
+                            </div> --}}
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="/Admin/Home"><i class="fa fa-dashboard fa-fw"></i>Thống kê doanh thu</a>
+                            <a href="/Admin/Home"><i class="fa fa-dashboard fa-fw"></i>Revenue statistics</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-table fa-fw"></i>Film Management<span class="fa arrow"></span></a>
@@ -141,27 +132,27 @@
                             <a href="/Admin/User"><i class="fa fa-user fa-fw"></i>Manager User's account</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-address-book-o fa-fw"></i> Quản lý vé<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-address-book-o fa-fw"></i> Ticket Management<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/Admin/Ticket">Danh sách vé đặt trước</a>
+                                    <a href="/Admin/Ticket">List of pre-booked tickets</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-inbox fa-fw"></i>Quản lý chung<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-inbox fa-fw"></i>General Management<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/Admin/Feedback">Quản lý feedback</a>
+                                    <a href="/Admin/Feedback">Feedback management</a>
                                 </li>
                                 <li>
-                                    <a href="/Admin/FoodDrink">Đồ ăn & nước uống</a>
+                                    <a href="/Admin/FoodDrink">Food & Drinks</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="/Admin/Room"><i class="fa fa-film fa-fw"></i>Quản lý phòng chiếu</a>
+                            <a href="/Admin/Room"><i class="fa fa-film fa-fw"></i>Room management</a>
                         </li>
                     </ul>
                 </div>

@@ -9,8 +9,8 @@
                 <form id="search-form" method="post" class="search" action="/phim/tim-kiem">
                     {{ csrf_field() }}
 
-                    <input type="text" class="search__field" placeholder="Search" name="keyword" id="txtKeyword" required>
-                    <button type="submit" class="btn btn-md btn--danger search__button">Search</button>
+                    {{-- <input type="text" class="search__field" placeholder="Search" name="keyword" id="txtKeyword" required>
+                    <button type="submit" class="btn btn-md btn--danger search__button">Search</button> --}}
 
                     <input type="text" class="search__field" placeholder="Search movie" name="keyword" id="txtKeyword" required>
                     <button type="submit" class="btn btn-md btn--danger search__button">Search Movie</button>
@@ -23,7 +23,7 @@
 
             <div class="clearfix"></div>
 
-            <h2 id='target' class="page-heading heading--outcontainer">Phim đang chiếu tại rạp</h2>
+            <h2 id='target' class="page-heading heading--outcontainer">Now showing</h2>
 
             <div class="col-sm-12">
                 <div class="row">
@@ -86,7 +86,7 @@
             </div>
             <div class="clearfix"></div>
 
-            <h2 id='target' class="page-heading heading--outcontainer">Phim sắp chiếu</h2>
+            <h2 id='target' class="page-heading heading--outcontainer">Comming soon</h2>
 
             <div class="col-sm-12">
                 <div class="row">

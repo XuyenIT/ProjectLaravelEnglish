@@ -59,7 +59,7 @@
 
                 <div class="choose-container">
 
-                    <h2 class="page-heading">Đánh giá ({{ count($lstComment) + count($lstReply) }})</h2>
+                    <h2 class="page-heading">Rating ({{ count($lstComment) + count($lstReply) }})</h2>
 
                     <div class="comment-wrapper">
                         @if(Session::get('user') != null)
