@@ -7,8 +7,8 @@
 <form action="/changepass"  method="Post" id="login-form"  class="">
     {{ csrf_field() }}
     <div class="login">
-        <p class="login__title">Đổi mật khẩu<br><span class="login-edition">Chào mừng tới A.Movie</span></p>
-        
+        <p class="login__title">Change password<br><span class="login-edition">Welcome to X-Star Cineplex</span></p>
+
         @if(Session::get('error') != null)
         <div class="alert alert-danger text-center">
             {{ Session::get('error') }}
@@ -16,14 +16,14 @@
         @endif
 
         <div class="field-wrap">
-            <input type="password" placeholder="Nhập mật khẩu cũ" name="OldPass" class="login__input">
-            <input type="password" placeholder="Nhập mật khẩu mới" name="NewPass" id="NewPass" class="login__input" >
-            <input type="password" placeholder="Nhập lại mật khẩu" name="RePass" class="login__input">
+            <input type="password" placeholder="Please enter your old passowrd" name="OldPass" class="login__input">
+            <input type="password" placeholder="Please enter your new password" name="NewPass" id="NewPass" class="login__input" >
+            <input type="password" placeholder="Re-enter new password" name="RePass" class="login__input">
         </div>
 
         <div class="login__control" style="margin-top: 40px">
-            <input type="submit" value="Đổi mật khẩu" class="btn btn-md btn--warning btn--wider">
-            <a href="/dang-nhap.html" class="login__tracker form__tracker">Đăng nhập</a>
+            <input type="submit" value="Change password" class="btn btn-md btn--warning btn--wider">
+            <a href="/dang-nhap.html" class="login__tracker form__tracker">Login</a>
         </div>
     </div>
 </form>
@@ -45,11 +45,11 @@
                     }
                 },
                 messages: {
-                    NewPass: "Vui lòng nhập mật khẩu mới",
-                    OldPass: "Vui lòng nhập mật khẩu cũ",
+                    NewPass: "Please enter your New Password",
+                    OldPass: "Please enter your Old Password",
                     RePass: {
-                        required: "Vui lòng nhập lại mật khẩu",
-                        equalTo: "Nhập lại mật khẩu không khớp"
+                        required: "Re-enter your New Password",
+                        equalTo: "Your New Password did not match"
                     }
                 }
             });

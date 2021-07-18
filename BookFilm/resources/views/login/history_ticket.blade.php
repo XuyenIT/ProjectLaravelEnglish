@@ -7,18 +7,18 @@
         <section class="container">
             <div class="col-sm-8 col-md-9" style="margin-top: 50px;">
                 <div class="movie">
-                    <h2 class="page-heading">Lịch sử đặt vé và điểm thưởng</h2>
-                    
+                    <h2 class="page-heading">My deal and points</h2>
+
                     <div class="movie__info">
                         <div class="col-md-12">
                            <div class="panel panel-default">
                             <div class="panel-heading" style="padding-bottom: 35px">
-                                <div class="col-sm-4"><strong>Điểm thưởng tích lũy</strong></div>
-                                <div class="col-md-2">Điểm: <strong style="color: red">{{ $member !== null ? $member->Point : '0'  }}</strong></div>
-                                <div class="col-md-4">Thành viên: <strong>{{ $member !== null ? $member->Name : 'chưa xác định'  }}</strong></div>
+                                <div class="col-sm-4"><strong>Points Reward</strong></div>
+                                <div class="col-md-2">Points: <strong style="color: red">{{ $member !== null ? $member->Point : '0'  }}</strong></div>
+                                <div class="col-md-4">Membership: <strong>{{ $member !== null ? $member->Name : 'Undefined'  }}</strong></div>
                             </div>
                             <div class="panel-heading" style="padding-bottom: 35px">
-                                <div class="col-sm-4"><strong>Danh sách vé</strong></div>
+                                <div class="col-sm-4"><strong>Tickets List</strong></div>
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
@@ -27,11 +27,11 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th style="width: 30%">Vé xem phim</th>
-                                                <th>Số vé</th>
-                                                <th>Thời gian xem</th>
-                                                <th>Ngày đặt</th>
-                                                <th>Trạng thái</th>
+                                                <th style="width: 30%">Moive Ticket</th>
+                                                <th>Number ticket</th>
+                                                <th>Duration Time</th>
+                                                <th>Date Booking</th>
+                                                <th>Condition</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -47,15 +47,15 @@
 
                                                     @if ($item->Status == true)
                                                     <td>
-                                                        <span class="label label-info">Đã thanh toán</span>
+                                                        <span class="label label-info">Purchased</span>
                                                     </td>
                                                     @else
                                                     <td>
-                                                        <span class="label label-default">Đã hủy/hết hạn</span>
+                                                        <span class="label label-default">Cancelled/Expired</span>
                                                     </td>
                                                     @endif
 
-                                                    <td>
+                                                    <td width="15%">
                                                         <a href="/chi-tiet-ve/{{ $item->ID }}" class="btn btn-default" title="Chi tiết vé"><i class="fa fa-edit"></i></a>
                                                         @if($item->ReleaseDate <= Carbon\Carbon::now('Asia/Ho_Chi_Minh') && $item->Status == true)
                                                         <button class="btn btn-danger btnCancer" data-id="{{ $item->ID }}" title="Hủy vé"><i class="fa fa-times"></i></button>
@@ -63,17 +63,17 @@
                                                     </td>
                                                 </tr>
                                                 <div style="display: none;">{{ $dem++ }}</div>
-                                                @endforeach  
+                                                @endforeach
                                             @else
                                                 <tr>
-                                                    <td class="text-center" colspan="7">Bạn hãy đặt vé tại trang để tích lũy điểm thưởng với nhiều ưu đãi nha!!!</td>
+                                                    <td class="text-center" colspan="7"> Let book ticket on the X-Star Cinexplex to earn more points!!!</td>
                                                 </tr>
                                             @endif
-                                              
+
 
                                         </tbody>
                                     </table>
-                                    Trang {{ $query->currentPage() }} / {{ $query->lastPage() }}
+                                    Pages {{ $query->currentPage() }} / {{ $query->lastPage() }}
                                     {{ $query->links() }}
                                 </div>
                                 <!-- /.table-responsive -->
@@ -82,11 +82,11 @@
                         </div>
                     </div>
                 </div>
-                    
-                    
+
+
 
                 </div>
-               
+
             </div>
 
             <aside class="col-sm-4 col-md-3">
@@ -134,8 +134,8 @@
                             @endforeach
                         </ol>
                     </div>
-                    
-                   
+
+
 
                 </div>
             </aside>
@@ -157,8 +157,8 @@
                     success: function () {
                             window.location.href = "/lich-su-dat-ve.html";
                             PNotify.success({
-                                title: 'THÔNG BÁO!!',
-                                text: 'Cập nhật trạng thái thành công.'
+                                title: 'Messages!!',
+                                text: 'Update status successfully.'
                             });
                     }
                 });

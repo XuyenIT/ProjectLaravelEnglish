@@ -9,7 +9,7 @@
                 <form id="search-form" method="post" class="search" action="/phim/tim-kiem">
                     {{ csrf_field() }}
                     <input type="text" class="search__field" placeholder="Search" name="keyword" id="txtKeyword" required>
-                    <button type="submit" class="btn btn-md btn--danger search__button">Tìm kiếm phim</button>
+                    <button type="submit" class="btn btn-md btn--danger search__button">Search</button>
                 </form>
             </div>
         </div>
@@ -42,21 +42,21 @@
                                         @if($item->ID == $jtem->Film_ID)
                                             <a href="#">{{ $jtem->Name }}</a> |
                                         @endif
-                                        
+
                                     @endforeach
-                                        
+
                                     </p>
-                                    
+
                                     <div class="movie__rate">
                                         {{-- <div class="score"></div> --}}
                                         <span class="movie__rating">{{ $item->Vote }}</span>
-                                    </div>               
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
-                        
+
                     </div>
-                    
+
                     <aside class="col-sm-4 col-md-3">
                         <div class="sitebar first-banner--left">
                             <div class="banner-wrap first-banner--left">
@@ -70,7 +70,7 @@
                              <div class="banner-wrap banner-wrap--last">
                                 <img alt='banner' style="width: 249px; height: 249px" src="{{asset('assets/images/cinema/mavel.jpg')}}">
                             </div>
-    
+
                         </div>
                     </aside>
                 </div>

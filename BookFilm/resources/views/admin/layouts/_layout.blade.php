@@ -54,7 +54,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/Admin/Home">Quản trị website</a>
+                <a class="navbar-brand" href="/Admin/Home">Website administration</a>
             </div>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -65,7 +65,7 @@
             </button>
 
             <ul class="nav navbar-nav navbar-left navbar-top-links">
-                <li><a href="/Admin/Home"><i class="fa fa-home fa-fw"></i> A.Movie</a></li>
+                <li><a href="/Admin/Home"><i class="fa fa-home fa-fw"></i>X-Star Cineplex</a></li>
             </ul>
 
             <ul class="nav navbar-right navbar-top-links">
@@ -75,14 +75,14 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="/"><i class="fa fa-user fa-fw"></i>Quay lại website</a>
+                            <a href="/"><i class="fa fa-user fa-fw"></i>Back to X-Star Cineplex</a>
                         </li>
                          <li>
-                            <a href="/Admin/ChangePass"><i class="fa fa-edit fa-fw"></i>Đổi mật khẩu</a>
+                            <a href="/Admin/ChangePass"><i class="fa fa-edit fa-fw"></i>Change password</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="/logout"><i class="fa fa-sign-out fa-fw"></i>Đăng xuất</a>
+                            <a href="/logout"><i class="fa fa-sign-out fa-fw"></i>Log out</a>
                         </li>
                     </ul>
                 </li>
@@ -123,7 +123,7 @@
                         </li>
 
                         <li>
-                            <a href="/Admin/User"><i class="fa fa-user fa-fw"></i>Quản lý tài khoản</a>
+                            <a href="/Admin/User"><i class="fa fa-user fa-fw"></i>Manager User's account</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-address-book-o fa-fw"></i> Quản lý vé<span class="fa arrow"></span></a>
@@ -173,6 +173,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{asset('Admin/js/startmin.js')}}"></script>
+    <!--Swipe js-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @yield('jsAdmin')
 </body>
 </html>
