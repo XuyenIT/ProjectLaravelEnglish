@@ -1,6 +1,6 @@
 @extends('admin.layouts._layout')
 
-@section('title', 'Quản lý phòng chiếu')
+@section('title', 'Cinema Room Management')
 
 
 @section('content')
@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Quản lý phòng chiếu</h1>
+                <h1 class="page-header">Cinema Room Management</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -25,7 +25,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Cập nhật giá vé</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Update ticket price</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -34,16 +34,16 @@
                         <form action="/Admin/Room/Update" enctype = "multipart/form-data" method="Post">
                             {{ csrf_field() }}
                             <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Giá:</label>
+                                <label for="recipient-name" class="col-form-label">Price:</label>
                                 <input type="number" min="40000" name="TicketPrice" id="TicketPrice" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-lg">Cập nhật</button>
+                                <button type="submit" class="btn btn-primary btn-lg">Update</button>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -53,13 +53,13 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Giá vé xem phim: <strong> {{ number_format($ticket->TicketPrice) }}</strong> ₫/vé
+                        Ticket price: <strong> {{ number_format($ticket->TicketPrice) }}</strong> ₫/ticket
                         <a href="#" class="btnTicketPrice">
-                            Cập nhật
+                            Update
                         </a>
                     </div>
                     <div class="panel-heading">
-                        Các loại ghế trong phòng chiếu phim
+                        Types of seat in the cinema room
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -68,10 +68,10 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th class="text-center">Loại ghế</th>
-                                        <th class="text-center">Số hàng ngang</th>
-                                        <th class="text-center">Số hàng dọc</th>
-                                        <th class="text-center">Giá (₫)</th>
+                                        <th class="text-center">Type seat</th>
+                                        <th class="text-center">horizontal rows</th>
+                                        <th class="text-center">vertical rows</th>
+                                        <th class="text-center">Price(₫)</th>
                                         <th class="text-center">
                                         </th>
                                     </tr>
@@ -81,7 +81,7 @@
                                         <tr>
                                             <td class="text-center">{{ $dem }}</td>
                                             <td class="text-center">
-                                                Ghế hạng {{ $item->Level }}
+                                                Class seats {{ $item->Level }}
                                             </td>
                                             <td class="text-center">
                                                 {{ $item->Row }}
@@ -99,10 +99,10 @@
                                             </td>
                                         </tr>
                                         <div style="display: none;">{{ $dem++ }}</div>
-                                    @endforeach  
+                                    @endforeach
                                 </tbody>
                             </table>
-                            Trang {{ $query->currentPage() }} / {{ $query->lastPage() }}
+                            Page {{ $query->currentPage() }} / {{ $query->lastPage() }}
                             {{ $query->links() }}
                         </div>
                         <!-- /.table-responsive -->
@@ -123,7 +123,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cập nhật số ghế hạng <span id="Level"></span></h5>
+                <h5 class="modal-title" id="exampleModalLabel">Updating the number of class seats<span id="Level"></span></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -133,24 +133,24 @@
                     {{ csrf_field() }}
                     <input type="hidden" name="ID" id="ID" />
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Số hàng ngang:</label>
+                        <label for="recipient-name" class="col-form-label">Number of horizontal rows:</label>
                         <input type="number" min="2" name="Row" id="Row" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Số hàng dọc:</label>
+                        <label for="recipient-name" class="col-form-label">Number of vertical rows:</label>
                         <input type="number" min="5" name="Column" id="Column" class="form-control" required>
-                        <p class="help-block">Số hàng ghế dọc (>5) sẽ dùng chung cho mọi hạng ghế.</p>
+                        <p class="help-block">The number of vertical rows (>5) will be shared for all seats.</p>
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Giá:</label>
+                        <label for="recipient-name" class="col-form-label">Price:</label>
                         <input type="number" min="5000" name="Price" id="Price" class="form-control" required>
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>
-                
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
@@ -184,7 +184,7 @@
                         dataType: 'json',
                         contentType: "application/json; charset=utf-8",
                         success: function (res) {
-                          
+
                             $('#Level').text(res.room.Level);
                             $('#Row').val(res.room.Row);
                             $('#Column').val(res.room.Column);
