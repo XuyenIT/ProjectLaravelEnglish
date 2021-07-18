@@ -1,6 +1,6 @@
 @extends('layouts._layout')
 
-@section('title', 'Trang chủ')
+@section('title', 'Home')
 
 @section('content')
 
@@ -8,8 +8,13 @@
             <div class="container container--add" style="padding-top: 15px">
                 <form id="search-form" method="post" class="search" action="/phim/tim-kiem">
                     {{ csrf_field() }}
+
                     <input type="text" class="search__field" placeholder="Search" name="keyword" id="txtKeyword" required>
                     <button type="submit" class="btn btn-md btn--danger search__button">Search</button>
+
+                    <input type="text" class="search__field" placeholder="Search movie" name="keyword" id="txtKeyword" required>
+                    <button type="submit" class="btn btn-md btn--danger search__button">Search Movie</button>
+
                 </form>
             </div>
         </div>

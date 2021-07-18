@@ -77,7 +77,7 @@
                     <a href="#">
                         <div class="panel-footer">
                             <span class="pull-left"></span>
-                            <span class="pull-right text-panel">Vé đặt trước!</span>
+                            <span class="pull-right text-panel">Pre-order tickets!</span>
 
                             <div class="clearfix"></div>
                         </div>

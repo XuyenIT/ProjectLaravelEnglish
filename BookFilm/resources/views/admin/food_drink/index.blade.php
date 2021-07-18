@@ -1,6 +1,6 @@
 @extends('admin.layouts._layout')
 
-@section('title', 'Đồ ăn & nước uống')
+@section('title', 'Snacks & Beverages')
 
 
 @section('content')
@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Đồ ăn & nước uống</h1>
+                <h1 class="page-header">Snacks & Beverages</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -22,7 +22,7 @@
         </div>
          <div class="row">
             <div class="col-md-4" style="margin-bottom: 10px">
-                <button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#addProvider">Thêm mới </button>
+                <button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#addProvider">Add New </button>
             </div>
         </div>
         <!-- Modal -->
@@ -30,7 +30,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Thêm mới Đồ ăn & nước uống</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add new Snacks & Beverages</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -39,15 +39,15 @@
                         <form action="/Admin/FoodDrink/AddFoodDrink" enctype = "multipart/form-data" method="Post">
                             {{ csrf_field() }}
                             <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Tên combo đồ ăn & nước uống:</label>
+                                <label for="recipient-name" class="col-form-label">Name of food & drink combo:</label>
                                 <input type="text" name="Name" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Giá:</label>
+                                <label for="recipient-name" class="col-form-label">Price:</label>
                                 <input type="number" min="45000" name="Price" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Hình ảnh:</label>
+                                <label for="recipient-name" class="col-form-label">Image:</label>
                                 <input type="file" name="Image" required>
                             </div>
                             <div class="form-group">
@@ -57,12 +57,12 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-lg">Thêm mới</button>
+                                <button type="submit" class="btn btn-primary btn-lg">Add new</button>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Danh sách đồ ăn & nước uống
+                        Food & Drink List
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -81,10 +81,10 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th class="text-center" width="20%">Tên combo</th>
-                                        <th class="text-center">Hình ảnh</th>
-                                        <th class="text-center">Giá</th>
-                                        <th class="text-center" width="40%">Mô tả</th>
+                                        <th class="text-center" width="20%">Name Combo</th>
+                                        <th class="text-center">Image</th>
+                                        <th class="text-center">Price</th>
+                                        <th class="text-center" width="40%">Description</th>
                                         <th class="text-center">
                                         </th>
                                     </tr>
@@ -108,8 +108,8 @@
                                                 </div>
                                             </td>
                                             <td class="text-center">
-                                                <button class="btn btn-default btnEdit" data-id="{{ $item->ID }}" title="Sửa đồ ăn & nước uống"><i class="fa fa-edit"></i></button>
-                                                <button class="btn btn-danger btnDelete" data-id="{{ $item->ID }}" title="Sửa đồ ăn & nước uống"><i class="fa fa-remove"></i></button>
+                                                <button class="btn btn-default btnEdit" data-id="{{ $item->ID }}" title="Fix food & drink"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-danger btnDelete" data-id="{{ $item->ID }}" title="Fix food & drink"><i class="fa fa-remove"></i></button>
                                             </td>
                                         </tr>
                                         <div style="display: none;">{{ $dem++ }}</div>
@@ -137,7 +137,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cập nhật Đồ ăn & nước uống</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Update Food & Drink</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -147,15 +147,15 @@
                     {{ csrf_field() }}
                     <input type="hidden" name="ID" id="ID" />
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Tên combo đồ ăn & nước uống:</label>
+                        <label for="recipient-name" class="col-form-label">Name of food & drink combo:</label>
                         <input type="text" name="Name" id="Name" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Giá:</label>
+                        <label for="recipient-name" class="col-form-label">Price:</label>
                         <input type="number" min="45000" name="Price" id="Price" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Hình ảnh:</label>
+                        <label for="recipient-name" class="col-form-label">Image:</label>
                         <label for="file-upload" class="custom-file-upload">
                             <i class="fa fa-cloud-upload"></i>
                         </label>
@@ -163,19 +163,19 @@
 
                     </div>
                     <div class="form-group">
-                        <label>Mô tả</label>
-                        <textarea name="Description" id="Edit_Description" class="form-control" rows="3" placeholder="Nhập mô tả nhà cung cấp" required>
+                        <label>Description</label>
+                        <textarea name="Description" id="Edit_Description" class="form-control" rows="3" placeholder="Enter supplier description" required>
                         </textarea>
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>
                 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -208,8 +208,8 @@
             $('.btnDelete').off('click').on('click', function () {
 
                 const notice = PNotify.notice({
-                    title: 'Thông báo',
-                    text: 'Bạn thật sự muốn xóa? Tất cả các dữ liệu liên quan sẽ bị mất!!!',
+                    title: 'Notification',
+                    text: 'Do you really want to delete? All related data will be lost!!!',
                     icon: 'fa fa-question-circle',
                     width: '360px',
                     minHeight: '110px',
@@ -239,8 +239,8 @@
                         type: 'GET',
                         success: function () {
                             PNotify.success({
-                                title: 'THÔNG BÁO!!',
-                                text: 'Xóa đồ ăn & nước uống thành công.'
+                                title: 'Notification!!',
+                                text: 'Remove food & drink successfully.'
                             });
                             window.location.href = "/Admin/FoodDrink";
                             

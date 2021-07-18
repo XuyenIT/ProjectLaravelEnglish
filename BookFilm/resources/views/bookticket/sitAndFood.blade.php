@@ -12,23 +12,23 @@
                     <p class="order__title">
                         {{ $film->Name }}
                         <br>
-                        <span style="font-size: 17px;">Đạo diễn: </span><span
+                        <span style="font-size: 17px;">Directors: </span><span
                             class="order__descript">{{ $film->Director }}</span>
                         <br>
-                        <span style="font-size: 17px;">Diễn viên: </span><span
+                        <span style="font-size: 17px;">Actors: </span><span
                             class="order__descript">{{ $film->Actor }}</span>
                     </p>
                 </div>
             </div>
             <div class="order-step-area">
-                <div class="order-step first--step order-step--disable ">1. Chọn Ngày &amp; Giờ</div>
-                <div class="order-step second--step">2. Chọn vị trí ngồi &amp; đồ ăn vặt</div>
+                <div class="order-step first--step order-step--disable ">1. Choose date &amp; Hours</div>
+                <div class="order-step second--step">2. Sitting position &amp; snacks and drinks</div>
             </div>
 
             <div class="choose-sits">
                 <div class="choose-sits__info choose-sits__info--first">
                     <ul>
-                        <li class="sits-price marker--none"><strong>Giá từng loại ghế (đ/ghể)</strong></li>
+                        <li class="sits-price marker--none"><strong>Price for each type of chair (VND/seat)</strong></li>
                         <li class="sits-price sits-price--cheap">{{ $priceSit[3] }}k</li>
                         <li class="sits-price sits-price--middle">{{ $priceSit[2] }}k</li>
                         <li class="sits-price sits-price--expensive">{{ $priceSit[1] }}k</li>
@@ -37,14 +37,14 @@
 
                 <div class="choose-sits__info">
                     <ul>
-                        <li class="sits-state sits-state--not">Ghế đã đặt</li>
-                        <li class="sits-state sits-state--your">Bạn đang chọn</li>
+                        <li class="sits-state sits-state--not">Seats booked</li>
+                        <li class="sits-state sits-state--your">You are choosing</li>
                     </ul>
                 </div>
 
                 <div class="col-sm-12 col-lg-10 col-lg-offset-1">
                     <div class="sits-area hidden-xs">
-                        <div class="sits-anchor">Màn hình chiếu</div>
+                        <div class="sits-anchor">Projection screen</div>
 
                         <div class="sits">
                             <aside class="sits__line">
@@ -216,7 +216,7 @@
 
 
     <section class="container">
-        <h2 class="page-heading heading--outcontainer">Bắp & Nước uống</h2>
+        <h2 class="page-heading heading--outcontainer">Snacks & Beverages</h2>
 
         <form id='film-and-time' class="booking-form" method='post' action='/book/checkout'>
             {{ csrf_field() }}
@@ -266,12 +266,12 @@
 
             <div class="container booking-pagination booking-pagination--margin">
                 <a href="/book/date-&-time/{{ $film->ID }}" class="booking-pagination__prev">
-                    <span class="arrow__text arrow--prev">Quay lại</span>
-                    <span class="arrow__info">Chọn ngày &amp; giờ</span>
+                    <span class="arrow__text arrow--prev">BACK</span>
+                    <span class="arrow__info">Choose Date &amp; Hours</span>
                 </a>
                 <button type="submit" class="booking-pagination__next">
-                    <span class="arrow__text arrow--next">Tiếp theo</span>
-                    <span class="arrow__info">Thanh toán</span>
+                    <span class="arrow__text arrow--next">Next</span>
+                    <span class="arrow__info">Payment</span>
                 </button>
             </div>
         </form>

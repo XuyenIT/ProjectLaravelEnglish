@@ -3,7 +3,11 @@
 <head>
 	<!-- Basic Page Needs -->
         <meta charset="utf-8">
+
         <title>@yield('title') | X-Star Cineplex</title>
+
+        <title>@yield('title') | XstarCinePlex</title>
+
         <meta name="description" content="A Template by Gozha.net">
         <meta name="keywords" content="HTML, CSS, JavaScript">
         <meta name="author" content="Gozha.net">
@@ -62,8 +66,13 @@
         <header class="header-wrapper header-wrapper--home">
             <div class="container">
                 <!-- Logo link-->
+
               <a href='/' class="logo">
                    <img alt='logo' src="{{asset('assets/images/logo.png')}}">
+
+                <a href='/' class="logo">
+                    <img  style="height: 50px;margin-top:-13px" alt='logo' src="{{asset('assets/images/logonew.jpg')}}">
+
                 </a>
 
                 <!-- Main website navigation-->
@@ -85,7 +94,11 @@
                         </li>
                         <li>
                             <span class="sub-nav-toggle plus"></span>
+
                             <a href="#">Category</a>
+
+                            <a href="#">Genre</a>
+
                             <ul>
                                 @foreach($category as $item)
                                     <div style="display: none;">{{ $url = '/the-loai/' . $item->Link . "/" . $item->ID }}</div>
@@ -98,14 +111,24 @@
                             <a href="/phim-dang-chieu.html">Now Showing</a>
                         </li>
                         <li>
+
                             <a href="/phim-sap-chieu.html">Comming Soon</a>
+
+                            <a href="/phim-sap-chieu.html"> Comming Soon</a>
+
                         </li>
                         <li>
                             <a href="#">About us</a>
                         </li>
+
                         <li>
                             <a href="#">Contact</a>
                         </li>
+
+                        {{-- <li>
+                            <a href="#">Trợ giúp</a>
+                        </li> --}}
+
                     </ul>
                 </nav>
 
@@ -167,7 +190,11 @@
                 </div> --}}
                 <div class="col-xs-12 col-md-12">
                     <div class="footer-info">
+
                         <p class="heading-special--small mr-5">X-Star Cineplex<br><span class="title-edition">in the social media</span></p>
+
+                        <p class="heading-special--small">Xstar-CinePlex<br><span class="title-edition">in the social media</span></p>
+
 
                         <div class="social">
                             <a href='#' class="social__variant fa fa-facebook"></a>
@@ -179,7 +206,11 @@
                         </div>
 
                         <div class="clearfix"></div>
+
                         <p class="copy text-center">&copy; X-Star Cinexplex, 2021. All rights reserved. Done by Team 1</p>
+
+                        <p class="copy">&copy; Xstar-CinePlex, 2021. All rights reserved. Done by Group 1</p>
+
                     </div>
                 </div>
             </section>

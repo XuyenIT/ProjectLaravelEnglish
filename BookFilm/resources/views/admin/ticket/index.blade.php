@@ -1,6 +1,6 @@
 @extends('admin.layouts._layout')
 
-@section('title', 'Quản lý vé')
+@section('title', 'Ticket Management')
 
 
 @section('content')
@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Quản lý vé đặt trước</h1>
+                <h1 class="page-header">Manage pre-booked tickets</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -25,7 +25,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Danh sách vé
+                        Ticket List
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -34,12 +34,12 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Họ tên KH</th>
-                                        <th>Vé xem phim</th>
-                                        <th>Số vé</th>
-                                        <th>Thời gian xem</th>
-                                        <th>Ngày đặt</th>
-                                        <th>Trạng thái</th>
+                                        <th>Customer's full name</th>
+                                        <th>Cinema ticket</th>
+                                        <th>Seats</th>
+                                        <th>Watch time</th>
+                                        <th>Booking date</th>
+                                        <th>Status</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -55,16 +55,16 @@
                                             
                                             @if ($item->Status == true)
                                                 <td>
-                                                    <span class="label label-info">Đã thanh toán</span>
+                                                    <span class="label label-info">Paid</span>
                                                 </td>
                                             @else
                                                 <td>
-                                                    <span class="label label-default">Hết hạn / hủy</span>
+                                                    <span class="label label-default">Expiration / Cancellation</span>
                                                 </td>
                                             @endif
                                            
                                             <td>
-                                                <a href="/Admin/Ticket/Detail/{{ $item->ID }}" class="btn btn-default" title="Chi tiết vé"><i class="fa fa-ticket"></i>Xem chi tiết</a>
+                                                <a href="/Admin/Ticket/Detail/{{ $item->ID }}" class="btn btn-default" title="Chi tiết vé"><i class="fa fa-ticket"></i>See details</a>
                                                 <button class="btn btn-danger btnDelete" data-id="{{ $item->ID }}" title="Xóa vé"><i class="fa fa-remove"></i></button>
                                             </td>
                                         </tr>
@@ -106,8 +106,8 @@
 
             $('.btnDelete').off('click').on('click', function () {
                 const notice = PNotify.notice({
-                    title: 'Thông báo',
-                    text: 'Bạn thật sự muốn xóa? Thông tin vé và các thông tin liên quan sẽ bị xóa??',
+                    title: 'Notification',
+                    text: 'To perform the function you have to delete its associated data?',
                     icon: 'fa fa-question-circle',
                     width: '360px',
                     minHeight: '110px',

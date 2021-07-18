@@ -25,13 +25,21 @@ class AdminController extends Controller
         }
 
     	if($admin->Password != $OldPass){
+ phuc
     		Session::flash('error', 'Password does not match, enter again.');
+
+    		Session::flash('error', 'The old password does not match, please re-enter it.');
+ master
     		return redirect('/Admin/ChangePass');
     	}else{
     		DB::update('update users set Password = ? where ID = ?', [$NewPass, $admin->ID]);
 
     		Session::forget('admin');
+phuc
     		Session::flash('error', 'Change password success, please login again.');
+
+    		Session::flash('error', 'Change password successfully, please login again.');
+ master
     		return redirect('/dang-nhap.html');
     	}
 
