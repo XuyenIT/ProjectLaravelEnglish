@@ -159,51 +159,67 @@
             $('#AlertBox').delay(2000).slideUp(500);
 
 
-            $('.btnDelete').off('click').on('click', function () {
-                const notice = PNotify.notice({
-                    title: 'Notification',
-                    text: 'Can not deleted?',
-                    icon: 'fa fa-question-circle',
-                    width: '360px',
-                    minHeight: '110px',
-                    hide: false,
-                    closer: false,
-                    sticker: false,
-                    destroy: true,
-                    stack: new PNotify.Stack({
-                        dir1: 'down',
-                        modal: true,
-                        firstpos1: 25,
-                        overlayClose: false
-                    }),
-                    modules: new Map([
-                        ...PNotify.defaultModules,
-                        [PNotifyConfirm, {
-                            confirm: true
-                        }]
-                    ])
+            $('.btnDelete').on('click', function(event) {
+                event.preventDefault();
+                const url = $(this).attr('href');
+                swal({
+                    title: 'Are you sure?',
+                    text: 'This record and it`s details will be permanantly deleted!',
+                    icon: 'warning',
+                    buttons: ["Cancel", "Yes!"],
+                }).then(function(value) {
+                    if (value) {
+                        window.location.href = url;
+                    }
                 });
-
-                notice.on('pnotify:confirm', () =>
-                    $.ajax({
-                        data: {},
-                        url: '/Admin/Film/Delete/' + $(this).data('id'),
-                        dataType: 'Json',
-                        type: 'GET',
-                        success: function () {
-                                window.location.href = "/Admin/Film/MoviePlay";
-                                PNotify.success({
-                                    title: 'NOTIFICATION!!',
-                                    text: 'Delete Successful.'
-                                });
-                           
-                        }
-                    })
-
-                );
-
-
             });
+
+
+            // $('.btnDelete').off('click').on('click', function () {
+            //     const notice = PNotify.notice({
+            //         title: 'Notification',
+            //         text: 'Can not deleted?',
+            //         icon: 'fa fa-question-circle',
+            //         width: '360px',
+            //         minHeight: '110px',
+            //         hide: false,
+            //         closer: false,
+            //         sticker: false,
+            //         destroy: true,
+            //         stack: new PNotify.Stack({
+            //             dir1: 'down',
+            //             modal: true,
+            //             firstpos1: 25,
+            //             overlayClose: false
+            //         }),
+            //         modules: new Map([
+            //             ...PNotify.defaultModules,
+            //             [PNotifyConfirm, {
+            //                 confirm: true
+            //             }]
+            //         ])
+            //     });
+
+            //     notice.on('pnotify:confirm', () =>
+            //         $.ajax({
+            //             data: {},
+            //             url: '/Admin/Film/Delete/' + $(this).data('id'),
+            //             dataType: 'Json',
+            //             type: 'GET',
+            //             success: function () {
+            //                     window.location.href = "/Admin/Film/MoviePlay";
+            //                     PNotify.success({
+            //                         title: 'NOTIFICATION!!',
+            //                         text: 'Delete Successful.'
+            //                     });
+                           
+            //             }
+            //         })
+
+            //     );
+
+
+            // });
 
             $('.btnUpdate').click(function(event) {
                 $('.editForm').modal('show');
@@ -248,6 +264,29 @@
                     });
             });
 
+            // $('#Category_ID').change(function(event) {
+                
+            //     var Film_ID = $('#Film_ID').val();
+            //     var Category_ID = $(this).val();
+            //     $.ajax({
+            //             url: "/Admin/Film/AddCate/" + Film_ID + "/" + Category_ID,
+            //             type: 'GET',
+            //             dataType: 'json',
+            //             contentType: "application/json; charset=utf-8",
+            //             success: function (res) {
+            //                 html = '<span class="label label-warning labelCate">'+ res.cate.Name +
+            //                             '<a href="javascript:void(0)" class="btnDel" data-id="'+ res.cate.ID +'">'+
+            //                                 '<i class="fa fa-remove fa_icon" title="xóa"></i>'+
+            //                             '</a>'+
+            //                         '</span>'
+            //                 $('#CategoryFilm').append(html);
+
+            //                 $('option[value="'+ Category_ID +'"]').remove();
+            //             }
+            //         });
+            // });
+
+
             $('#Category_ID').change(function(event) {
                 
                 var Film_ID = $('#Film_ID').val();
@@ -269,6 +308,8 @@
                         }
                     });
             });
+
+
 
             $(".editForm").on("hidden.bs.modal", function () {
                 window.location.href = "/Admin/Film/MoviePlay";
