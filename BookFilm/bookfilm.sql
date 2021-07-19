@@ -2,10 +2,10 @@
 -- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 19, 2021 at 04:49 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th7 19, 2021 lúc 05:41 AM
+-- Phiên bản máy phục vụ: 10.4.18-MariaDB
+-- Phiên bản PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bookfilm`
+-- Cơ sở dữ liệu: `bookfilm`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book_fd`
+-- Cấu trúc bảng cho bảng `book_fd`
 --
 
 CREATE TABLE `book_fd` (
@@ -38,19 +38,20 @@ CREATE TABLE `book_fd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `book_fd`
+-- Đang đổ dữ liệu cho bảng `book_fd`
 --
 
 INSERT INTO `book_fd` (`ID`, `Quantity`, `TotalPrice`, `created_at`, `updated_at`, `BookTicket_ID`, `FoodDrink_ID`) VALUES
 (15, 1, '259000.00', NULL, NULL, 16, 1),
 (16, 1, '100000.00', NULL, NULL, 17, 14),
 (17, 1, '100000.00', NULL, NULL, 18, 14),
-(18, 1, '259000.00', NULL, NULL, 19, 1);
+(18, 1, '259000.00', NULL, NULL, 19, 1),
+(19, 1, '100000.00', NULL, NULL, 20, 14);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book_sit`
+-- Cấu trúc bảng cho bảng `book_sit`
 --
 
 CREATE TABLE `book_sit` (
@@ -67,7 +68,7 @@ CREATE TABLE `book_sit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `book_sit`
+-- Đang đổ dữ liệu cho bảng `book_sit`
 --
 
 INSERT INTO `book_sit` (`ID`, `Sit`, `Type`, `Count`, `Price`, `TotalMoney`, `created_at`, `updated_at`, `BookTicket_ID`, `RoomDetail_ID`) VALUES
@@ -80,12 +81,13 @@ INSERT INTO `book_sit` (`ID`, `Sit`, `Type`, `Count`, `Price`, `TotalMoney`, `cr
 (22, 'A1, A2,', 3, 2, '15000', '30000', NULL, NULL, 16, NULL),
 (23, 'B1, B2,', 3, 2, '15000', '30000', NULL, NULL, 17, NULL),
 (24, 'F1, F2,', 2, 2, '10000', '20000', NULL, NULL, 18, NULL),
-(25, 'A1, A2,', 3, 2, '15000', '30000', NULL, NULL, 19, NULL);
+(25, 'A1, A2,', 3, 2, '15000', '30000', NULL, NULL, 19, NULL),
+(26, 'B4,', 3, 1, '15000', '15000', NULL, NULL, 20, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book_ticket`
+-- Cấu trúc bảng cho bảng `book_ticket`
 --
 
 CREATE TABLE `book_ticket` (
@@ -104,7 +106,7 @@ CREATE TABLE `book_ticket` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `book_ticket`
+-- Đang đổ dữ liệu cho bảng `book_ticket`
 --
 
 INSERT INTO `book_ticket` (`ID`, `Date`, `Time`, `CreatedDate`, `Sit`, `CountTicket`, `TotalPrice`, `Status`, `created_at`, `updated_at`, `User_ID`, `Film_ID`) VALUES
@@ -122,12 +124,13 @@ INSERT INTO `book_ticket` (`ID`, `Date`, `Time`, `CreatedDate`, `Sit`, `CountTic
 (16, '2021-07-19', '11:00:00', '2021-07-18 20:37:33', 'A1, A2,', 2, '379000.00', 1, NULL, NULL, 7, 2),
 (17, '2021-07-19', '11:00:00', '2021-07-18 20:46:08', 'B1, B2,', 2, '220000.00', 1, NULL, NULL, 7, 2),
 (18, '2021-07-19', '01:00:00', '2021-07-18 20:48:47', 'F1, F2,', 2, '230000.00', 1, NULL, NULL, 7, 3),
-(19, '2021-07-19', '09:00:00', '2021-07-18 21:16:06', 'A1, A2,', 2, '389000.00', 1, NULL, NULL, 7, 2);
+(19, '2021-07-19', '09:00:00', '2021-07-18 21:16:06', 'A1, A2,', 2, '389000.00', 1, NULL, NULL, 7, 2),
+(20, '2021-07-20', '09:00:00', '2021-07-19 10:16:59', 'B4,', 1, '165000.00', 1, NULL, NULL, 1, 7);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Cấu trúc bảng cho bảng `category`
 --
 
 CREATE TABLE `category` (
@@ -141,7 +144,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `category`
+-- Đang đổ dữ liệu cho bảng `category`
 --
 
 INSERT INTO `category` (`ID`, `Name`, `Link`, `DisplayOrder`, `Status`, `created_at`, `updated_at`) VALUES
@@ -164,7 +167,7 @@ INSERT INTO `category` (`ID`, `Name`, `Link`, `DisplayOrder`, `Status`, `created
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categoryfilm`
+-- Cấu trúc bảng cho bảng `categoryfilm`
 --
 
 CREATE TABLE `categoryfilm` (
@@ -176,7 +179,7 @@ CREATE TABLE `categoryfilm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `categoryfilm`
+-- Đang đổ dữ liệu cho bảng `categoryfilm`
 --
 
 INSERT INTO `categoryfilm` (`ID`, `Film_ID`, `Category_ID`, `created_at`, `updated_at`) VALUES
@@ -217,7 +220,7 @@ INSERT INTO `categoryfilm` (`ID`, `Film_ID`, `Category_ID`, `created_at`, `updat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Cấu trúc bảng cho bảng `comment`
 --
 
 CREATE TABLE `comment` (
@@ -233,7 +236,7 @@ CREATE TABLE `comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `comment`
+-- Đang đổ dữ liệu cho bảng `comment`
 --
 
 INSERT INTO `comment` (`ID`, `Content`, `Rate`, `CreatedDate`, `Status`, `created_at`, `updated_at`, `User_ID`, `Film_ID`) VALUES
@@ -256,7 +259,7 @@ INSERT INTO `comment` (`ID`, `Content`, `Rate`, `CreatedDate`, `Status`, `create
 -- --------------------------------------------------------
 
 --
--- Table structure for table `film`
+-- Cấu trúc bảng cho bảng `film`
 --
 
 CREATE TABLE `film` (
@@ -279,7 +282,7 @@ CREATE TABLE `film` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `film`
+-- Đang đổ dữ liệu cho bảng `film`
 --
 
 INSERT INTO `film` (`ID`, `Name`, `Metatitle`, `Image`, `Director`, `Actor`, `Time`, `ReleaseDate`, `Country`, `Vote`, `AgeRestriction`, `Description`, `Trailer`, `Status`, `created_at`, `updated_at`) VALUES
@@ -288,8 +291,8 @@ INSERT INTO `film` (`ID`, `Name`, `Metatitle`, `Image`, `Director`, `Actor`, `Ti
 (3, 'Ấn Quỷ - The Unholy', 'an-Quy---The-Unholy', 'an-quy.png', 'Evan Spiliotopoulos', 'Cricket Brown, Jeffrey Dean Morgan, Katie Aselton, William Sadler, Cary Elwes,...', '90 phút', '2021-04-02 00:00:00', 'England', 4, 13, 'The screenplay of the film is based on the novel Shrine released in 1983. The content shows that the film has thin lines between faith and blind faith, Demon Seal has sent a message of faith that can bring faith believe, the ideal of life but still have to be alert so as not to get lost.\r\n\r\nIn a rural area in New England, where the deaf girl Alice was born and raised is where the film takes place.\r\n\r\nSuddenly, one day, a mysterious force healed Alice, enabling her to hear and speak normally and to heal all diseases for others. In the presence of hundreds of thousands of people. Also from here a series of horrifying and monstrous events occurred.', 'https://www.youtube.com/embed/f1Nv2O7VJuo', 1, NULL, NULL),
 (4, 'Harry Potter Và Bảo Bối Tử Thần Phần 2 - Harry Potter And The Deathly Hallows Part 2', 'Harry-Potter-Va-Bao-Boi-Tu-Than-Phan-2---Harry-Potter-And-The-Deathly-Hallows-Part-2', 'harry-potter.jpg', 'David Yates', 'Daniel Radcliffe, Rupert Grint, Emma Watson, Ralph Fiennes,…', '130 phút', '2021-04-02 00:00:00', 'USA', 4.7, 10, 'Without the guidance of the professors, the group of friends Harry (Daniel Radcliffe), Ron (Rupert Grint) and Hermione (Emma Watson) begin a journey to destroy the Horcruxes - the items that help Lord Voldemort ( Ralph Fiennes) attains immortality.\r\n\r\nAt this time, when the three must agree with each other more than ever, the dark forces are plotting to divide the group of friends. At that time, Lord Voldemort\'s Death Eaters took over the leadership of the Ministry of Magic and Hogwarts, and frantically searched for Harry and his besties - before the ultimate final battle.', 'https://www.youtube.com/embed/eONDcHfpG0s', 1, NULL, NULL),
 (5, 'Siêu Trộm - Way Down', 'Sieu-Trom---Way-Down', 'way-down.jpg', 'Jaume Balagueró', 'Freddie Highmore, Astrid Bergès-Frisbey, Sam Riley, Liam Cunningham,...', '118 phút', '2021-04-02 00:00:00', 'USA', 4.3, 18, 'As a Spanish movie blockbuster on the topic of Bank robbery, Super Theft - Way Down promises to bring the audience extremely voyeuristic and unpredictable experiences.\r\n\r\nOcean explorer Walter Moeland has just succeeded in salvaging a shipwreck in Spanish waters, and at the same time found 3 gold coins that are said to lead to the \"endless\" buried treasure of the legend. Sir Francis Drake.\r\n\r\nHowever, the Spanish authorities decided to confiscate the entire product, including 3 coins, and all legal efforts could not help Walter gain ownership. His treasure is now hidden in the safe of the most secure bank in the world - Bank of Spain.\r\n\r\nNot giving up hope, Walter formed a team of \"super thieves\", with the most genius and brave minds, starting to plan to get back what belongs to him.', 'https://www.youtube.com/embed/XfLslifRe0g', 1, NULL, NULL),
-(6, 'Khát Vọng Đổi Đời - Minari', 'Khat-Vong-doi-doi---Minari', 'minari.jpg', 'Lee Isaac Chung', 'Steven Yeun, Yeri Han, Alan Kim, Noel Kate Cho, Scott Haze, Yuh-Jung Youn, Will Patton,…', '115 phút', '2021-04-02 00:00:00', 'Korea', 3.7, 16, 'The film\'s content revolves around the story of a Korean family who move to rural Arkansas in search of the American dream.\r\n\r\nThrough a series of hardships and challenges with their new life in the arid Ozarks, they discover the undeniable power of the two words \"family\" and what really makes a family home. Come to the theater to see the exciting happenings.', 'https://www.youtube.com/embed/z4bqat8idns', 1, NULL, NULL),
-(7, 'Cô Gái Trẻ Hứa Hẹn - Promising Young Woman', 'Co-Gai-Tre-Hua-Hen---Promising-Young-Woman', 'Promising-Young-Woman-1-poster_KP.jpg', 'Emerald Fennell', 'Carey Mulligan, Bo Burnham, Alison Brie', '113 phút', '2021-04-02 00:00:00', 'England', 4.3, 18, 'The black comedy The Promised Young Girl by British director Emerald Fennell has just been premiered on April 2 at cinemas nationwide.\r\n\r\nBefore her best friend Nina Fisher was sexually assaulted and then committed suicide for not finding justice, Cassandra Cassie Thomas suffered severe psychological trauma and dropped out of school. Now, 30-year-old Cassie wanders among Ohio nightclubs, posing as a drunken \"fat prey\" to attract and educate spoiled naughty boys.', 'https://www.youtube.com/embed/-CNNp-ylxwY', 1, NULL, NULL),
+(6, 'Khát Vọng Đổi Đời - Minari', 'Khat-Vong-doi-doi---Minari', 'minari.jpg', 'Lee Isaac Chung', 'Steven Yeun, Yeri Han, Alan Kim, Noel Kate Cho, Scott Haze, Yuh-Jung Youn, Will Patton,…', '115 phút', '2021-04-02 00:00:00', 'Korea', 3.7, 16, 'The film\'s content revolves around the story of a Korean family who move to rural Arkansas in search of the American dream.\r\n\r\nThrough a series of hardships and challenges with their new life in the arid Ozarks, they discover the undeniable power of the two words \"family\" and what really makes a family home. Come to the theater to see the exciting happenings.', 'https://www.youtube.com/embed/hWugKeK4z2E', 1, NULL, NULL),
+(7, 'Cô Gái Trẻ Hứa Hẹn - Promising Young Woman', 'Co-Gai-Tre-Hua-Hen---Promising-Young-Woman', 'Promising-Young-Woman-1-poster_KP.jpg', 'Emerald Fennell', 'Carey Mulligan, Bo Burnham, Alison Brie', '113 phút', '2021-04-02 00:00:00', 'England', 4.3, 18, 'The black comedy The Promised Young Girl by British director Emerald Fennell has just been premiered on April 2 at cinemas nationwide.\r\n\r\nBefore her best friend Nina Fisher was sexually assaulted and then committed suicide for not finding justice, Cassandra Cassie Thomas suffered severe psychological trauma and dropped out of school. Now, 30-year-old Cassie wanders among Ohio nightclubs, posing as a drunken \"fat prey\" to attract and educate spoiled naughty boys.', 'https://www.youtube.com/embed/lfOPDT6nGps', 1, NULL, NULL),
 (8, 'Kiều', 'Kieu', 'kieu.jpg', 'Mai Thu Huyền', 'Cao Thái Hà, Phan Thị Mơ,…', '125 phút', '2021-03-08 00:00:00', 'Viet Nam', 4.3, 18, 'Following the films adapted from literary works, Kieu is a bright name, promising to bring the 7th movie fans the ultimate relaxing moments.\r\n\r\nThe film is based on the classic literary work of the same name by the great poet Nguyen Du. Just after releasing the short trailer, Kieu made many viewers curious and looking forward to it. Will Kieu on the screen attract the audience? Please come to the theater to get the most accurate answer.', 'https://www.youtube.com/embed/AHMQlyNXDm8', 1, NULL, NULL),
 (9, 'Cuộc Chiến Sinh Tử - Mortal Kombat', 'Cuoc-Chien-Sinh-Tu---Mortal-Kombat', 'mortal-kombat-elle-man-1.jpg', 'Simon McQuoid', 'Lewis Tan, Jessica McNamee, Tadanobu Asano', '110 phút', '2021-07-09 00:00:00', 'Chinese', 4.7, 18, 'The film is about Cole Young, a talented young boxer, MMA champion, who accidentally owns a mysterious Dragon-shaped birthmark on his body. From there, he was chased and threatened by a Ninja with the ability to use icy powers, Sub-zero.\r\n\r\nThrough an encounter with a person named Sonya Blade, he gradually understood more about the birthmark on his body. A millennial war is coming to an end and Cole Young is the last hope to turn the tide.', 'https://www.youtube.com/embed/NYH2sLid0Zc', 1, NULL, NULL),
 (10, 'Bản Năng Hoang Dại - Voyagers', 'Ban-Nang-Hoang-Dai---Voyagers', 'voyagers.jpg', 'Neil Burger', 'Tye Sheridan, Lily-Rose Depp, Fionn Whitehead, Chanté Adams, Isaac Hempstead Wright,…', '108 phút', '2021-07-09 00:00:00', 'USA', 4, 13, 'The film is about the not-so-distant future when humanity is on the verge of genocide, a group of teenagers are raised to serve the purpose of intellectual exploitation and acceptance. They embark on an exploratory journey to explore another distant planet.\r\n\r\nBut when they discover the hidden secret behind this noble mission, all begin to resist this training and begin to let their primal instincts take over. At that time, the fate of the entire squadron fell into chaos, they were buried in fear, lust and thirst for power.', 'https://www.youtube.com/embed/PiyN2zS32jE', 1, NULL, NULL),
@@ -305,7 +308,7 @@ INSERT INTO `film` (`ID`, `Name`, `Metatitle`, `Image`, `Director`, `Actor`, `Ti
 -- --------------------------------------------------------
 
 --
--- Table structure for table `food_drink`
+-- Cấu trúc bảng cho bảng `food_drink`
 --
 
 CREATE TABLE `food_drink` (
@@ -319,7 +322,7 @@ CREATE TABLE `food_drink` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `food_drink`
+-- Đang đổ dữ liệu cho bảng `food_drink`
 --
 
 INSERT INTO `food_drink` (`ID`, `Name`, `Image`, `Price`, `Description`, `created_at`, `updated_at`) VALUES
@@ -330,7 +333,7 @@ INSERT INTO `food_drink` (`ID`, `Name`, `Image`, `Price`, `Description`, `create
 -- --------------------------------------------------------
 
 --
--- Table structure for table `member`
+-- Cấu trúc bảng cho bảng `member`
 --
 
 CREATE TABLE `member` (
@@ -343,11 +346,11 @@ CREATE TABLE `member` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `member`
+-- Đang đổ dữ liệu cho bảng `member`
 --
 
 INSERT INTO `member` (`ID`, `Point`, `Name`, `created_at`, `updated_at`, `User_ID`) VALUES
-(1, 50, 'Bạc', NULL, NULL, 1),
+(1, 60, 'Sliver', NULL, NULL, 1),
 (2, 20, 'Đồng', NULL, NULL, 2),
 (3, 20, 'Đồng', NULL, NULL, 4),
 (4, 20, 'Đồng', NULL, NULL, 5),
@@ -356,7 +359,7 @@ INSERT INTO `member` (`ID`, `Point`, `Name`, `created_at`, `updated_at`, `User_I
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Cấu trúc bảng cho bảng `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -366,7 +369,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Đang đổ dữ liệu cho bảng `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -387,7 +390,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Cấu trúc bảng cho bảng `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -399,7 +402,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reply`
+-- Cấu trúc bảng cho bảng `reply`
 --
 
 CREATE TABLE `reply` (
@@ -413,7 +416,7 @@ CREATE TABLE `reply` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `reply`
+-- Đang đổ dữ liệu cho bảng `reply`
 --
 
 INSERT INTO `reply` (`ID`, `Content`, `CreatedDate`, `created_at`, `updated_at`, `User_ID`, `Comment_ID`) VALUES
@@ -429,7 +432,7 @@ INSERT INTO `reply` (`ID`, `Content`, `CreatedDate`, `created_at`, `updated_at`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `room`
+-- Cấu trúc bảng cho bảng `room`
 --
 
 CREATE TABLE `room` (
@@ -441,7 +444,7 @@ CREATE TABLE `room` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `room`
+-- Đang đổ dữ liệu cho bảng `room`
 --
 
 INSERT INTO `room` (`ID`, `Name`, `Status`, `created_at`, `updated_at`) VALUES
@@ -450,7 +453,7 @@ INSERT INTO `room` (`ID`, `Name`, `Status`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `room_detail`
+-- Cấu trúc bảng cho bảng `room_detail`
 --
 
 CREATE TABLE `room_detail` (
@@ -466,7 +469,7 @@ CREATE TABLE `room_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `room_detail`
+-- Đang đổ dữ liệu cho bảng `room_detail`
 --
 
 INSERT INTO `room_detail` (`ID`, `Level`, `Row`, `Column`, `Price`, `TicketPrice`, `created_at`, `updated_at`, `Room_ID`) VALUES
@@ -477,7 +480,7 @@ INSERT INTO `room_detail` (`ID`, `Level`, `Row`, `Column`, `Price`, `TicketPrice
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -497,7 +500,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`ID`, `Account`, `Email`, `Password`, `Fullname`, `Address`, `Phone`, `Sex`, `BirthDay`, `Type`, `Status`, `created_at`, `updated_at`) VALUES
@@ -506,14 +509,14 @@ INSERT INTO `users` (`ID`, `Account`, `Email`, `Password`, `Fullname`, `Address`
 (3, 'admin', NULL, '123456', 'Administrator', '', '', '', '0000-00-00 00:00:00', 0, 1, NULL, NULL),
 (4, 'longcoco', NULL, '12345', 'Long Cô Cô', 'Hoàng Quốc Việt - Cầu Giấy-Hà Nội', '0849965645', 'Nữ', '1980-01-01 00:00:00', 1, 1, NULL, NULL),
 (5, 'truongtp', NULL, '12345', 'Trương Tam Phong', 'Yang hoo', '0978654321', 'Nam', '1988-01-01 00:00:00', 1, 1, NULL, NULL),
-(7, 'PhucAptech', 'phucpvts2008046@fpt.edu.vn', '123456', 'Phuc', 'Binh Chanh', '0963236247', 'Nam', '2021-07-15 00:00:00', 1, 1, NULL, NULL);
+(7, 'PhucAptech', 'phucpvts2008046@fpt.edu.vn', '0LZMpr3P', 'Phuc', 'Binh Chanh', '0963236247', 'Nam', '2021-07-15 00:00:00', 1, 1, NULL, NULL);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `book_fd`
+-- Chỉ mục cho bảng `book_fd`
 --
 ALTER TABLE `book_fd`
   ADD PRIMARY KEY (`ID`),
@@ -521,7 +524,7 @@ ALTER TABLE `book_fd`
   ADD KEY `book_fd_fooddrink_id_foreign` (`FoodDrink_ID`);
 
 --
--- Indexes for table `book_sit`
+-- Chỉ mục cho bảng `book_sit`
 --
 ALTER TABLE `book_sit`
   ADD PRIMARY KEY (`ID`),
@@ -529,7 +532,7 @@ ALTER TABLE `book_sit`
   ADD KEY `book_sit_roomdetail_id_foreign` (`RoomDetail_ID`);
 
 --
--- Indexes for table `book_ticket`
+-- Chỉ mục cho bảng `book_ticket`
 --
 ALTER TABLE `book_ticket`
   ADD PRIMARY KEY (`ID`),
@@ -537,13 +540,13 @@ ALTER TABLE `book_ticket`
   ADD KEY `book_ticket_film_id_foreign` (`Film_ID`);
 
 --
--- Indexes for table `category`
+-- Chỉ mục cho bảng `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `categoryfilm`
+-- Chỉ mục cho bảng `categoryfilm`
 --
 ALTER TABLE `categoryfilm`
   ADD PRIMARY KEY (`ID`),
@@ -551,7 +554,7 @@ ALTER TABLE `categoryfilm`
   ADD KEY `categoryfilm_film_id_foreign` (`Film_ID`);
 
 --
--- Indexes for table `comment`
+-- Chỉ mục cho bảng `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`ID`),
@@ -559,32 +562,32 @@ ALTER TABLE `comment`
   ADD KEY `comment_film_id_foreign` (`Film_ID`);
 
 --
--- Indexes for table `film`
+-- Chỉ mục cho bảng `film`
 --
 ALTER TABLE `film`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `food_drink`
+-- Chỉ mục cho bảng `food_drink`
 --
 ALTER TABLE `food_drink`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `member`
+-- Chỉ mục cho bảng `member`
 --
 ALTER TABLE `member`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `member_user_id_foreign` (`User_ID`);
 
 --
--- Indexes for table `migrations`
+-- Chỉ mục cho bảng `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `reply`
+-- Chỉ mục cho bảng `reply`
 --
 ALTER TABLE `reply`
   ADD PRIMARY KEY (`ID`),
@@ -592,166 +595,166 @@ ALTER TABLE `reply`
   ADD KEY `reply_comment_id_foreign` (`Comment_ID`);
 
 --
--- Indexes for table `room`
+-- Chỉ mục cho bảng `room`
 --
 ALTER TABLE `room`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `room_detail`
+-- Chỉ mục cho bảng `room_detail`
 --
 ALTER TABLE `room_detail`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `room_detail_room_id_foreign` (`Room_ID`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `book_fd`
+-- AUTO_INCREMENT cho bảng `book_fd`
 --
 ALTER TABLE `book_fd`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT for table `book_sit`
---
-ALTER TABLE `book_sit`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
--- AUTO_INCREMENT for table `book_ticket`
---
-ALTER TABLE `book_ticket`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT cho bảng `book_sit`
+--
+ALTER TABLE `book_sit`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT cho bảng `book_ticket`
+--
+ALTER TABLE `book_ticket`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `categoryfilm`
+-- AUTO_INCREMENT cho bảng `categoryfilm`
 --
 ALTER TABLE `categoryfilm`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT for table `comment`
+-- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `film`
+-- AUTO_INCREMENT cho bảng `film`
 --
 ALTER TABLE `film`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `food_drink`
+-- AUTO_INCREMENT cho bảng `food_drink`
 --
 ALTER TABLE `food_drink`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `member`
+-- AUTO_INCREMENT cho bảng `member`
 --
 ALTER TABLE `member`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT for table `reply`
+-- AUTO_INCREMENT cho bảng `reply`
 --
 ALTER TABLE `reply`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `room`
+-- AUTO_INCREMENT cho bảng `room`
 --
 ALTER TABLE `room`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `room_detail`
+-- AUTO_INCREMENT cho bảng `room_detail`
 --
 ALTER TABLE `room_detail`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `book_fd`
+-- Các ràng buộc cho bảng `book_fd`
 --
 ALTER TABLE `book_fd`
   ADD CONSTRAINT `book_fd_bookticket_id_foreign` FOREIGN KEY (`BookTicket_ID`) REFERENCES `book_ticket` (`ID`),
   ADD CONSTRAINT `book_fd_fooddrink_id_foreign` FOREIGN KEY (`FoodDrink_ID`) REFERENCES `food_drink` (`ID`);
 
 --
--- Constraints for table `book_sit`
+-- Các ràng buộc cho bảng `book_sit`
 --
 ALTER TABLE `book_sit`
   ADD CONSTRAINT `book_sit_bookticket_id_foreign` FOREIGN KEY (`BookTicket_ID`) REFERENCES `book_ticket` (`ID`),
   ADD CONSTRAINT `book_sit_roomdetail_id_foreign` FOREIGN KEY (`RoomDetail_ID`) REFERENCES `room_detail` (`ID`);
 
 --
--- Constraints for table `book_ticket`
+-- Các ràng buộc cho bảng `book_ticket`
 --
 ALTER TABLE `book_ticket`
   ADD CONSTRAINT `book_ticket_film_id_foreign` FOREIGN KEY (`Film_ID`) REFERENCES `film` (`ID`),
   ADD CONSTRAINT `book_ticket_user_id_foreign` FOREIGN KEY (`User_ID`) REFERENCES `users` (`ID`);
 
 --
--- Constraints for table `categoryfilm`
+-- Các ràng buộc cho bảng `categoryfilm`
 --
 ALTER TABLE `categoryfilm`
   ADD CONSTRAINT `categoryfilm_category_id_foreign` FOREIGN KEY (`Category_ID`) REFERENCES `category` (`ID`),
   ADD CONSTRAINT `categoryfilm_film_id_foreign` FOREIGN KEY (`Film_ID`) REFERENCES `film` (`ID`);
 
 --
--- Constraints for table `comment`
+-- Các ràng buộc cho bảng `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_film_id_foreign` FOREIGN KEY (`Film_ID`) REFERENCES `film` (`ID`),
   ADD CONSTRAINT `comment_user_id_foreign` FOREIGN KEY (`User_ID`) REFERENCES `users` (`ID`);
 
 --
--- Constraints for table `member`
+-- Các ràng buộc cho bảng `member`
 --
 ALTER TABLE `member`
   ADD CONSTRAINT `member_user_id_foreign` FOREIGN KEY (`User_ID`) REFERENCES `users` (`ID`);
 
 --
--- Constraints for table `reply`
+-- Các ràng buộc cho bảng `reply`
 --
 ALTER TABLE `reply`
   ADD CONSTRAINT `reply_comment_id_foreign` FOREIGN KEY (`Comment_ID`) REFERENCES `comment` (`ID`),
   ADD CONSTRAINT `reply_user_id_foreign` FOREIGN KEY (`User_ID`) REFERENCES `users` (`ID`);
 
 --
--- Constraints for table `room_detail`
+-- Các ràng buộc cho bảng `room_detail`
 --
 ALTER TABLE `room_detail`
   ADD CONSTRAINT `room_detail_room_id_foreign` FOREIGN KEY (`Room_ID`) REFERENCES `room` (`ID`);
