@@ -19,7 +19,7 @@ class TicketController extends Controller
         				->select('book_ticket.ID','book_ticket.Date','book_ticket.Time','book_ticket.CreatedDate','book_ticket.Sit','book_ticket.CountTicket','book_ticket.TotalPrice','book_ticket.Status','film.Name','users.Fullname')
                         ->orderBy('book_ticket.CreatedDate', 'desc')
             			->paginate(20);
-        
+
         //Cập nhật trạng thái vé
         foreach ($query as $item) {
         	# code...
@@ -36,7 +36,7 @@ class TicketController extends Controller
         	if($Dateformat < $Date || $Dateformat == $Date && $timeformat < $Time)
                 // echo $Dateformat . " < " . $Date . "<br>";
         		DB::update('update book_ticket set Status = ? where ID = ?', [false, $item->ID]);
-        	
+
         }
 
         return view('admin.ticket.index')->with([
@@ -81,7 +81,7 @@ class TicketController extends Controller
 
         DB::table('book_fd')->where("BookTicket_ID", $ID)->delete();
         DB::table('book_sit')->where("BookTicket_ID", $ID)->delete();
-        DB::table('book_ticket')->where("BookTicket_ID", $ID)->delete();
+        DB::table('book_ticket')->where("ID", $ID)->delete();
         return response()->json([
          'success' => 'Record deleted successfully!'
      ]);

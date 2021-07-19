@@ -61,12 +61,14 @@ class UserController extends Controller
 
      public function DeleteUser($ID){
          $isExit =  DB::table('book_ticket')->where("User_ID", $ID)->count();
+         $isComment = DB::table('comment')->where("User_ID", $ID)->count();
          if($isExit > 0){
             return back()->with('error','You cannot delete it.Because The user account is related to the ticket list!!!');
-         }else{
-            DB::table('users')->where("ID", $ID)->delete();
-            return back()->with('success','Record deleted successfully!!');
+         }else if( $isComment > 0){
+            return back()->with('error','You cannot delete it.Because The user account is related to the Feedback manager!!!');
          }
+         DB::table('users')->where("ID", $ID)->delete();
+         return back()->with('success','Record deleted successfully!!');
 
        /*  DB::table('users')->where("ID", $ID)->delete();
         if(!$flag) {
