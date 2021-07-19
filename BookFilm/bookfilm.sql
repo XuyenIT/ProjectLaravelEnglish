@@ -2,10 +2,10 @@
 -- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 18, 2021 lúc 04:26 PM
--- Phiên bản máy phục vụ: 10.4.18-MariaDB
--- Phiên bản PHP: 8.0.3
+-- Host: 127.0.0.1
+-- Generation Time: Jul 19, 2021 at 04:49 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `bookfilm`
+-- Database: `bookfilm`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `book_fd`
+-- Table structure for table `book_fd`
 --
 
 CREATE TABLE `book_fd` (
@@ -38,7 +38,7 @@ CREATE TABLE `book_fd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `book_fd`
+-- Dumping data for table `book_fd`
 --
 
 INSERT INTO `book_fd` (`ID`, `Quantity`, `TotalPrice`, `created_at`, `updated_at`, `BookTicket_ID`, `FoodDrink_ID`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `book_fd` (`ID`, `Quantity`, `TotalPrice`, `created_at`, `updated_at
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `book_sit`
+-- Table structure for table `book_sit`
 --
 
 CREATE TABLE `book_sit` (
@@ -67,7 +67,7 @@ CREATE TABLE `book_sit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `book_sit`
+-- Dumping data for table `book_sit`
 --
 
 INSERT INTO `book_sit` (`ID`, `Sit`, `Type`, `Count`, `Price`, `TotalMoney`, `created_at`, `updated_at`, `BookTicket_ID`, `RoomDetail_ID`) VALUES
@@ -85,7 +85,7 @@ INSERT INTO `book_sit` (`ID`, `Sit`, `Type`, `Count`, `Price`, `TotalMoney`, `cr
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `book_ticket`
+-- Table structure for table `book_ticket`
 --
 
 CREATE TABLE `book_ticket` (
@@ -104,7 +104,7 @@ CREATE TABLE `book_ticket` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `book_ticket`
+-- Dumping data for table `book_ticket`
 --
 
 INSERT INTO `book_ticket` (`ID`, `Date`, `Time`, `CreatedDate`, `Sit`, `CountTicket`, `TotalPrice`, `Status`, `created_at`, `updated_at`, `User_ID`, `Film_ID`) VALUES
@@ -127,7 +127,7 @@ INSERT INTO `book_ticket` (`ID`, `Date`, `Time`, `CreatedDate`, `Sit`, `CountTic
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
@@ -141,7 +141,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`ID`, `Name`, `Link`, `DisplayOrder`, `Status`, `created_at`, `updated_at`) VALUES
@@ -150,7 +150,7 @@ INSERT INTO `category` (`ID`, `Name`, `Link`, `DisplayOrder`, `Status`, `created
 (3, 'Action', 'hanh-dong', '3', 1, NULL, NULL),
 (4, 'Drama', 'chinh-kich', '4', 1, NULL, NULL),
 (5, 'Horror', 'kinh-di', '', 1, NULL, NULL),
-(7, 'Advanture', 'phieu-luu', '', 1, NULL, NULL),
+(7, 'Adventure', 'phieu-luu', '', 1, NULL, NULL),
 (8, 'Bank Robbery', 'cuop-ngan-hang', '', 1, NULL, NULL),
 (9, 'Romantic', 'tinh-cam', '', 1, NULL, NULL),
 (10, 'Funny', 'hanh-kich', '', 1, NULL, NULL),
@@ -164,7 +164,7 @@ INSERT INTO `category` (`ID`, `Name`, `Link`, `DisplayOrder`, `Status`, `created
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `categoryfilm`
+-- Table structure for table `categoryfilm`
 --
 
 CREATE TABLE `categoryfilm` (
@@ -176,7 +176,7 @@ CREATE TABLE `categoryfilm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `categoryfilm`
+-- Dumping data for table `categoryfilm`
 --
 
 INSERT INTO `categoryfilm` (`ID`, `Film_ID`, `Category_ID`, `created_at`, `updated_at`) VALUES
@@ -210,12 +210,14 @@ INSERT INTO `categoryfilm` (`ID`, `Film_ID`, `Category_ID`, `created_at`, `updat
 (28, 16, 15, NULL, NULL),
 (30, 2, 16, NULL, NULL),
 (34, 18, 1, NULL, NULL),
-(35, 18, 2, NULL, NULL);
+(35, 18, 2, NULL, NULL),
+(42, 16, 2, NULL, NULL),
+(47, 14, 9, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `comment`
+-- Table structure for table `comment`
 --
 
 CREATE TABLE `comment` (
@@ -231,7 +233,7 @@ CREATE TABLE `comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `comment`
+-- Dumping data for table `comment`
 --
 
 INSERT INTO `comment` (`ID`, `Content`, `Rate`, `CreatedDate`, `Status`, `created_at`, `updated_at`, `User_ID`, `Film_ID`) VALUES
@@ -254,7 +256,7 @@ INSERT INTO `comment` (`ID`, `Content`, `Rate`, `CreatedDate`, `Status`, `create
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `film`
+-- Table structure for table `film`
 --
 
 CREATE TABLE `film` (
@@ -277,33 +279,33 @@ CREATE TABLE `film` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `film`
+-- Dumping data for table `film`
 --
 
 INSERT INTO `film` (`ID`, `Name`, `Metatitle`, `Image`, `Director`, `Actor`, `Time`, `ReleaseDate`, `Country`, `Vote`, `AgeRestriction`, `Description`, `Trailer`, `Status`, `created_at`, `updated_at`) VALUES
-(1, 'Godzilla Đại Chiến Kong - Godzilla vs. Kong', 'godzilla-dai-chien-kong-godzilla-vs-kong', 'godzilla-vs-kong.jpg', 'Adam Wingard', ' Alexander Skarsgård, Millie Bobby Brown, Rebecca Hall, Brian Tyree Henry,…', '110 phút', '2021-03-26 00:00:00', 'Mỹ', 4.2, 13, 'Hai kẻ thù truyền kiếp Kong và Godzilla sẽ chạm trán trong một trận chiến thế kỉ. Kong và các đồng đội cùng với Jia là một cô gái trẻ mồ côi, sẽ dấn thân vào cuộc thám hiểm đầy hiểm nguy mong tìm ra được ngôi nhà thật sự của mình.\r\n\r\nKhông may thay, họ lại bất ngờ gặp phải Godzilla và ngăn cản việc phá hủy trái đất của nó. Cuộc đụng độ giữa hai kẻ khổng lồ bởi những thế lực vô hình phía sau, chỉ là khởi đầu của bí ẩn nằm sâu phía dưới lòng đất.', 'https://www.youtube.com/embed/yFpuUGFS1Kg', 0, NULL, NULL),
-(2, 'Song Song', 'song-song', 'song-song.jpg', 'Nguyễn Hữu Hoàng', 'Nabi Nhã Phương, Trương Thế Vinh, Tiến Luật, Khương Ngọc, Hoàng Phi,..', 'Chưa xác định', '2021-04-02 00:00:00', 'Việt Nam', 4.3, 16, 'Với sự pha trộn giữa thể loại giật gân, tâm lý, ly kỳ, Song Song hứa hẹn sẽ mang tới màu sắc rất riêng cho loạt phim kinh dị chiếu rạp trong tháng này. Ngay tựa đề phim, Song Song đã tạo cho khán giả không ít sự tò mò và hứng thú. Song Song được lấy cảm hứng từ hiệu ứng cánh bướm, về một phụ nữ phải tìm cách sửa chữa sai lầm khi vô tình thay đổi quá khứ, khiến cuộc sống của họ bị đảo lộn.\r\nVào một đêm mưa bão, Phong (Thuận Phát) đã vô tình chứng kiến cảnh ông Sơn (Tiến Luật) hàng xóm đang cố gắng di chuyển một xác chết. Vì quá sợ hãi, Phong chạy ra khỏi nhà nhưng đã bị xe tải tông chết ngay tại chỗ trước sự bất lực của ông Sơn. Liệu mọi chuyện sẽ diễn ra như thế nào? Mời bạn theo dõi phim để có câu trả lời.', 'https://www.youtube.com/embed/hhiKQbGxEOw', 1, NULL, NULL),
-(3, 'Ấn Quỷ - The Unholy', 'an-quy-the-unholy', 'an-quy.png', 'Evan Spiliotopoulos', 'Cricket Brown, Jeffrey Dean Morgan, Katie Aselton, William Sadler, Cary Elwes,...', '90 phút', '2021-04-02 00:00:00', 'Anh', 4, 13, 'Kịch bản phim Ấn quỷ được dựa trên cuốn tiểu thuyết Shrine phát hành năm 1983. Nội dung cho thấy phim được ranh giới mỏng manh giữ đức tin và đức tin mù quáng, Ấn quỷ đã gửi được thông điệp đức tin có thể mang lại niềm tin, lý tưởng sống nhưng vẫn phải tỉnh táo để không lạc lối.\r\n\r\nTại một miền quê tại New England, là nơi cô gái khiếm thính Alice sinh ra và lớn lên chính là nơi bộ phim diễn ra.\r\n\r\nBỗng một ngày, một thế lực thần bí đã chữa lành cho Alice, giúp cô có thể nghe, nói như bình thường và có thể chữa lành mọi căn bệnh cho người khác. Dưới sự chứng kiến của hàng trăm ngàn người. Cũng từ đây hàng loạt sự kiện kinh hoàng và quỷ dị xảy ra.', 'https://www.youtube.com/embed/f1Nv2O7VJuo', 1, NULL, NULL),
-(4, 'Harry Potter Và Bảo Bối Tử Thần Phần 2 - Harry Potter And The Deathly Hallows Part 2', 'harry-potter-va-bao-boi-tu-than-phan-2-harry-potter-and-the-deathly', 'harry-potter.jpg', 'David Yates', 'Daniel Radcliffe, Rupert Grint, Emma Watson, Ralph Fiennes,…', '130 phút', '2021-04-02 00:00:00', 'Mỹ', 4.7, 10, 'Không còn sự dẫn dắt của các giáo sư, nhóm bạn Harry (Daniel Radcliffe), Ron (Rupert Grint) và Hermione (Emma Watson) bắt đầu cuộc hành trình phá hủy các Trường Sinh Linh Giá - những vật phẩm giúp Chúa tể Voldemort (Ralph Fiennes) đạt đến sự bất tử.\r\n\r\nVào lúc này, khi cả ba phải đồng lòng với nhau hơn bất cứ khi nào, những thế lực hắc ám lại đang âm mưu chia rẽ nhóm bạn. Lúc đó, những Tử thần Thực tử của Chúa tể Voldemort chiếm được quyền lãnh đạo Bộ Pháp thuật và Hogwarts, cũng như điên cuồng tìm kiếm Harry và những người bạn thân - trước cuộc chiến tối thượng cuối cùng. ', 'https://www.youtube.com/embed/eONDcHfpG0s', 1, NULL, NULL),
-(5, 'Siêu Trộm - Way Down', 'sieu-trom-way-down', 'way-down.jpg', 'Jaume Balagueró', 'Freddie Highmore, Astrid Bergès-Frisbey, Sam Riley, Liam Cunningham,...', '118 phút', '2021-04-02 00:00:00', 'Tây Ban Nha', 4.3, 18, 'Là một bom tấn điện ảnh Tây Ban Nha nói về chủ đề Cướp ngân hàng, Siêu Trộm - Way Down hứa hẹn sẽ đem đến cho khán giả những trải nghiệm cực kỳ mãn nhãn và khó đoán.\r\n\r\nNhà thám hiểm đại dương Walter Moeland vừa thành công trong việc trục vớt một xác tàu đắm thuộc vùng biển Tây Ban Nha, đồng thời tìm được 3 đồng xu vàng được cho là dẫn đến kho báu “bất tận” được chôn giấu của huyền thoại Sir Francis Drake.\r\n\r\nTuy nhiên chính quyền Tây Ban Nha quyết định tịch thu toàn bộ sản vật, kể cả 3 đồng xu, và mọi nỗ lực pháp lý đều không thể giúp Walter đoạt được quyền sở hữu. Kho báu của anh giờ đây được cất giấu tại két sắt thuộc ngân hàng bảo mật nhất thế giới - Bank of Spain.\r\n\r\nKhông từ bỏ hy vọng, Walter thành lập một biệt đội “siêu trộm”, với những bộ óc thiên tài và gan dạ nhất, bắt đầu lên kế hoạch để lấy lại những thứ thuộc về mình.', 'https://www.youtube.com/embed/XfLslifRe0g', 1, NULL, NULL),
-(6, 'Khát Vọng Đổi Đời - Minari', 'khat-vong-doi-doi-minari', 'minari.jpg', 'Lee Isaac Chung', ' Steven Yeun, Yeri Han, Alan Kim, Noel Kate Cho, Scott Haze, Yuh-Jung Youn, Will Patton,…', '115 phút', '2021-04-02 00:00:00', 'Hàn Quốc', 3.7, 16, 'Nội dung phim xoay quanh câu chuyện về một gia đình người Hàn chuyển đến vùng nông thôn Arkansas để tìm kiếm giấc mơ Mỹ.\r\n\r\nTrải qua hàng loạt khó khăn thử thách với cuộc sống mới ở vùng Ozarks khô cằn, họ phát hiện ra sức mạnh không thể chối bỏ từ hai tiếng “gia đình” và điều gì thực sự tạo nên một mái ấm gia đình. Cùng ra rạp để xem các diễn biến hấp dẫn bạn nhé.', 'https://www.youtube.com/embed/z4bqat8idns', 1, NULL, NULL),
-(7, 'Cô Gái Trẻ Hứa Hẹn - Promising Young Woman', 'co-gai-tre-huu-hen-promising-young', 'Promising-Young-Woman-1-poster_KP.jpg', 'Emerald Fennell', 'Carey Mulligan, Bo Burnham, Alison Brie', '113 phút', '2021-04-02 00:00:00', 'Anh Quốc', 4.3, 18, 'Tác phẩm hài kịch đen Cô Gái Trẻ Hứa Hẹn của nữ đạo diễn người Anh Emerald Fennell vừa được công chiếu vào ngày 02/04 tại các cụm rạp trên toàn quốc.\r\n\r\nTrước vụ việc người bạn thân nhất Nina Fisher bị tấn công tình dục và rồi tự sát vì không tìm thấy công lý, Cassandra Cassie Thomas đã gặp phải tổn thương tâm lý nặng nề và bỏ học. Giờ đây, Cassie 30 tuổi lang thang giữa các hộp đêm Ohio, đóng giả làm một “con mồi béo bở” đang say khướt để mời gọi và dạy dỗ những chàng trai ngây ngô hư hỏng.', 'https://www.youtube.com/embed/-CNNp-ylxwY', 1, NULL, NULL),
-(8, 'Kiều', 'kieu', 'kieu.jpg', ' Mai Thu Huyền', 'Cao Thái Hà, Phan Thị Mơ,…', '125 phút', '2021-03-08 00:00:00', 'Việt Nam', 4.3, 18, 'Tiếp nối những bộ phim được chuyển thể từ các tác phẩm văn học, Kiều là một cái tên sáng giá, hứa hẹn mang tới cho người hâm mộ điện ảnh thứ 7 những giây phút thư giãn đỉnh cao.\r\n\r\nBộ phim dựa trên tác phẩm văn học kinh điển cùng tên của đại thi hào Nguyễn Du. Chỉ khi vừa tung ra đoạn trailer ngắn, Kiều đã khiến không ít khán giả phải tò mò và mong chờ. Liệu Kiều trên màn ảnh có thu hút được khán giả không? Mời bạn cùng ra rạp để có được câu trả lời chính xác nhất.', 'https://www.youtube.com/embed/AHMQlyNXDm8', 1, NULL, NULL),
-(9, 'Cuộc Chiến Sinh Tử - Mortal Kombat', 'cuoc-chien-sinh-tu-mortal-kombat', 'mortal-kombat-elle-man-1.jpg', 'Simon McQuoid', 'Lewis Tan, Jessica McNamee, Tadanobu Asano', '110 phút', '2021-07-09 00:00:00', 'Trung Quốc', 4.7, 18, 'Phim nói về Cole Young, một võ sĩ tài ba trẻ tuổi, nhà vô địch MMA, vô tình sở hữu vết chàm hình Rồng đầy bí ẩn trên cơ thể. Cũng từ đó, anh bị một tên Ninja với khả năng sử dụng sức mạnh băng giá, Sub-zero, truy đuổi và đe dọa mạng sống.\r\n\r\nQua cuộc gặp gỡ với một người tên Sonya Blade, anh dần hiểu hơn về vết chàm trên cơ thể mình. Một cuộc chiến ngàn năm đang dần đến hồi kết và Cole Young chính là hy vọng cuối cùng giúp lật ngược thế cờ.', 'https://www.youtube.com/embed/NYH2sLid0Zc', 1, NULL, NULL),
-(10, 'Bản Năng Hoang Dại - Voyagers ', 'ban-nang-hoang-dai-voyagers', 'voyagers.jpg', 'Neil Burger', 'Tye Sheridan, Lily-Rose Depp, Fionn Whitehead, Chanté Adams, Isaac Hempstead Wright,…', '108 phút', '2021-07-09 00:00:00', 'Mỹ', 4, 13, 'Phim nói về tương lai không xa khi nhân loại đang trên bờ vực diệt chủng, một nhóm thanh thiếu niên được nuôi dưỡng để phục vụ cho mục đích khai thác trí tuệ và chấp nhận sai khiến. Họ bắt đầu một chuyến hành trình thám hiểm khai phá một hành tinh xa xôi khác.\r\n\r\nNhưng khi họ phát hiện ra bí mật che giấu đằng sau nhiệm vụ cao cả này, tất cả bắt đầu kháng cự lại việc huấn luyện này và bắt đầu để bản năng nguyên thuỷ lấn chiếm cảm xúc. Khi đó, vận mệnh của cả phi đoàn rơi vào hỗn loạn, họ bị chôn vùi trong sợ hãi, ham muốn và cơn khao khát quyền lực.', 'https://www.youtube.com/embed/PiyN2zS32jE', 1, NULL, NULL),
-(11, 'Bàn Tay Diệt Quỷ - Evil Expeller', 'ban-tay-diet-quy-evil-expeller', 'ban-tay-diet-quy.jpg', 'Kim Joo Hwan', 'Park Seo Joon, Ahn Sung Ki, Woo Do Hwan, Choi Woo Sik,…', '128 phút', '2021-07-09 00:00:00', 'Hàn Quốc', 4, 16, 'Phim nói về võ sĩ sau khi bản thân bỗng nhiên sở hữu “Bàn tay diệt quỷ”, nên võ sĩ MMA Yong Hoo (Park Seo Joon thủ vai) đã dấn thân vào hành trình trừ tà, trục quỷ đối đầu với Giám Mục Bóng Tối (Woo Do Hwan) – tên quỷ Satan đột lốt người.\r\n\r\nTừ đó sự thật về cái chết của cha Yong Hoo cũng dần được hé lộ cũng như nguyên nhân anh trở thành “người được chọn”. Cùng ra rạp để xem tiếp những tình tiết hấp dẫn nhé.', 'https://www.youtube.com/embed/-zBfJFu84O8', 1, NULL, NULL),
-(12, 'Nào Mình Cùng Mơ - Dreambuilders', 'nao-minh-cung-mo-drembuilders', 'dreambuilers-cgv-phim-hoat-hinh_1_.jpg', 'Nào Mình Cùng Mơ - Dreambuilders', 'Rasmus Botoft, Martin Buch, Caroline Vedel, Emilie Kroyer Koppel,…', '81 phút', '2021-08-08 00:00:00', 'Anh', 4, 8, 'Nội dung phim là chuyến hành trình đầy màu sắc của cô bé Minna vào xứ sở của những giấc mơ, nơi có những “thợ xây mơ” dễ thương và rộn chuyện. Cuộc sống của Minna đảo lộn khi cha cô tiến thêm bước nữa.\r\n\r\nCô em gái Jenny mới đến là một trong những “hot Instagram” khó ưa. Vì thế mà Minna quyết định xâm nhập và điều khiển giấc mơ, dạy cho Jenny một bài học. Và những màu nhiệm cũng như sự cố không ngờ đã xảy đến với “công xưởng giấc mơ”. Hãy cùng xem những chi tiết hấp dẫn diễn ra tại rạp nhé.', 'https://www.youtube.com/embed/MNMH5s4k1LE', 1, NULL, NULL),
-(13, 'Lật Mặt: 48h', 'lat-mat-48h', 'poster-lat-mat_lpmy.jpg', 'Lý Hải', 'Ốc Thanh Vân, Võ Thành Tâm, Mạc Văn Khoa, Huỳnh Đông...', '110 phút', '2021-08-19 00:00:00', 'Việt Nam', 4, 12, 'Câu chuyện xoay quanh hành trình trốn chạy bọn xã hội đen của gia đình anh Hiền - một võ sư có xuất thân là tay đấm bốc trong quá khứ. Vì cần một số tiền lớn, anh đã vô tình lọt vào cái bẫy của bọn người xấu nhưng may mắn thoát được. \r\n\r\nHiền cùng vợ con phải bỏ trốn về quê của một người bạn cũ để thoát khỏi sự truy sát ấy nhưng bọn chúng vẫn lần theo đến nơi và truy sát anh cho bằng được. Liệu Hiền có thoát khỏi sự truy lùng đó và bảo vệ được vợ con của mình hay không? Cùng theo dõi các diễn biến phim tại rạp nhé', 'https://www.youtube.com/embed/ykBfss-8H4Y', 1, NULL, NULL),
-(14, 'Người Nhân Bản - SEOBOK', 'nguoi-nhan-ban-seobok', 'seobok-nguoi-nhan-ban.jpg', 'Lee Yong-zoo', ' Gong Yoo, Park Bo-gum, Jo Woo-jin, Jang Young-nam, Park Byung-eun,…', '110 phút', '2021-07-19 00:00:00', 'Hàn Quốc', 4.3, 12, 'Phim kể về Ki-hun – một cựu đặc vụ sống tách biệt với thế giới bên ngoài kể từ sau biến cố trong quá khứ, chấp nhận thực hiện nhiệm vụ cuối cùng từ Cơ quan Tình báo. Anh phải chịu trách nhiệm di chuyển Seobok, một đối tượng thử nghiệm được tạo ra bằng cách nhân bản tế bào gốc và biến đổi gen.\r\n\r\nTuy nhiên mọi việc không hề suôn sẻ với họ, khi Seobok trở thành mục tiêu của các thế lực khác với những tham vọng và âm mưu khó đoán. Ki-hun sẽ vượt qua tất cả những hiểm nguy đang chực chờ phía trước, hay Seobok cuối cùng sẽ rơi vào tay kẻ muốn chiếm đoạt vận mệnh của toàn nhân loại? Cùng đón xem bộ phim chiếu rạp đang được chờ đợi này.', 'https://www.youtube.com/embed/eFf0nos163o', 1, NULL, NULL),
-(15, 'Phim \"1990\"', 'phim-1990', 'rsz_1990.jpg', 'Nhất Trung', 'Diễm My, Ninh Dương Lan Ngọc, Nhã Phương...', '120 phút', '2021-08-19 00:00:00', 'Việt Nam', 4, 10, 'Bộ phim ‘1990’ là cú bắt tay giữa ba ngọc nữ diễn viên tuổi Ngọ của điện ảnh Việt: Diễm My - Ninh Dương Lan Ngọc và Nhã Phương.\r\n\r\nPhim ‘1990’ thuộc thể loại Hài - Tình cảm, có nội dung xoay quanh một hội bạn thân gồm ba cô gái với ba cá tính khác nhau. Khi ngưỡng tuổi “30 chênh vênh” ập đến với cả ba vào cùng một thời điểm, hàng loạt những vấn đề về hôn nhân, công việc, tình yêu, sự nghiệp,... lần lượt xuất hiện, buộc họ phải giúp đỡ, tương trợ lẫn nhau vượt qua cột mốc đầy sóng gió này.', 'https://www.youtube.com/embed/bDRGW_d-3XI', 1, NULL, NULL),
-(16, 'Thám Tử Lừng Danh Conan: Viên Đạn Đỏ', 'tham-tu-lung-danh-conan-vien-dan-do', 'conan.jpg', 'Nagaoka Tomoka', 'Takayama Minami, Yamazaki Wakana, Koyama Rikiya, Yamaguchi Kappei', '110 phút', '2021-08-24 00:00:00', 'Nhật Bản', 4, 6, 'Phim lấy bối cảnh khi thành phố Tokyo (Nhật Bản) đang chuẩn bị đón đợt thế vận hội thể thao lớn nhất thế giới có tên \"WSG: World Sports Games\". Đây cũng là một sự kiện quan trọng để Nhật Bản công bố với thế giới về chuyến tàu \"tuyến tính siêu dẫn chân không\" có 1-0-2.\r\n\r\nNội dung phim kể về hành trình thám tử Conan đi tìm lời giải cho sự mất tích bí ẩn của những nhà tài trợ cho thế vận hội. Bộ phim hứa hẹn mang lại một màn đấu trí vô cùng đặc sắc.', 'https://www.youtube.com/embed/Jrt1aUU2_Xs', 1, NULL, NULL),
-(18, 'Bố già', 'Bo-gia', 'bo-gia.jpg', 'Vũ Ngọc Đãng', 'Trấn Thành, NSND Ngọc Giàu, Tuấn Trần, Ngân Chi, Lê Giang,…', '128 phút', '2021-03-12 00:00:00', 'Việt Nam', 4, 5, 'Với nội dung nhân văn, đầy ý nghĩa mà web-drama Bố Già đã gặt hái được những thành công vang dội. Để tiếp nối thành công đó, phim điện ảnh Bố Già ra mắt với mong muốn mang tới cho khán giả Việt Nam một làn gió mới.\r\n\r\nBộ phim xoay quanh về gia đình nhỏ của Ba Sang và Quắn, sống trong một khu xóm lao động nghèo. Ba Sang là một người hay lo chuyện bao đồng, luôn yêu thương con trai nhưng khoảng cách giữa những thế hệ đã khiến cho cả hay xảy ra nhiều mâu thuẫn. Liệu tình cảm của 2 bố con nhà ba Sang có trở nên tốt đẹp hơn và tạo nên gắn kết từ những sự khác biệt? \r\nBố Già mang theo thông điệp nhân văn về gia đình, truyền tải tới khán giả những bài học bằng cách kể rất mới. Theo thông tin ghi nhận được, dàn diễn viên trong phim điện ảnh Bố Già vẫn sẽ giữ nguyên như trong web-drama trước đó. Tuy nhiên, lần này, Bố Già sẽ mang đến 1 ông bố hoàn toàn khác và cả những đứa con với số phận cũng rất khác. Nếu yêu thích Bố Già cũng như dàn diễn viên đầy tài năng này, bạn nhớ ra rạp để ủng hộ phim.', 'https://www.youtube.com/embed/jluSu8Rw6YE', 1, NULL, NULL),
-(19, '123', '123', 'bo-gia-abc.jpg', 'đ', 'd', '128 phút', '2021-07-02 00:00:00', 'Việt Nam', 4, 12, 'đasadsdsadsa', 'https://www.youtube.com/embed/jluSu8Rw6YE', 1, NULL, NULL);
+(1, 'Godzilla Đại Chiến Kong - Godzilla vs. Kong', 'Godzilla-dai-Chien-Kong---Godzilla-vs.-Kong', 'godzilla-vs-kong.jpg', 'Adam Wingard', 'Alexander Skarsgård, Millie Bobby Brown, Rebecca Hall, Brian Tyree Henry,…', '110 phút', '2021-03-26 00:00:00', 'USA', 4.2, 13, 'Two arch-enemies Kong and Godzilla will face off in a battle of the century. Kong and his teammates along with Jia is an orphaned young girl who will embark on a perilous expedition to find her true home.\r\n\r\nUnfortunately, they unexpectedly encountered Godzilla and prevented its destruction of the earth. The clash between the two giants by the unseen forces behind, is just the beginning of the mystery deep underground.', 'https://www.youtube.com/embed/yFpuUGFS1Kg', 0, NULL, NULL),
+(2, 'Song Song', 'Song-Song', 'song-song.jpg', 'Nguyễn Hữu Hoàng', 'Nabi Nhã Phương, Trương Thế Vinh, Tiến Luật, Khương Ngọc, Hoàng Phi,..', '180 phút', '2021-04-02 00:00:00', 'Viet Nam', 4.3, 16, 'With a mix of sensational, psychological, and thrilling genres, Song Song promises to bring a very unique color to the horror series in theaters this month. Right at the title of the film, Song Song has created a lot of curiosity and excitement for the audience. Song Song is inspired by the butterfly effect, about a woman who must find a way to correct the mistake of accidentally changing the past, turning their lives upside down.\r\nOn a stormy night, Phong (Thuan Phat) accidentally witnessed his neighbor Son (Tien Luat) trying to move a dead body. Because he was too scared, Phong ran out of the house but was hit by a truck and died on the spot before Mr. Son\'s helplessness. How will things turn out? Please watch the movie to get the answer.', 'https://www.youtube.com/embed/hhiKQbGxEOw', 1, NULL, NULL),
+(3, 'Ấn Quỷ - The Unholy', 'an-Quy---The-Unholy', 'an-quy.png', 'Evan Spiliotopoulos', 'Cricket Brown, Jeffrey Dean Morgan, Katie Aselton, William Sadler, Cary Elwes,...', '90 phút', '2021-04-02 00:00:00', 'England', 4, 13, 'The screenplay of the film is based on the novel Shrine released in 1983. The content shows that the film has thin lines between faith and blind faith, Demon Seal has sent a message of faith that can bring faith believe, the ideal of life but still have to be alert so as not to get lost.\r\n\r\nIn a rural area in New England, where the deaf girl Alice was born and raised is where the film takes place.\r\n\r\nSuddenly, one day, a mysterious force healed Alice, enabling her to hear and speak normally and to heal all diseases for others. In the presence of hundreds of thousands of people. Also from here a series of horrifying and monstrous events occurred.', 'https://www.youtube.com/embed/f1Nv2O7VJuo', 1, NULL, NULL),
+(4, 'Harry Potter Và Bảo Bối Tử Thần Phần 2 - Harry Potter And The Deathly Hallows Part 2', 'Harry-Potter-Va-Bao-Boi-Tu-Than-Phan-2---Harry-Potter-And-The-Deathly-Hallows-Part-2', 'harry-potter.jpg', 'David Yates', 'Daniel Radcliffe, Rupert Grint, Emma Watson, Ralph Fiennes,…', '130 phút', '2021-04-02 00:00:00', 'USA', 4.7, 10, 'Without the guidance of the professors, the group of friends Harry (Daniel Radcliffe), Ron (Rupert Grint) and Hermione (Emma Watson) begin a journey to destroy the Horcruxes - the items that help Lord Voldemort ( Ralph Fiennes) attains immortality.\r\n\r\nAt this time, when the three must agree with each other more than ever, the dark forces are plotting to divide the group of friends. At that time, Lord Voldemort\'s Death Eaters took over the leadership of the Ministry of Magic and Hogwarts, and frantically searched for Harry and his besties - before the ultimate final battle.', 'https://www.youtube.com/embed/eONDcHfpG0s', 1, NULL, NULL),
+(5, 'Siêu Trộm - Way Down', 'Sieu-Trom---Way-Down', 'way-down.jpg', 'Jaume Balagueró', 'Freddie Highmore, Astrid Bergès-Frisbey, Sam Riley, Liam Cunningham,...', '118 phút', '2021-04-02 00:00:00', 'USA', 4.3, 18, 'As a Spanish movie blockbuster on the topic of Bank robbery, Super Theft - Way Down promises to bring the audience extremely voyeuristic and unpredictable experiences.\r\n\r\nOcean explorer Walter Moeland has just succeeded in salvaging a shipwreck in Spanish waters, and at the same time found 3 gold coins that are said to lead to the \"endless\" buried treasure of the legend. Sir Francis Drake.\r\n\r\nHowever, the Spanish authorities decided to confiscate the entire product, including 3 coins, and all legal efforts could not help Walter gain ownership. His treasure is now hidden in the safe of the most secure bank in the world - Bank of Spain.\r\n\r\nNot giving up hope, Walter formed a team of \"super thieves\", with the most genius and brave minds, starting to plan to get back what belongs to him.', 'https://www.youtube.com/embed/XfLslifRe0g', 1, NULL, NULL),
+(6, 'Khát Vọng Đổi Đời - Minari', 'Khat-Vong-doi-doi---Minari', 'minari.jpg', 'Lee Isaac Chung', 'Steven Yeun, Yeri Han, Alan Kim, Noel Kate Cho, Scott Haze, Yuh-Jung Youn, Will Patton,…', '115 phút', '2021-04-02 00:00:00', 'Korea', 3.7, 16, 'The film\'s content revolves around the story of a Korean family who move to rural Arkansas in search of the American dream.\r\n\r\nThrough a series of hardships and challenges with their new life in the arid Ozarks, they discover the undeniable power of the two words \"family\" and what really makes a family home. Come to the theater to see the exciting happenings.', 'https://www.youtube.com/embed/z4bqat8idns', 1, NULL, NULL),
+(7, 'Cô Gái Trẻ Hứa Hẹn - Promising Young Woman', 'Co-Gai-Tre-Hua-Hen---Promising-Young-Woman', 'Promising-Young-Woman-1-poster_KP.jpg', 'Emerald Fennell', 'Carey Mulligan, Bo Burnham, Alison Brie', '113 phút', '2021-04-02 00:00:00', 'England', 4.3, 18, 'The black comedy The Promised Young Girl by British director Emerald Fennell has just been premiered on April 2 at cinemas nationwide.\r\n\r\nBefore her best friend Nina Fisher was sexually assaulted and then committed suicide for not finding justice, Cassandra Cassie Thomas suffered severe psychological trauma and dropped out of school. Now, 30-year-old Cassie wanders among Ohio nightclubs, posing as a drunken \"fat prey\" to attract and educate spoiled naughty boys.', 'https://www.youtube.com/embed/-CNNp-ylxwY', 1, NULL, NULL),
+(8, 'Kiều', 'Kieu', 'kieu.jpg', 'Mai Thu Huyền', 'Cao Thái Hà, Phan Thị Mơ,…', '125 phút', '2021-03-08 00:00:00', 'Viet Nam', 4.3, 18, 'Following the films adapted from literary works, Kieu is a bright name, promising to bring the 7th movie fans the ultimate relaxing moments.\r\n\r\nThe film is based on the classic literary work of the same name by the great poet Nguyen Du. Just after releasing the short trailer, Kieu made many viewers curious and looking forward to it. Will Kieu on the screen attract the audience? Please come to the theater to get the most accurate answer.', 'https://www.youtube.com/embed/AHMQlyNXDm8', 1, NULL, NULL),
+(9, 'Cuộc Chiến Sinh Tử - Mortal Kombat', 'Cuoc-Chien-Sinh-Tu---Mortal-Kombat', 'mortal-kombat-elle-man-1.jpg', 'Simon McQuoid', 'Lewis Tan, Jessica McNamee, Tadanobu Asano', '110 phút', '2021-07-09 00:00:00', 'Chinese', 4.7, 18, 'The film is about Cole Young, a talented young boxer, MMA champion, who accidentally owns a mysterious Dragon-shaped birthmark on his body. From there, he was chased and threatened by a Ninja with the ability to use icy powers, Sub-zero.\r\n\r\nThrough an encounter with a person named Sonya Blade, he gradually understood more about the birthmark on his body. A millennial war is coming to an end and Cole Young is the last hope to turn the tide.', 'https://www.youtube.com/embed/NYH2sLid0Zc', 1, NULL, NULL),
+(10, 'Bản Năng Hoang Dại - Voyagers', 'Ban-Nang-Hoang-Dai---Voyagers', 'voyagers.jpg', 'Neil Burger', 'Tye Sheridan, Lily-Rose Depp, Fionn Whitehead, Chanté Adams, Isaac Hempstead Wright,…', '108 phút', '2021-07-09 00:00:00', 'USA', 4, 13, 'The film is about the not-so-distant future when humanity is on the verge of genocide, a group of teenagers are raised to serve the purpose of intellectual exploitation and acceptance. They embark on an exploratory journey to explore another distant planet.\r\n\r\nBut when they discover the hidden secret behind this noble mission, all begin to resist this training and begin to let their primal instincts take over. At that time, the fate of the entire squadron fell into chaos, they were buried in fear, lust and thirst for power.', 'https://www.youtube.com/embed/PiyN2zS32jE', 1, NULL, NULL),
+(11, 'Bàn Tay Diệt Quỷ - Evil Expeller', 'Ban-Tay-Diet-Quy---Evil-Expeller', 'ban-tay-diet-quy.jpg', 'Kim Joo Hwan', 'Park Seo Joon, Ahn Sung Ki, Woo Do Hwan, Choi Woo Sik,…', '128 phút', '2021-07-09 00:00:00', 'Korea', 4, 16, 'The film is about a martial artist after he suddenly possessed the \"Devil\'s Hand\", so MMA fighter Yong Hoo (played by Park Seo Joon) embarked on a journey of exorcism, the axis of demons, and the confrontation with Bishop Shadow. Evening (Woo Do Hwan) – Satan\'s demon disguised as a human.\r\n\r\nSince then, the truth about Yong Hoo\'s father\'s death is gradually revealed as well as the reason why he became \"the chosen one\". Let\'s go to the theater to see more interesting details.', 'https://www.youtube.com/embed/-zBfJFu84O8', 1, NULL, NULL),
+(12, 'Nào Mình Cùng Mơ - Dreambuilders', 'Nao-Minh-Cung-Mo---Dreambuilders', 'dreambuilers-cgv-phim-hoat-hinh_1_.jpg', 'Nào Mình Cùng Mơ - Dreambuilders', 'Rasmus Botoft, Martin Buch, Caroline Vedel, Emilie Kroyer Koppel,…', '81 phút', '2021-08-08 00:00:00', 'England', 4, 8, 'The film\'s content is the colorful journey of little Minna into the land of dreams, where there are cute and busy \"dream builders\". Minna\'s life turns upside down when her father takes another step forward.\r\n\r\nThe newly arrived sister Jenny is one of those \"hot Instagram\" nasty ones. So Minna decided to infiltrate and manipulate the dream, teaching Jenny a lesson. And miracles as well as unexpected incidents happened to the \"dream factory\". Let\'s take a look at the exciting details that take place in theaters.', 'https://www.youtube.com/embed/MNMH5s4k1LE', 1, NULL, NULL),
+(13, 'Lật Mặt: 48h', 'Lat-Mat:-48h', 'poster-lat-mat_lpmy.jpg', 'Lý Hải', 'Ốc Thanh Vân, Võ Thành Tâm, Mạc Văn Khoa, Huỳnh Đông...', '110 phút', '2021-08-19 00:00:00', 'Việt Nam', 4, 12, 'The story revolves around the journey of escaping from the gangsters of the family of Mr. Hien - a martial arts master with a background as a boxer in the past. Because he needed a large amount of money, he accidentally fell into the trap of bad people but luckily escaped.\r\n\r\nHien and his wife and children had to flee to an old friend\'s hometown to escape the chase, but they still followed him to the place and chased him down. Will Hien escape the hunt and protect his wife and children? Let\'s follow the movie happenings in theaters', 'https://www.youtube.com/embed/ykBfss-8H4Y', 1, NULL, NULL),
+(14, 'Người Nhân Bản - SEOBOK', 'Nguoi-Nhan-Ban---SEOBOK', 'seobok-nguoi-nhan-ban.jpg', 'Lee Yong-zoo', 'Gong Yoo, Park Bo-gum, Jo Woo-jin, Jang Young-nam, Park Byung-eun,…', '110 phút', '2021-07-19 00:00:00', 'Korea', 4.3, 12, 'The film tells the story of Ki-hun - a former agent who has lived isolated from the outside world since the incident in the past, accepting the last mission from the Intelligence Agency. He was responsible for moving Seobok, a test subject created by cloning stem cells and genetically modifying them.\r\n\r\nHowever, things did not go well for them, when Seobok became the target of other forces with unpredictable ambitions and plots. Will Ki-hun overcome all the dangers that lie ahead, or will Seobok eventually fall into the hands of someone who wants to usurp the destiny of all mankind? Check out this much-awaited movie in theaters.', 'https://www.youtube.com/embed/eFf0nos163o', 1, NULL, NULL),
+(15, 'Phim \"1990\"', 'Phim-\"1990\"', 'rsz_1990.jpg', 'Nhất Trung', 'Diễm My, Ninh Dương Lan Ngọc, Nhã Phương...', '120 phút', '2021-08-19 00:00:00', 'Việt Nam', 4, 10, 'The movie \'1990\' is a handshake between three Ngoc actresses of Vietnamese cinema: Diem My - Ninh Duong Lan Ngoc and Nha Phuong.\r\n\r\nThe movie \'1990\' is in the Comedy - Romance genre, with the content revolving around a group of close friends consisting of three girls with three different personalities. When the age threshold of \"30 difference\" hit all three at the same time, a series of problems related to marriage, work, love, career, ... one after another appeared, forcing them to help. , support each other to overcome this turbulent milestone.', 'https://www.youtube.com/embed/bDRGW_d-3XI', 1, NULL, NULL),
+(16, 'Thám Tử Lừng Danh Conan: Viên Đạn Đỏ', 'Tham-Tu-Lung-Danh-Conan:-Vien-dan-do', 'conan.jpg', 'Nagaoka Tomoka', 'Takayama Minami, Yamazaki Wakana, Koyama Rikiya, Yamaguchi Kappei', '110 phút', '2021-08-24 00:00:00', 'Japan', 4, 6, 'The film is set when the city of Tokyo (Japan) is preparing to welcome the world\'s largest sports Olympics called \"WSG: World Sports Games\". This is also an important event for Japan to announce to the world about the \"linear vacuum superconducting\" train with 1-0-2.\r\n\r\nThe film is about Detective Conan\'s journey to find a solution to the mysterious disappearance of the sponsors of the Olympics. The film promises to bring a very unique mind-bending performance.', 'https://www.youtube.com/embed/Jrt1aUU2_Xs', 1, NULL, NULL),
+(18, 'Bố già', 'Bo-gia', 'bo-gia.jpg', 'Vũ Ngọc Đãng', 'Trấn Thành, NSND Ngọc Giàu, Tuấn Trần, Ngân Chi, Lê Giang,…', '128 phút', '2021-03-12 00:00:00', 'Việt Nam', 4, 5, 'With humane and meaningful content, the Godfather web-drama has achieved great success. To continue that success, the movie Bo Gia was released with the desire to bring Vietnamese audiences a new breeze.\r\n\r\nThe film revolves around the small family of Ba Sang and Quan, living in a poor working-class neighborhood. Ba Sang is a man who cares about money, always loves his son, but the gap between generations has caused many conflicts. Will the feelings of the father and son of the Sang family become better and create a bond from the differences?\r\nThe Godfather carries a human message about family, conveying to the audience lessons by telling very new. According to recorded information, the cast in the movie \"The Godfather\" will remain the same as in the previous web-drama. However, this time, the Godfather will bring a completely different father and children with a very different fate. If you love The Godfather and this talented cast, make sure you go to the cinema to support the movie.', 'https://www.youtube.com/embed/jluSu8Rw6YE', 1, NULL, NULL),
+(19, 'Bố Già', 'Bo-Gia', 'bo-gia-abc.jpg', 'Vu Ngoc Dang', 'Tran Thanh , Luu Van Huy', '128 phút', '2021-07-02 00:00:00', 'Viet Nam', 4, 12, 'As a single father since his wife left, Mr. Sang became the sole support for his eldest son Quan and adopted daughter Bu Tot. Quan is a young man with progressive ideas, does not want his father to suffer because of being oppressed by his relatives, and Mr. Sang is a gentle man who is always patient with people around. As a result, the father-son relationship is increasingly strained. The gap between two different generations, is it easy to understand and sympathize with each other?', 'https://www.youtube.com/embed/jluSu8Rw6YE', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `food_drink`
+-- Table structure for table `food_drink`
 --
 
 CREATE TABLE `food_drink` (
@@ -317,7 +319,7 @@ CREATE TABLE `food_drink` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `food_drink`
+-- Dumping data for table `food_drink`
 --
 
 INSERT INTO `food_drink` (`ID`, `Name`, `Image`, `Price`, `Description`, `created_at`, `updated_at`) VALUES
@@ -328,7 +330,7 @@ INSERT INTO `food_drink` (`ID`, `Name`, `Image`, `Price`, `Description`, `create
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `member`
+-- Table structure for table `member`
 --
 
 CREATE TABLE `member` (
@@ -341,7 +343,7 @@ CREATE TABLE `member` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `member`
+-- Dumping data for table `member`
 --
 
 INSERT INTO `member` (`ID`, `Point`, `Name`, `created_at`, `updated_at`, `User_ID`) VALUES
@@ -354,7 +356,7 @@ INSERT INTO `member` (`ID`, `Point`, `Name`, `created_at`, `updated_at`, `User_I
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -364,7 +366,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -385,7 +387,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -397,7 +399,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `reply`
+-- Table structure for table `reply`
 --
 
 CREATE TABLE `reply` (
@@ -411,7 +413,7 @@ CREATE TABLE `reply` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `reply`
+-- Dumping data for table `reply`
 --
 
 INSERT INTO `reply` (`ID`, `Content`, `CreatedDate`, `created_at`, `updated_at`, `User_ID`, `Comment_ID`) VALUES
@@ -427,7 +429,7 @@ INSERT INTO `reply` (`ID`, `Content`, `CreatedDate`, `created_at`, `updated_at`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `room`
+-- Table structure for table `room`
 --
 
 CREATE TABLE `room` (
@@ -439,7 +441,7 @@ CREATE TABLE `room` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `room`
+-- Dumping data for table `room`
 --
 
 INSERT INTO `room` (`ID`, `Name`, `Status`, `created_at`, `updated_at`) VALUES
@@ -448,7 +450,7 @@ INSERT INTO `room` (`ID`, `Name`, `Status`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `room_detail`
+-- Table structure for table `room_detail`
 --
 
 CREATE TABLE `room_detail` (
@@ -464,7 +466,7 @@ CREATE TABLE `room_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `room_detail`
+-- Dumping data for table `room_detail`
 --
 
 INSERT INTO `room_detail` (`ID`, `Level`, `Row`, `Column`, `Price`, `TicketPrice`, `created_at`, `updated_at`, `Room_ID`) VALUES
@@ -475,7 +477,7 @@ INSERT INTO `room_detail` (`ID`, `Level`, `Row`, `Column`, `Price`, `TicketPrice
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -495,7 +497,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`ID`, `Account`, `Email`, `Password`, `Fullname`, `Address`, `Phone`, `Sex`, `BirthDay`, `Type`, `Status`, `created_at`, `updated_at`) VALUES
@@ -507,11 +509,11 @@ INSERT INTO `users` (`ID`, `Account`, `Email`, `Password`, `Fullname`, `Address`
 (7, 'PhucAptech', 'phucpvts2008046@fpt.edu.vn', '123456', 'Phuc', 'Binh Chanh', '0963236247', 'Nam', '2021-07-15 00:00:00', 1, 1, NULL, NULL);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `book_fd`
+-- Indexes for table `book_fd`
 --
 ALTER TABLE `book_fd`
   ADD PRIMARY KEY (`ID`),
@@ -519,7 +521,7 @@ ALTER TABLE `book_fd`
   ADD KEY `book_fd_fooddrink_id_foreign` (`FoodDrink_ID`);
 
 --
--- Chỉ mục cho bảng `book_sit`
+-- Indexes for table `book_sit`
 --
 ALTER TABLE `book_sit`
   ADD PRIMARY KEY (`ID`),
@@ -527,7 +529,7 @@ ALTER TABLE `book_sit`
   ADD KEY `book_sit_roomdetail_id_foreign` (`RoomDetail_ID`);
 
 --
--- Chỉ mục cho bảng `book_ticket`
+-- Indexes for table `book_ticket`
 --
 ALTER TABLE `book_ticket`
   ADD PRIMARY KEY (`ID`),
@@ -535,13 +537,13 @@ ALTER TABLE `book_ticket`
   ADD KEY `book_ticket_film_id_foreign` (`Film_ID`);
 
 --
--- Chỉ mục cho bảng `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Chỉ mục cho bảng `categoryfilm`
+-- Indexes for table `categoryfilm`
 --
 ALTER TABLE `categoryfilm`
   ADD PRIMARY KEY (`ID`),
@@ -549,7 +551,7 @@ ALTER TABLE `categoryfilm`
   ADD KEY `categoryfilm_film_id_foreign` (`Film_ID`);
 
 --
--- Chỉ mục cho bảng `comment`
+-- Indexes for table `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`ID`),
@@ -557,32 +559,32 @@ ALTER TABLE `comment`
   ADD KEY `comment_film_id_foreign` (`Film_ID`);
 
 --
--- Chỉ mục cho bảng `film`
+-- Indexes for table `film`
 --
 ALTER TABLE `film`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Chỉ mục cho bảng `food_drink`
+-- Indexes for table `food_drink`
 --
 ALTER TABLE `food_drink`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Chỉ mục cho bảng `member`
+-- Indexes for table `member`
 --
 ALTER TABLE `member`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `member_user_id_foreign` (`User_ID`);
 
 --
--- Chỉ mục cho bảng `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `reply`
+-- Indexes for table `reply`
 --
 ALTER TABLE `reply`
   ADD PRIMARY KEY (`ID`),
@@ -590,166 +592,166 @@ ALTER TABLE `reply`
   ADD KEY `reply_comment_id_foreign` (`Comment_ID`);
 
 --
--- Chỉ mục cho bảng `room`
+-- Indexes for table `room`
 --
 ALTER TABLE `room`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Chỉ mục cho bảng `room_detail`
+-- Indexes for table `room_detail`
 --
 ALTER TABLE `room_detail`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `room_detail_room_id_foreign` (`Room_ID`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `book_fd`
+-- AUTO_INCREMENT for table `book_fd`
 --
 ALTER TABLE `book_fd`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT cho bảng `book_sit`
+-- AUTO_INCREMENT for table `book_sit`
 --
 ALTER TABLE `book_sit`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT cho bảng `book_ticket`
+-- AUTO_INCREMENT for table `book_ticket`
 --
 ALTER TABLE `book_ticket`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT cho bảng `category`
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT cho bảng `categoryfilm`
+-- AUTO_INCREMENT for table `categoryfilm`
 --
 ALTER TABLE `categoryfilm`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT cho bảng `comment`
+-- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT cho bảng `film`
+-- AUTO_INCREMENT for table `film`
 --
 ALTER TABLE `film`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT cho bảng `food_drink`
+-- AUTO_INCREMENT for table `food_drink`
 --
 ALTER TABLE `food_drink`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT cho bảng `member`
+-- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT cho bảng `reply`
+-- AUTO_INCREMENT for table `reply`
 --
 ALTER TABLE `reply`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `room`
+-- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `room_detail`
+-- AUTO_INCREMENT for table `room_detail`
 --
 ALTER TABLE `room_detail`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `book_fd`
+-- Constraints for table `book_fd`
 --
 ALTER TABLE `book_fd`
   ADD CONSTRAINT `book_fd_bookticket_id_foreign` FOREIGN KEY (`BookTicket_ID`) REFERENCES `book_ticket` (`ID`),
   ADD CONSTRAINT `book_fd_fooddrink_id_foreign` FOREIGN KEY (`FoodDrink_ID`) REFERENCES `food_drink` (`ID`);
 
 --
--- Các ràng buộc cho bảng `book_sit`
+-- Constraints for table `book_sit`
 --
 ALTER TABLE `book_sit`
   ADD CONSTRAINT `book_sit_bookticket_id_foreign` FOREIGN KEY (`BookTicket_ID`) REFERENCES `book_ticket` (`ID`),
   ADD CONSTRAINT `book_sit_roomdetail_id_foreign` FOREIGN KEY (`RoomDetail_ID`) REFERENCES `room_detail` (`ID`);
 
 --
--- Các ràng buộc cho bảng `book_ticket`
+-- Constraints for table `book_ticket`
 --
 ALTER TABLE `book_ticket`
   ADD CONSTRAINT `book_ticket_film_id_foreign` FOREIGN KEY (`Film_ID`) REFERENCES `film` (`ID`),
   ADD CONSTRAINT `book_ticket_user_id_foreign` FOREIGN KEY (`User_ID`) REFERENCES `users` (`ID`);
 
 --
--- Các ràng buộc cho bảng `categoryfilm`
+-- Constraints for table `categoryfilm`
 --
 ALTER TABLE `categoryfilm`
   ADD CONSTRAINT `categoryfilm_category_id_foreign` FOREIGN KEY (`Category_ID`) REFERENCES `category` (`ID`),
   ADD CONSTRAINT `categoryfilm_film_id_foreign` FOREIGN KEY (`Film_ID`) REFERENCES `film` (`ID`);
 
 --
--- Các ràng buộc cho bảng `comment`
+-- Constraints for table `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_film_id_foreign` FOREIGN KEY (`Film_ID`) REFERENCES `film` (`ID`),
   ADD CONSTRAINT `comment_user_id_foreign` FOREIGN KEY (`User_ID`) REFERENCES `users` (`ID`);
 
 --
--- Các ràng buộc cho bảng `member`
+-- Constraints for table `member`
 --
 ALTER TABLE `member`
   ADD CONSTRAINT `member_user_id_foreign` FOREIGN KEY (`User_ID`) REFERENCES `users` (`ID`);
 
 --
--- Các ràng buộc cho bảng `reply`
+-- Constraints for table `reply`
 --
 ALTER TABLE `reply`
   ADD CONSTRAINT `reply_comment_id_foreign` FOREIGN KEY (`Comment_ID`) REFERENCES `comment` (`ID`),
   ADD CONSTRAINT `reply_user_id_foreign` FOREIGN KEY (`User_ID`) REFERENCES `users` (`ID`);
 
 --
--- Các ràng buộc cho bảng `room_detail`
+-- Constraints for table `room_detail`
 --
 ALTER TABLE `room_detail`
   ADD CONSTRAINT `room_detail_room_id_foreign` FOREIGN KEY (`Room_ID`) REFERENCES `room` (`ID`);
