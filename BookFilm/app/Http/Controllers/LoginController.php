@@ -104,7 +104,7 @@ class LoginController extends Controller
     		DB::update('update users set Password = ? where ID = ?', [$NewPass, $user->ID]);
 
     		Session::forget('user');
-    		Session::flash('error', 'Change password successfully, please login again.');
+    		Session::flash('success', 'Change password successfully, please login again.');
     		return redirect('/dang-nhap.html');
     	}
 
