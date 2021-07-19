@@ -16,8 +16,9 @@ class UserController extends Controller
     public function Index()
     {
     	# code...
+        $type = 1;
     	$query = DB::table('users')
-    					->where('Account', '!=', 'admin')
+    					->where('Type', $type)
                         ->orderBy('ID', 'desc')
             			->paginate(10);
         $member = DB::table('member')->get();
@@ -27,6 +28,23 @@ class UserController extends Controller
     										'member'=> $member
     									]);
     }
+
+    public function IndexAdmin()
+    {
+    	# code...
+        $type = 2;
+    	$query = DB::table('users')
+    					->where('Type', $type)
+                        ->orderBy('ID', 'desc')
+            			->paginate(10);
+        $member = DB::table('member')->get();
+
+        return view('admin.user.admin')->with([
+    										'query'=> $query,
+    										'member'=> $member
+    									]);
+    }
+
 
     public function ChangeStatus($ID){
     	$user = DB::table('users')->where('ID', $ID)->first();

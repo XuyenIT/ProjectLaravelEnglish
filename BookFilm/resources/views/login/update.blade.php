@@ -36,7 +36,7 @@
         </div>
 
         <div class="login__control" style="margin-top: 40px">
-            <input type="submit" value="Cập nhật" class="btn btn-md btn--warning btn--wider">
+            <input type="submit" value="Update" class="btn btn-md btn--warning btn--wider">
         </div>
     </div>
 </form>

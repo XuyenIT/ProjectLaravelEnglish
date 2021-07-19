@@ -20,21 +20,16 @@ class LoginController extends Controller
     public function FormLogin(Request $request){
     	$account = $request->get("Account");
     	$password = $request->get("Password");
-
-    	if(DB::table('users')->where('Account', $account)->where('Password', $password)->count() > 0){
-            if($account == "admin"){
-                $user = DB::table('users')
+        $userall = DB::table('users')->where('Account', $account)->where('Password', $password)->count();
+    	if($userall > 0){
+            $user = DB::table('users')
                     ->where('Account', $account)
                     ->where('Password', $password)
                     ->first();
-
+            if($user->Type == 2 && $user->Status == true ){
                 Session::put('admin', $user);
                 return redirect('/Admin/Home');
             }else{
-                $user = DB::table('users')
-                ->where('Account', $account)
-                ->where('Password', $password)
-                ->first();
                 if($user->Status == false){
                     Session::flash('error', 'Your account is banned.');
                     return redirect('/dang-nhap.html');

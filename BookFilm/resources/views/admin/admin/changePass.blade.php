@@ -119,13 +119,6 @@
                     RePass: {
                         required: "Plesea re-enter your new password",
                         equalTo: "Re-enter a password that doesn't match"
-
-                    NewPass: "Please enter new password",
-                    OldPass: "Please enter old password",
-                    RePass: {
-                        required: "Please enter password",
-                        equalTo: "password error"
-
                     }
                 }
             });

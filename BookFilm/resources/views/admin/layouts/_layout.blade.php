@@ -27,6 +27,8 @@
     <link href="{{asset('Admin/css/PNotify.css')}}" rel="stylesheet" />
     <link href="{{asset('Admin/css/PNotifyBootstrap3.css')}}" rel="stylesheet" />
     <link href="{{asset('Admin/css/PNotifyConfirm.css')}}" rel="stylesheet" />
+    <!--DataTables-->
+    <link rel="stylesheet" href="/cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 
     <!-- Custom CSS -->
     <link href="{{asset('Admin/css/startmin.css')}}" rel="stylesheet">
@@ -75,15 +77,18 @@
             <ul class="nav navbar-right navbar-top-links">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> Administrator <b class="caret"></b>
+                        <i class="fa fa-user fa-fw"></i>    {{ Session::get('admin')->Fullname }} <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
 
                             <a href="/"><i class="fa fa-user fa-fw"></i>Back to X-Star Cineplex</a>
                         </li>
+                        <li>
+                            <a href="/Admin/upadateForm"><i class="fa fa-edit fa-fw"></i>Upadate Information</a>
+                        </li>
                          <li>
-                            <a href="/Admin/ChangePass"><i class="fa fa-edit fa-fw"></i>Change password</a>
+                            <a href="/Admin/ChangePass"><i class="fa fa-key fa-fw"></i>Change password</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -129,7 +134,15 @@
                         </li>
 
                         <li>
-                            <a href="/Admin/User"><i class="fa fa-user fa-fw"></i>Manager User's account</a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i>Manager Account<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/Admin/User">Manager User's account</a>
+                                </li>
+                                <li>
+                                    <a href="/Admin/User/indexAdmin">Manager Admin's account</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-address-book-o fa-fw"></i> Ticket Management<span class="fa arrow"></span></a>
@@ -181,6 +194,8 @@
     <script src="{{asset('Admin/js/startmin.js')}}"></script>
     <!--Swipe js-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--data tables-->
+    <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     @yield('jsAdmin')
 </body>
 </html>

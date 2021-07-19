@@ -32,11 +32,11 @@
             </div>
             <div class="col-sm-4">
                 <label style="margin-top: 3px;">Male</label>
-                <input type="radio" value="Nam" name="Sex" checked>
+                <input type="radio" value="Male" name="Sex" checked>
             </div>
             <div class="col-sm-4">
                 <label style="margin-top: 3px;">Female</label>
-                <input type="radio" value="Nữ" name="Sex">
+                <input type="radio" value="Female" name="Sex">
             </div>
         </div>
 

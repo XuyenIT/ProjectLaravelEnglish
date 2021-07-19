@@ -94,6 +94,8 @@ Route::group(['prefix' => '/Admin/User','namespace' => 'Admin'], function() {
 
     Route::get('/changeStatus/{ID}', 'UserController@ChangeStatus');
     Route::get('/Delete/{ID}', 'UserController@DeleteUser');
+    //
+    Route::get('/indexAdmin', 'UserController@IndexAdmin');
 
 });
 
@@ -145,5 +147,11 @@ Route::group(['prefix' => '/Admin','namespace' => 'Admin'], function() {
     //
     Route::get('/ChangePass', 'AdminController@ChangePass');
     Route::post('/FormChangePass', 'AdminController@FormChangePass');
+    //
+    Route::get('/upadateForm', 'AdminController@UpdateUser');
+    Route::post('/upatePost', 'AdminController@Update');
+    //
+    Route::get('/registerAdmin', 'AdminController@registerAdmin');
+    Route::Post('/registerAccount', 'AdminController@FormRegister');
 
 });
