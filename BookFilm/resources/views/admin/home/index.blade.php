@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Thống kê & báo cáo</h1>
+                <h1 class="page-header">Statistics & reports</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -31,7 +31,7 @@
                     <a href="#">
                         <div class="panel-footer">
                             <span class="pull-left"></span>
-                            <span class="pull-right text-panel">Thành viên website!</span>
+                            <span class="pull-right text-panel">Website members!</span>
 
                             <div class="clearfix"></div>
                         </div>
@@ -54,7 +54,7 @@
                     <a href="#">
                         <div class="panel-footer">
                             <span class="pull-left"></span>
-                            <span class="pull-right text-panel">Doanh thu!</span>
+                            <span class="pull-right text-panel">Revenue!</span>
 
                             <div class="clearfix"></div>
                         </div>
@@ -90,7 +90,7 @@
             <div class="col-lg-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i>Xếp hạng phim
+                        <i class="fa fa-bar-chart-o fa-fw"></i>Movie Rating
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -99,9 +99,9 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Tên phim</th>
-                                        <th>Thể loại</th>
-                                        <th>Điểm</th>
+                                        <th>Movie's name</th>
+                                        <th>Category</th>
+                                        <th>Point</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -130,7 +130,7 @@
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i>Phim đặt vé nhiều
+                        <i class="fa fa-bar-chart-o fa-fw"></i>Movies with a lot of tickets
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -138,8 +138,8 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th class="text-center">Tên phim</th>
-                                        <th>Số lượng</th>
+                                        <th class="text-center">Movie's name</th>
+                                        <th>Amount</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -165,39 +165,39 @@
             <div class="col-lg-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-bell fa-fw"></i> Báo cáo hàng ngày
+                        <i class="fa fa-bell fa-fw"></i> Daily report
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="list-group">
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-comment fa-fw"></i> Đánh giá phim mới
+                                <i class="fa fa-comment fa-fw"></i> New movie reviews
                                 <span class="pull-right text-muted small">
-                                    <em>{{ $comment_today}} đánh giá</em>
+                                    <em>{{ $comment_today}}Rating</em>
                                 </span>
                             </a>
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-address-book-o fa-fw"></i> Vé đặt hôm nay
+                                <i class="fa fa-address-book-o fa-fw"></i> Tickets booked today
                                 <span class="pull-right text-muted small">
                                     <em>{{ $ticket_today}} vé</em>
                                 </span>
                             </a>
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-user fa-fw"></i> User đã đăng ký
+                                <i class="fa fa-user fa-fw"></i> Registered User
                                 <span class="pull-right text-muted small">
                                     <em>{{ $count_user }} user</em>
                                 </span>
                             </a>
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-users fa-fw"></i> Phim đang chiếu
+                                <i class="fa fa-users fa-fw"></i> Movie is playing
                                 <span class="pull-right text-muted small">
                                     <em>{{ $moviePlay }} phim</em>
                                 </span>
                             </a>
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-inbox fa-fw"></i> Phim sắp chiếu
+                                <i class="fa fa-inbox fa-fw"></i> Movie coming soon
                                 <span class="pull-right text-muted small">
-                                    <em>{{ $comingMovie }} phim</em>
+                                    <em>{{ $comingMovie }} Film</em>
                                 </span>
                             </a>
 
