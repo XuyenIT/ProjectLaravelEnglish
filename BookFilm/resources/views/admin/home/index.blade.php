@@ -173,25 +173,25 @@
                             <a href="#" class="list-group-item">
                                 <i class="fa fa-comment fa-fw"></i> New movie reviews
                                 <span class="pull-right text-muted small">
-                                    <em>{{ $comment_today}}Rating</em>
+                                    <em>{{ $comment_today}} Rating</em>
                                 </span>
                             </a>
                             <a href="#" class="list-group-item">
                                 <i class="fa fa-address-book-o fa-fw"></i> Tickets booked today
                                 <span class="pull-right text-muted small">
-                                    <em>{{ $ticket_today}} vé</em>
+                                    <em>{{ $ticket_today}} Ticket</em>
                                 </span>
                             </a>
                             <a href="#" class="list-group-item">
                                 <i class="fa fa-user fa-fw"></i> Registered User
                                 <span class="pull-right text-muted small">
-                                    <em>{{ $count_user }} user</em>
+                                    <em>{{ $count_user }} User</em>
                                 </span>
                             </a>
                             <a href="#" class="list-group-item">
                                 <i class="fa fa-users fa-fw"></i> Movie is playing
                                 <span class="pull-right text-muted small">
-                                    <em>{{ $moviePlay }} phim</em>
+                                    <em>{{ $moviePlay }} Film</em>
                                 </span>
                             </a>
                             <a href="#" class="list-group-item">
