@@ -161,67 +161,53 @@
             $('#AlertBox').delay(2000).slideUp(500);
 
 
-            $('.btnDelete').on('click', function(event) {
-                event.preventDefault();
-                const url = $(this).attr('href');
-                swal({
-                    title: 'Are you sure?',
-                    text: 'This record and it`s details will be permanantly deleted!',
-                    icon: 'warning',
-                    buttons: ["Cancel", "Yes!"],
-                }).then(function(value) {
-                    if (value) {
-                        window.location.href = url;
-                    }
+          
+
+            $('.btnDelete').off('click').on('click', function () {
+                const notice = PNotify.notice({
+                    title: 'Notification',
+                    text: 'Can not deleted?',
+                    icon: 'fa fa-question-circle',
+                    width: '360px',
+                    minHeight: '110px',
+                    hide: false,
+                    closer: false,
+                    sticker: false,
+                    destroy: true,
+                    stack: new PNotify.Stack({
+                        dir1: 'down',
+                        modal: true,
+                        firstpos1: 25,
+                        overlayClose: false
+                    }),
+                    modules: new Map([
+                        ...PNotify.defaultModules,
+                        [PNotifyConfirm, {
+                            confirm: true
+                        }]
+                    ])
                 });
-            });
 
-
-            // $('.btnDelete').off('click').on('click', function () {
-            //     const notice = PNotify.notice({
-            //         title: 'Notification',
-            //         text: 'Can not deleted?',
-            //         icon: 'fa fa-question-circle',
-            //         width: '360px',
-            //         minHeight: '110px',
-            //         hide: false,
-            //         closer: false,
-            //         sticker: false,
-            //         destroy: true,
-            //         stack: new PNotify.Stack({
-            //             dir1: 'down',
-            //             modal: true,
-            //             firstpos1: 25,
-            //             overlayClose: false
-            //         }),
-            //         modules: new Map([
-            //             ...PNotify.defaultModules,
-            //             [PNotifyConfirm, {
-            //                 confirm: true
-            //             }]
-            //         ])
-            //     });
-
-            //     notice.on('pnotify:confirm', () =>
-            //         $.ajax({
-            //             data: {},
-            //             url: '/Admin/Film/Delete/' + $(this).data('id'),
-            //             dataType: 'Json',
-            //             type: 'GET',
-            //             success: function () {
-            //                     window.location.href = "/Admin/Film/ComingMovie";
-            //                     PNotify.success({
-            //                         title: 'NOTIFICATION!!',
-            //                         text: 'Delete Successful.'
-            //                     });
+                notice.on('pnotify:confirm', () =>
+                    $.ajax({
+                        data: {},
+                        url: '/Admin/Film/Delete/' + $(this).data('id'),
+                        dataType: 'Json',
+                        type: 'GET',
+                        success: function () {
+                                window.location.href = "/Admin/Film/ComingMovie";
+                                PNotify.success({
+                                    title: 'NOTIFICATION!!',
+                                    text: 'Delete Successful.'
+                                });
                            
-            //             }
-            //         })
+                        }
+                    })
 
-            //     );
+                );
 
 
-            // });
+            });
 
             $('.btnUpdate').click(function(event) {
                 $('.editForm').modal('show');

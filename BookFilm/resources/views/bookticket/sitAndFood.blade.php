@@ -225,7 +225,7 @@
                 <div class="col-lg-5" style="margin-left: 60px">
                     <!-- Movie preview item -->
                     <div class="movie movie--preview release">
-                        <div class="col-sm-5 col-md-3   ">
+                        <div class="col-sm-5 col-md-3">
                             <div class="movie__images">
                                 <img alt='' src="{{ asset('assets/images/cinema/' . $item->Image) }}">
                             </div>
@@ -420,7 +420,7 @@
             $('button[type="submit"]').click(function() {
 
                 if (sits.val() == '') {
-                    alert('Bạn vui lòng chọn vị trí ghế ngồi!!')
+                    alert('Please choose your seat position!!')
                     return false;
                 }
 

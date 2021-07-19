@@ -1,6 +1,6 @@
 @extends('layouts._layout')
 
-@section('title', 'Thanh toán thành công')
+@section('title', 'Payment success')
 
 @section('content')
     

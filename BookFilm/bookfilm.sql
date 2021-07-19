@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 19, 2021 lúc 05:41 AM
+-- Thời gian đã tạo: Th7 19, 2021 lúc 10:07 AM
 -- Phiên bản máy phục vụ: 10.4.18-MariaDB
 -- Phiên bản PHP: 8.0.3
 
@@ -326,9 +326,12 @@ CREATE TABLE `food_drink` (
 --
 
 INSERT INTO `food_drink` (`ID`, `Name`, `Image`, `Price`, `Description`, `created_at`, `updated_at`) VALUES
-(1, 'LINE 3 SINGLE COMBO', 'bap-nuoc.png', '259000', '<p>1 ly Line 3 (kèm nước) + 1 bắp ngọt lớn</p>\r\n<p>* Miễn phí đổi vị bắp Phô mai, Caramel *</p>\r\n<p>**Nhận trong ngày xem phim**</p>', NULL, NULL),
-(14, 'MILO COMBO 2021', 'bap-nuoc.jpg', '100000', '<p>1 bắp lớn + 2 nước lớn. Nhận trong ng&agrave;y xem phim.</p><p>* Miễn ph&iacute; đổi vị bắp Caramel *</p><p>**Đổi vị ph&ocirc; mai phụ thu th&ecirc;m tiền**</p>', NULL, NULL),
-(16, 'MY COMBO', 'bap-nuoc.jpg', '100000', '<p>1 bắp lớn + 2 nước lớn. Nhận trong ng&agrave;y xem phim.</p><p>* Miễn ph&iacute; đổi vị bắp Caramel *</p><p>**Đổi vị ph&ocirc; mai phụ thu th&ecirc;m tiền**</p>', NULL, NULL);
+(1, 'CGV SNACK COMBO', 'bap-nuoc.png', '109000', '<p>1 Big Corn + 2 Big Water + 1 Snack. Received in movie day.<br />* Free to change the Caramel corn flavor *<br />**Exchange cheese flavor with extra charge**</p>', NULL, NULL),
+(14, 'MILO COMBO 2021', 'bap-nuoc.jpg', '100000', '<p>1 large corn + 2 large water. Received in movie day.</p><p>* Free to change the Caramel corn flavor *</p><p>**Exchange cheese flavor with extra charge**</p>', NULL, NULL),
+(16, 'LINE 3 SINGLE COMBO', 'Line3.png', '259000', '<p>1 glass of Line 3 (with water) + 1 large sweet corn<br />* Free exchange of corn Cheese, Caramel *<br />**Receive on movie day**</p>', NULL, NULL),
+(19, 'LINE 3 FAMILY COMBO', 'Linefamply.png', '889000', '<p>4 cups of Line 3 (with water) + 2 large sweet corn<br />* Free exchange of corn Cheese, Caramel *<br />**Receive on movie day**</p>', NULL, NULL),
+(20, 'SHIN-CHAN COMBO', 'Shin.png', '179000', '<p>1 glass of Shin-chan with water + 1 large sweet corn<br />**Free exchange of corn Cheese, Caramel**<br />***Receive on movie day***</p>', NULL, NULL),
+(21, 'CGV COMBO', 'gcv.png', '99000', '<p>1 large corn + 2 large water. Received in movie day.<br />* Free to change the Caramel corn flavor *<br />**Exchange cheese flavor with extra charge**</p>', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -663,7 +666,7 @@ ALTER TABLE `film`
 -- AUTO_INCREMENT cho bảng `food_drink`
 --
 ALTER TABLE `food_drink`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `member`
