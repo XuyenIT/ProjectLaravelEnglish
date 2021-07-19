@@ -108,7 +108,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Film genre update: <strong id="FilmName"></strong></h5>
+                <h5 class="modal-title" id="exampleModalLabel">Update genre: <strong id="FilmName"></strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -161,51 +161,67 @@
             $('#AlertBox').delay(2000).slideUp(500);
 
 
-            $('.btnDelete').off('click').on('click', function () {
-                const notice = PNotify.notice({
-                    title: 'Notification',
-                    text: 'Can not deleted?',
-                    icon: 'fa fa-question-circle',
-                    width: '360px',
-                    minHeight: '110px',
-                    hide: false,
-                    closer: false,
-                    sticker: false,
-                    destroy: true,
-                    stack: new PNotify.Stack({
-                        dir1: 'down',
-                        modal: true,
-                        firstpos1: 25,
-                        overlayClose: false
-                    }),
-                    modules: new Map([
-                        ...PNotify.defaultModules,
-                        [PNotifyConfirm, {
-                            confirm: true
-                        }]
-                    ])
+            $('.btnDelete').on('click', function(event) {
+                event.preventDefault();
+                const url = $(this).attr('href');
+                swal({
+                    title: 'Are you sure?',
+                    text: 'This record and it`s details will be permanantly deleted!',
+                    icon: 'warning',
+                    buttons: ["Cancel", "Yes!"],
+                }).then(function(value) {
+                    if (value) {
+                        window.location.href = url;
+                    }
                 });
-
-                notice.on('pnotify:confirm', () =>
-                    $.ajax({
-                        data: {},
-                        url: '/Admin/Film/Delete/' + $(this).data('id'),
-                        dataType: 'Json',
-                        type: 'GET',
-                        success: function () {
-                                window.location.href = "/Admin/Film/ComingMovie";
-                                PNotify.success({
-                                    title: 'NOTIFICATION!!',
-                                    text: 'Delete Successful.'
-                                });
-                           
-                        }
-                    })
-
-                );
-
-
             });
+
+
+            // $('.btnDelete').off('click').on('click', function () {
+            //     const notice = PNotify.notice({
+            //         title: 'Notification',
+            //         text: 'Can not deleted?',
+            //         icon: 'fa fa-question-circle',
+            //         width: '360px',
+            //         minHeight: '110px',
+            //         hide: false,
+            //         closer: false,
+            //         sticker: false,
+            //         destroy: true,
+            //         stack: new PNotify.Stack({
+            //             dir1: 'down',
+            //             modal: true,
+            //             firstpos1: 25,
+            //             overlayClose: false
+            //         }),
+            //         modules: new Map([
+            //             ...PNotify.defaultModules,
+            //             [PNotifyConfirm, {
+            //                 confirm: true
+            //             }]
+            //         ])
+            //     });
+
+            //     notice.on('pnotify:confirm', () =>
+            //         $.ajax({
+            //             data: {},
+            //             url: '/Admin/Film/Delete/' + $(this).data('id'),
+            //             dataType: 'Json',
+            //             type: 'GET',
+            //             success: function () {
+            //                     window.location.href = "/Admin/Film/ComingMovie";
+            //                     PNotify.success({
+            //                         title: 'NOTIFICATION!!',
+            //                         text: 'Delete Successful.'
+            //                     });
+                           
+            //             }
+            //         })
+
+            //     );
+
+
+            // });
 
             $('.btnUpdate').click(function(event) {
                 $('.editForm').modal('show');
